@@ -86,8 +86,8 @@ An optional second pass that improves search quality. After ChromaDB returns ini
 
 Two interchangeable backends:
 
-- **PydanticAI** (default) — works with any OpenAI-compatible LLM (Ollama, OpenAI, LiteLLM). Recommended for local or self-hosted setups.
-- **Claude Agent SDK** — uses Anthropic’s Claude. Requires an API key.
+- [**PydanticAI**](src/kid_mind/agent_pydantic.py) (default) — works with any OpenAI-compatible LLM (Ollama, OpenAI, LiteLLM). Recommended for local or self-hosted setups.
+- [**Claude Agent SDK**](src/kid_mind/agent.py) — uses Anthropic’s Claude. Requires an API key.
 
 The agent has access to these tools:
 
