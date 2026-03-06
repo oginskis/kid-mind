@@ -175,39 +175,44 @@ Verify it's running:
 curl http://localhost:8000/api/v1/heartbeat
 ```
 
-### Step 4: Discover ISINs and download KID documents
+### Step 4: Discover ISINs and download KID documents (optional)
 
-This uses the kid-collector skill scripts. First, install Playwright (one-time, only needed for Vanguard and iShares discovery):
+This step discovers ETF ISINs from provider websites and downloads KID PDFs. It takes a while — discovery involves scraping 4 provider sites, and downloading all ~1,400 PDFs can take an hour or more.
+
+**You can skip this step.** The repo includes 10 sample KID PDFs per provider (40 total) in `data/kids/`, enough to build a working index and try the agent.
+
+#### Option A: Use the agent skill
+
+The [kid-collector skill](.claude/skills/kid-collector/) automates the entire process. If you're using Claude Code or GitHub Copilot with agent mode, just ask:
+
+> *"Discover ISINs and download KID documents for all providers"*
+
+The skill handles Playwright setup, discovery, downloading, and parallelisation automatically. See [`.claude/skills/kid-collector/SKILL.md`](.claude/skills/kid-collector/SKILL.md) for details.
+
+#### Option B: Run the scripts manually
+
+Install Playwright (one-time, only needed for Vanguard and iShares discovery):
 
 ```bash
 uv run --with-requirements .claude/skills/kid-collector/scripts/requirements.txt \
   python -m playwright install chromium
 ```
 
-Discover all ISINs:
+Discover ISINs and download KIDs:
 
 ```bash
-uv run --with-requirements .claude/skills/kid-collector/scripts/requirements.txt \
-  .claude/skills/kid-collector/scripts/discover_isins.py
-```
+REQS=.claude/skills/kid-collector/scripts/requirements.txt
+SCRIPTS=.claude/skills/kid-collector/scripts
 
-Download all KID PDFs:
+# Discover all ISINs
+uv run --with-requirements $REQS $SCRIPTS/discover_isins.py
 
-```bash
-uv run --with-requirements .claude/skills/kid-collector/scripts/requirements.txt \
-  .claude/skills/kid-collector/scripts/download_kids.py
-```
+# Download all KID PDFs
+uv run --with-requirements $REQS $SCRIPTS/download_kids.py
 
-You can target a single provider and limit downloads:
-
-```bash
-# Discover ISINs for Vanguard only
-uv run --with-requirements .claude/skills/kid-collector/scripts/requirements.txt \
-  .claude/skills/kid-collector/scripts/discover_isins.py -p vanguard
-
-# Download max 10 KIDs from SPDR
-uv run --with-requirements .claude/skills/kid-collector/scripts/requirements.txt \
-  .claude/skills/kid-collector/scripts/download_kids.py -p spdr -m 10
+# Or target a single provider with a limit
+uv run --with-requirements $REQS $SCRIPTS/discover_isins.py -p vanguard
+uv run --with-requirements $REQS $SCRIPTS/download_kids.py -p spdr -m 10
 ```
 
 ### Step 5: Build the ChromaDB index
