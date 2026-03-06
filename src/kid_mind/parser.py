@@ -297,6 +297,20 @@ def extract_kid_date(markdown: str) -> str | None:
     return None
 
 
+_RECORD_DATE_RE = re.compile(rb"RecordDate=(\d{4}-\d{2}-\d{2})")
+
+
+def _extract_record_date_from_pdf(pdf_path: Path) -> str | None:
+    """Extract RecordDate from PDF metadata keywords (iShares, some Xtrackers).
+
+    Some providers embed `RecordDate=YYYY-MM-DD` in the PDF /Keywords field.
+    This is used as a fallback when the body text has no parseable date.
+    """
+    raw = pdf_path.read_bytes()
+    m = _RECORD_DATE_RE.search(raw)
+    return m.group(1).decode() if m else None
+
+
 _GENERIC_HEADING_RE = re.compile(
     r"^#{1,3}\s*(Key Information Document|Key Investor Information|Purpose|Product)\b",
     re.IGNORECASE,
@@ -377,6 +391,7 @@ def extract_metadata(
     markdown: str,
     sections: dict[str, str],
     isin_record: dict | None,
+    pdf_path: Path | None = None,
 ) -> dict:
     """Extract structured metadata from markdown text and ISIN record."""
     product_name = ""
@@ -396,6 +411,10 @@ def extract_metadata(
 
     launch_year = extract_launch_year(markdown)
     kid_date = extract_kid_date(markdown)
+
+    # Fallback: extract RecordDate from PDF metadata when body text has no date
+    if kid_date is None and pdf_path is not None:
+        kid_date = _extract_record_date_from_pdf(pdf_path)
 
     return {
         "isin": isin,
@@ -582,7 +601,7 @@ def process_pdf(
     # Step 2 — Extract structured metadata (product name, risk level, launch year, etc.)
     # from the markdown + ISIN record, and build a human-readable prefix that gets
     # prepended to every chunk so the embedding captures fund identity.
-    meta = extract_metadata(isin, provider, markdown, sections, isin_record)
+    meta = extract_metadata(isin, provider, markdown, sections, isin_record, pdf_path)
     prefix = _metadata_prefix(meta)
     raw_chunks = _build_chunks(sections)
 
