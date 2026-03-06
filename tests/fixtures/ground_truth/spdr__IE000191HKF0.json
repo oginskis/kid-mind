@@ -1,9 +1,9 @@
 {
-  "_generated_at": "2026-03-06T09:34:09.361886+00:00",
+  "_generated_at": "2026-03-06T12:01:36.895624+00:00",
   "_pdf_sha256": "901cb83fb4797200149654f45fc949d60cd0d4ef44eee2a17b232e0d56ba8598",
   "isin": "IE000191HKF0",
   "provider": "spdr",
-  "chunk_count": 14,
+  "chunk_count": 12,
   "chunks": [
     {
       "id": "IE000191HKF0_product_and_description_0",
@@ -79,8 +79,8 @@
       "id": "IE000191HKF0_risks_and_return_0",
       "section": "risks_and_return",
       "sub_index": 0,
-      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n## What are the risks and what could I get in return? Risks\n\n<!-- image -->\n\nThe risk category above shows how likely the fund is to lose money because of movements in the markets or because we are not able to pay you. The Fund's risk category is not guaranteed and may change in the future.\n\n## Performance scenarios\n\nThe figures shown include all the costs of the Fund other than the costs that you may need to pay to your advisor, distributor or other intermediary. The figures do not take into account your personal tax situation, which may also affect your return.\n\nWhat you will get from this product depends on future market performance. Market developments in the future are uncertain and cannot be accurately predicted.\n\nThe unfavourable, moderate, and favourable scenarios shown are illustrations using the worst, average, and best performance of the product over the last 10 years. Markets could develop very differently in the future.\n\nThe stress scenario shows what you might get back in extreme market circumstances.\n\nUnfavourable : this type of scenario occurred for an investment between October 2020 and October 2023.\n\nModerate : this type of scenario occurred for an investment between July 2016 and July 2019.\n\nFavourable : this type of scenario occurred for an investment between October 2022 and October 2025.\n\n<!-- image -->\n\n| Recommended holding period   | Recommended holding period                                                            | 3 years                                                                               | 3 years                                                                               |\n|------------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|\n| Example Investment Scenarios | Example Investment Scenarios                                                          | 10,000 USD if you exit 1 year                                                         | if you exit after 3 years (recommended holding period)                                |\n",
-      "text_length": 2353,
+      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n## What are the risks and what could I get in return? Risks\n\n<!-- image -->\n\nThe risk category above shows how likely the fund is to lose money because of movements in the markets or because we are not able to pay you. The Fund's risk category is not guaranteed and may change in the future.\n\n## Performance scenarios\n\nThe figures shown include all the costs of the Fund other than the costs that you may need to pay to your advisor, distributor or other intermediary. The figures do not take into account your personal tax situation, which may also affect your return.\n\nWhat you will get from this product depends on future market performance. ",
+      "text_length": 759,
       "metadata": {
         "isin": "IE000191HKF0",
         "product_name": "State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF",
@@ -99,8 +99,8 @@
       "id": "IE000191HKF0_risks_and_return_1",
       "section": "risks_and_return",
       "sub_index": 1,
-      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n| Minimum                      | There is no minimum guaranteed return. You could lose some or all of your investment. | There is no minimum guaranteed return. You could lose some or all of your investment. | There is no minimum guaranteed return. You could lose some or all of your investment. |\n| Stress                       | What you might get back after costs Average return each year                          | 7,930 USD -20.7%                                                                      | 8,150 USD -6.6%                                                                       |\n| Unfavourable                 | What you might get back after costs Average return each year                          | 8,860 USD -11.4%                                                                      | 8,780 USD -4.3%                                                                       |\n| Moderate                     | What you might get back after costs Average return each year                          | 10,090 USD 0.9%                                                                       | 10,350 USD 1.2%                                                                       |\n| Favourable                   | What you might get back after costs Average return each year                          | 11,020 USD 10.2%                                                                      | 11,510 USD 4.8%                                                                       |\n\nWe have classified this product as 2 out of 7, which is a low risk category.\n\nThis rates the potential losses from future performance at a low level, and poor market conditions are very unlikely to impact the capacity of State Street Global Advisors Europe Limited to pay you.\n\nBe aware of currency risk. ",
-      "text_length": 1905,
+      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\nMarket developments in the future are uncertain and cannot be accurately predicted.\n\nThe unfavourable, moderate, and favourable scenarios shown are illustrations using the worst, average, and best performance of the product over the last 10 years. Markets could develop very differently in the future.\n\nThe stress scenario shows what you might get back in extreme market circumstances.\n\nUnfavourable : this type of scenario occurred for an investment between October 2020 and October 2023.\n\nModerate : this type of scenario occurred for an investment between July 2016 and July 2019.\n\nFavourable : this type of scenario occurred for an investment between October 2022 and October 2025.\n\n<!-- image -->\n\n| Recommended holding period   | Recommended holding period                                                            | 3 years                                                                               | 3 years                                                                               |\n|------------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|\n| Example Investment Scenarios | Example Investment Scenarios                                                          | 10,000 USD if you exit 1 year                                                         | if you exit after 3 years (recommended holding period)                                |\n| Minimum                      | There is no minimum guaranteed return. You could lose some or all of your investment. | There is no minimum guaranteed return. You could lose some or all of your investment. | There is no minimum guaranteed return. You could lose some or all of your investment. |\n| Stress                       | What you might get back after costs Average return each year                          | 7,930 USD -20.7%                                                                      | 8,150 USD -6.6%                                                                       |\n| Unfavourable                 | What you might get back after costs Average return each year                          | 8,860 USD -11.4%                                                                      | 8,780 USD -4.3%                                                                       |\n| Moderate                     | What you might get back after costs Average return each year                          | 10,090 USD 0.9%                                                                       | 10,350 USD 1.2%                                                                       |\n| Favourable                   | What you might get back after costs Average return each year                          | 11,020 USD 10.2%                                                                      | 11,510 USD 4.8%                                                                       |\n\nWe have classified this product as 2 out of 7, which is a low risk category.\n\nThis rates the potential losses from future performance at a low level, and poor market conditions are very unlikely to impact the capacity of State Street Global Advisors Europe Limited to pay you.\n\nBe aware of currency risk. You may receive payments in a different currency, so the performance of your investment will be impacted by the exchange rate between the two currencies. This risk is not considered in the indicator shown above.\n\nBesides the risks included in the risk indicator, other risks may affect the fund performance. Please refer to the Fund Prospectus, available free of charge at www.ssga.com.",
+      "text_length": 3885,
       "metadata": {
         "isin": "IE000191HKF0",
         "product_name": "State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF",
@@ -113,28 +113,11 @@
       "key_phrases": []
     },
     {
-      "id": "IE000191HKF0_risks_and_return_2",
-      "section": "risks_and_return",
-      "sub_index": 2,
-      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\nYou may receive payments in a different currency, so the performance of your investment will be impacted by the exchange rate between the two currencies. This risk is not considered in the indicator shown above.\n\nBesides the risks included in the risk indicator, other risks may affect the fund performance. Please refer to the Fund Prospectus, available free of charge at www.ssga.com.",
-      "text_length": 500,
-      "metadata": {
-        "isin": "IE000191HKF0",
-        "product_name": "State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF",
-        "provider": "spdr",
-        "risk_level": 2,
-        "kid_date": "2026-02-19",
-        "section": "risks_and_return",
-        "sub_index": 2
-      },
-      "key_phrases": []
-    },
-    {
       "id": "IE000191HKF0_costs_0",
       "section": "costs",
       "sub_index": 0,
-      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n## What are the costs?\n\nThe person advising on or selling you this product may charge you other costs. If so, this person will provide you with information about these costs and how they affect your investment.\n\n## Costs over time\n\nThe tables show the amounts that are taken from your investment to cover different types of costs. These amounts depend on how much you invest and how long you hold the Fund. The amounts shown here are illustrations based on a specific investment amount, taking into consideration different holding periods.\n\nWe have assumed:\n\n- Q in the first year you would get back the amount that you invested (0% annual return). For the other holding periods we have assumed the product performs as shown in the moderate scenario,\n- Q 10,000 USD is invested.\n\n| Example Investment 10,000 USD   | if you exit after 1 year   | if you exit after 3 years (recommended holding period)   |\n",
-      "text_length": 1018,
+      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n## What are the costs?\n\nThe person advising on or selling you this product may charge you other costs. If so, this person will provide you with information about these costs and how they affect your investment.\n\n## Costs over time\n\nThe tables show the amounts that are taken from your investment to cover different types of costs. These amounts depend on how much you invest and how long you hold the Fund. The amounts shown here are illustrations based on a specific investment amount, taking into consideration different holding periods.\n\nWe have assumed:\n\n- Q in the first year you would get back the amount that you invested (0% annual return). For the other holding periods we have assumed the product performs as shown in the moderate scenario,\n- Q 10,000 USD is invested.\n\n| Example Investment 10,000 USD   | if you exit after 1 year   | if you exit after 3 years (recommended holding period)   |\n|---------------------------------|----------------------------|----------------------------------------------------------|\n| Total Costs                     | 6 USD                      | 18 USD                                                   |\n| Annual cost impact*             | 0.1%                       | 0.1% each year                                           |\n\n## Composition of costs\n\n| One-off costs upon entry or                                 | exit                                                                                                                                                                                                                                        | Annual cost impact if you exit after 1 year   |\n",
+      "text_length": 1766,
       "metadata": {
         "isin": "IE000191HKF0",
         "product_name": "State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF",
@@ -152,8 +135,8 @@
       "id": "IE000191HKF0_costs_1",
       "section": "costs",
       "sub_index": 1,
-      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n|---------------------------------|----------------------------|----------------------------------------------------------|\n| Total Costs                     | 6 USD                      | 18 USD                                                   |\n| Annual cost impact*             | 0.1%                       | 0.1% each year                                           |\n\n## Composition of costs\n\n| One-off costs upon entry or                                 | exit                                                                                                                                                                                                                                        | Annual cost impact if you exit after 1 year   |\n|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|\n| Entry costs                                                 | 0.00% The impact of the costs you pay when entering your investment. This is the most you will pay, and you could pay less. The impact of costs are already included in the price. This includes the costs of distribution of your product. | 0 USD                                         |\n| Exit costs                                                  | 0.00% The Impact of the costs of exiting your investment when it matures.                                                                                                                                                                   | 0 USD                                         |\n| Ongoing costs taken each year                               | Ongoing costs taken each year                                                                                                                                                                                                               | Annual cost impact if you exit after 1 year   |\n| Management fees and other administrative or operating costs | 0.05% of the value of your investment per year. This is based on a combination of estimated and actual costs.                                                                                                                               | 5 USD                                         |\n| Transaction costs                                           | 0.01% The impact of the costs of us buying and selling underlying investments for the product. ",
-      "text_length": 2771,
+      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|\n| Entry costs                                                 | 0.00% The impact of the costs you pay when entering your investment. This is the most you will pay, and you could pay less. The impact of costs are already included in the price. This includes the costs of distribution of your product. | 0 USD                                         |\n| Exit costs                                                  | 0.00% The Impact of the costs of exiting your investment when it matures.                                                                                                                                                                   | 0 USD                                         |\n| Ongoing costs taken each year                               | Ongoing costs taken each year                                                                                                                                                                                                               | Annual cost impact if you exit after 1 year   |\n| Management fees and other administrative or operating costs | 0.05% of the value of your investment per year. This is based on a combination of estimated and actual costs. ",
+      "text_length": 1688,
       "metadata": {
         "isin": "IE000191HKF0",
         "product_name": "State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF",
@@ -169,8 +152,8 @@
       "id": "IE000191HKF0_costs_2",
       "section": "costs",
       "sub_index": 2,
-      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n                                                                                                                                             | 1 USD                                         |\n| Incidental costs taken under specific conditions            | Incidental costs taken under specific conditions                                                                                                                                                                                            | Annual cost impact if you exit after 1 year   |\n| Performance fees                                            | There is no performance fee for this Fund.                                                                                                                                                                                                  | 0 USD                                         |",
-      "text_length": 1004,
+      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n                                                                                                                              | 5 USD                                         |\n| Transaction costs                                           | 0.01% The impact of the costs of us buying and selling underlying investments for the product.                                                                                                                                              | 1 USD                                         |\n| Incidental costs taken under specific conditions            | Incidental costs taken under specific conditions                                                                                                                                                                                            | Annual cost impact if you exit after 1 year   |\n| Performance fees                                            | There is no performance fee for this Fund.                                                                                                                                                                                                  | 0 USD                                         |",
+      "text_length": 1339,
       "metadata": {
         "isin": "IE000191HKF0",
         "product_name": "State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF",
@@ -186,8 +169,8 @@
       "id": "IE000191HKF0_tail_0",
       "section": "tail",
       "sub_index": 0,
-      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n## What happens if the Fund Manager is unable to pay out?\n\nThe Manager is responsible for administration and management of the Company, and does not typically hold assets of the Company (assets that can be held by a depositary are, in line with applicable regulations, held with a depositary in its custody network). The Manager, as the manufacturer of this product has no obligation to pay out since the product design does not contemplate any such payment being made. However, investors may suffer loss if the Company or the depositary is unable to pay out.\n\n",
-      "text_length": 675,
+      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n## What happens if the Fund Manager is unable to pay out?\n\nThe Manager is responsible for administration and management of the Company, and does not typically hold assets of the Company (assets that can be held by a depositary are, in line with applicable regulations, held with a depositary in its custody network). The Manager, as the manufacturer of this product has no obligation to pay out since the product design does not contemplate any such payment being made. However, investors may suffer loss if the Company or the depositary is unable to pay out.\n\n## How long should I hold it and can I take money out early?\n\n## Recommended holding period: 3 years\n\nThis Fund is designed for medium to longer term investments; you should be prepared to stay invested for at least 3 years. However, you can redeem your investment without penalty at any time during this period, or hold the investment longer.\n\nRedemptions are possible on every working day; with a payments timeline as outlined in the Fund Supplement and/or Prospectus. The price for the day, reflecting the actual value of the Fund, is set each day after the valuation point, and published on our website www.ssga.com.\n\n## How can I complain?\n\nIf you have a complaint about the Fund or the Manager, you can find more details about how to complain and the Manager's complaint handling policy in the \"Contact Us\" section of the website at: www.ssga.com.\n\n## Other relevant information\n\n",
+      "text_length": 1561,
       "metadata": {
         "isin": "IE000191HKF0",
         "product_name": "State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF",
@@ -198,6 +181,9 @@
         "sub_index": 0
       },
       "key_phrases": [
+        "How long should I hold",
+        "How can I complain",
+        "Other relevant information",
         "unable to pay"
       ]
     },
@@ -205,8 +191,8 @@
       "id": "IE000191HKF0_tail_1",
       "section": "tail",
       "sub_index": 1,
-      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\n## How long should I hold it and can I take money out early?\n\n## Recommended holding period: 3 years\n\nThis Fund is designed for medium to longer term investments; you should be prepared to stay invested for at least 3 years. However, you can redeem your investment without penalty at any time during this period, or hold the investment longer.\n\nRedemptions are possible on every working day; with a payments timeline as outlined in the Fund Supplement and/or Prospectus. The price for the day, reflecting the actual value of the Fund, is set each day after the valuation point, and published on our website www.ssga.com.\n\n## How can I complain?\n\nIf you have a complaint about the Fund or the Manager, you can find more details about how to complain and the Manager's complaint handling policy in the \"Contact Us\" section of the website at: www.ssga.com.\n\n## Other relevant information\n\n",
-      "text_length": 1000,
+      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\nCost, performance and risk The cost, performance and risk calculations included in this key information document follow the methodology prescribed by EU rules. Note that the performance scenarios calculated above are derived exclusively from the past performance of the Fund's share price and that past performance is not a guide to future returns. Therefore, your investment may be at risk and you may not get back the returns illustrated.\n\nInvestors should not base their investment decisions solely upon the scenarios shown.\n\nPerformance scenarios You can request previous performance scenarios updated on a monthly basis by emailing Fund\\_data\\_services@ssga.com.\n\nPast performance There is insufficient performance data available to provide a chart of annual past performance.\n\n",
+      "text_length": 897,
       "metadata": {
         "isin": "IE000191HKF0",
         "product_name": "State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF",
@@ -217,35 +203,14 @@
         "sub_index": 1
       },
       "key_phrases": [
-        "How long should I hold",
-        "How can I complain",
-        "Other relevant information"
+        "Performance Scenarios",
+        "Past Performance"
       ]
     },
     {
       "id": "IE000191HKF0_tail_2",
       "section": "tail",
       "sub_index": 2,
-      "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\nCost, performance and risk The cost, performance and risk calculations included in this key information document follow the methodology prescribed by EU rules. Note that the performance scenarios calculated above are derived exclusively from the past performance of the Fund's share price and that past performance is not a guide to future returns. Therefore, your investment may be at risk and you may not get back the returns illustrated.\n\nInvestors should not base their investment decisions solely upon the scenarios shown.\n\nPerformance scenarios You can request previous performance scenarios updated on a monthly basis by emailing Fund\\_data\\_services@ssga.com.\n\nPast performance There is insufficient performance data available to provide a chart of annual past performance.\n\n",
-      "text_length": 897,
-      "metadata": {
-        "isin": "IE000191HKF0",
-        "product_name": "State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF",
-        "provider": "spdr",
-        "risk_level": 2,
-        "kid_date": "2026-02-19",
-        "section": "tail",
-        "sub_index": 2
-      },
-      "key_phrases": [
-        "Performance Scenarios",
-        "Past Performance"
-      ]
-    },
-    {
-      "id": "IE000191HKF0_tail_3",
-      "section": "tail",
-      "sub_index": 3,
       "text": "ISIN: IE000191HKF0 | Product: State Street SPDR Bloomberg 3-7 Year U.S. Treasury Bond UCITS ETF | Provider: spdr\n\nETF Information: As the shares are listed on the stock exchange, you may buy or sell shares in the product, without penalty, on any normal business day. Please contact your broker, financial adviser or distributor for information on any costs and charges relating to the sale of the shares.\n\nETF Shares purchased on the secondary market cannot usually be sold directly back to the Company. In exceptional circumstances, whether as a result of disruptions in the secondary market or otherwise, investors who have acquired ETF Shares on the secondary market are entitled to apply to the Company in writing to have the ETF Shares in question registered in their own name, to enable them to access the redemption facilities described in the Prospectus.\n\n## Practical information\n\nDepositary The Fund depositary is State Street Custodial Services (Ireland) Limited.\n\nFurther information A copy of the Prospectus and latest annual and semi-annual financial report in English and the latest Net Asset Value per Share are available free of charge upon request from www.ssga.com or by writing to the Fund Manager, State Street Global Advisors Europe Limited, 78 Sir John Rogerson's Quay, Dublin 2, Ireland.",
       "text_length": 1311,
       "metadata": {
@@ -255,7 +220,7 @@
         "risk_level": 2,
         "kid_date": "2026-02-19",
         "section": "tail",
-        "sub_index": 3
+        "sub_index": 2
       },
       "key_phrases": [
         "Charges",

@@ -470,7 +470,9 @@ _CHUNKER_MAX_TOKENS = 8192
 def _get_chunker() -> object | None:
     """Lazily initialize the Chonkie SemanticChunker (thread-safe).
 
-    Returns None if OPENAI_API_KEY is not set or initialization fails.
+    Uses OpenAI-compatible embeddings when OPENAI_API_KEY is set,
+    otherwise falls back to local sentence-transformers (all-MiniLM-L6-v2).
+    Returns None only if initialization fails.
     """
     global _chunker_instance  # noqa: PLW0603
 
@@ -485,26 +487,29 @@ def _get_chunker() -> object | None:
         if _chunker_instance is not None:
             return _chunker_instance
 
-        if not OPENAI_API_KEY:
-            log.info("OPENAI_API_KEY not set — semantic sub-chunking disabled")
-            _chunker_instance = _CHUNKER_FAILED
-            return None
-
-        model = EMBEDDING_MODEL or OPENAI_EMBEDDING_MODEL
         try:
-            import tiktoken
-            from chonkie import OpenAIEmbeddings, SemanticChunker
+            from chonkie import SemanticChunker
 
-            kwargs: dict = {"model": model, "api_key": OPENAI_API_KEY}
-            if OPENAI_API_BASE:
-                kwargs["base_url"] = OPENAI_API_BASE
-            # Custom models need explicit tokenizer, dimension, max_tokens
-            if model not in OpenAIEmbeddings.AVAILABLE_MODELS:
-                kwargs["tokenizer"] = tiktoken.get_encoding("cl100k_base")
-                kwargs["dimension"] = EMBEDDING_DIMENSION
-                kwargs["max_tokens"] = _CHUNKER_MAX_TOKENS
+            if OPENAI_API_KEY:
+                import tiktoken
+                from chonkie import OpenAIEmbeddings
 
-            embeddings = OpenAIEmbeddings(**kwargs)
+                model = EMBEDDING_MODEL or OPENAI_EMBEDDING_MODEL
+                kwargs: dict = {"model": model, "api_key": OPENAI_API_KEY}
+                if OPENAI_API_BASE:
+                    kwargs["base_url"] = OPENAI_API_BASE
+                if model not in OpenAIEmbeddings.AVAILABLE_MODELS:
+                    kwargs["tokenizer"] = tiktoken.get_encoding("cl100k_base")
+                    kwargs["dimension"] = EMBEDDING_DIMENSION
+                    kwargs["max_tokens"] = _CHUNKER_MAX_TOKENS
+                embeddings = OpenAIEmbeddings(**kwargs)
+                log.info("SemanticChunker ready: model=%s, api_base=%s", model, OPENAI_API_BASE or "default")
+            else:
+                from chonkie import SentenceTransformerEmbeddings
+
+                embeddings = SentenceTransformerEmbeddings()
+                log.info("SemanticChunker ready: local sentence-transformers")
+
             _chunker_instance = SemanticChunker(
                 embedding_model=embeddings,
                 threshold=0.2,
@@ -512,7 +517,6 @@ def _get_chunker() -> object | None:
                 min_sentences_per_chunk=5,
                 min_characters_per_sentence=50,
             )
-            log.info("SemanticChunker ready: model=%s, api_base=%s", model, OPENAI_API_BASE or "default")
             return _chunker_instance
         except (ImportError, ValueError, RuntimeError, OSError):
             log.warning("Failed to initialize SemanticChunker — falling back to no sub-chunking", exc_info=True)

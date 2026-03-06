@@ -7,6 +7,8 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+import os
+
 import chromadb
 import pytest
 from dotenv import load_dotenv
@@ -14,6 +16,18 @@ from dotenv import load_dotenv
 # Load .env from project root before any test code runs
 _project_root = Path(__file__).resolve().parent.parent
 load_dotenv(_project_root / ".env")
+
+# Force local sentence-transformers embeddings in tests — tests must not
+# depend on external API endpoints (Ollama, OpenAI, etc.)
+os.environ.pop("OPENAI_API_KEY", None)
+os.environ.pop("OPENAI_API_BASE", None)
+os.environ.pop("EMBEDDING_MODEL", None)
+
+import kid_mind.config  # noqa: E402
+
+kid_mind.config.OPENAI_API_KEY = None
+kid_mind.config.OPENAI_API_BASE = None
+kid_mind.config.EMBEDDING_MODEL = None
 
 import kid_mind.tools as tools_module  # noqa: E402
 

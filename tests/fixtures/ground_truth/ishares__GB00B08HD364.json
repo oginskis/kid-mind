@@ -1,5 +1,5 @@
 {
-  "_generated_at": "2026-03-06T09:34:09.356547+00:00",
+  "_generated_at": "2026-03-06T12:01:36.890822+00:00",
   "_pdf_sha256": "c6cca049048d61509eeb6a75b6b88481d6fd4b2ab6f1c2f6d81bb2c9ad980053",
   "isin": "GB00B08HD364",
   "provider": "ishares",
@@ -9,8 +9,8 @@
       "id": "GB00B08HD364_product_and_description_0",
       "section": "product_and_description",
       "sub_index": 0,
-      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n<!-- image -->\n\n## KEY INVESTOR INFORMATION\n\nThis document provides you with key investor information about this Fund. It is not marketing material. The information is required by law to help you understand the nature and risks of investing in this Fund. You are advised to read it so you can make an informed decision about whether to invest.\n\n## iShares UK Gilts All Stocks Index Fund (UK)\n\n",
-      "text_length": 488,
+      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n<!-- image -->\n\n## KEY INVESTOR INFORMATION\n\nThis document provides you with key investor information about this Fund. It is not marketing material. The information is required by law to help you understand the nature and risks of investing in this Fund. You are advised to read it so you can make an informed decision about whether to invest.\n\n## iShares UK Gilts All Stocks Index Fund (UK)\n\nA sub-fund of BlackRock Collective Investment Funds\n\n## Objectives and Investment Policy\n\n- The Fund aims to provide a return on your investment (generated through an increase in the value of the assets held by the Fund and/or income received from those assets) by tracking closely the performance of the FTSE Actuaries UK Conventional Gilts All Stocks Index, the Fund's benchmark index.\n- The Fund is passively managed and the investment manager has limited discretion to select the Fund's investments and in doing so may take into consideration the benchmark index. The Fund invests in fixed income securities (such as bonds) that make up the benchmark index and, at the time of purchase, comply with the credit rating requirements of the benchmark index.\n- The Fund's benchmark index measures the performance of Sterling denominated United Kingdom (UK) Government fixed income securities (gilts). The fixed income securities will have a credit rating which reflects that of the UK Government. The fixed income securities will pay income according to a fixed rate of interest.\n- The Fund uses techniques to achieve a similar return to its benchmark index. These techniques may include the strategic selection of certain securities that make up the benchmark index or other fixed income securities which provide similar performance to certain constituent securities. ",
+      "text_length": 1856,
       "metadata": {
         "isin": "GB00B08HD364",
         "product_name": "iShares UK Gilts All Stocks Index Fund (UK)",
@@ -20,14 +20,16 @@
         "section": "product_and_description",
         "sub_index": 0
       },
-      "key_phrases": []
+      "key_phrases": [
+        "Objectives and Investment Policy"
+      ]
     },
     {
       "id": "GB00B08HD364_product_and_description_1",
       "section": "product_and_description",
       "sub_index": 1,
-      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\nA sub-fund of BlackRock Collective Investment Funds\n\n## Objectives and Investment Policy\n\n- The Fund aims to provide a return on your investment (generated through an increase in the value of the assets held by the Fund and/or income received from those assets) by tracking closely the performance of the FTSE Actuaries UK Conventional Gilts All Stocks Index, the Fund's benchmark index.\n- The Fund is passively managed and the investment manager has limited discretion to select the Fund's investments and in doing so may take into consideration the benchmark index. The Fund invests in fixed income securities (such as bonds) that make up the benchmark index and, at the time of purchase, comply with the credit rating requirements of the benchmark index.\n- The Fund's benchmark index measures the performance of Sterling denominated United Kingdom (UK) Government fixed income securities (gilts). The fixed income securities will have a credit rating which reflects that of the UK Government. The fixed income securities will pay income according to a fixed rate of interest.\n- The Fund uses techniques to achieve a similar return to its benchmark index. These techniques may include the strategic selection of certain securities that make up the benchmark index or other fixed income securities which provide similar performance to certain constituent securities. ",
-      "text_length": 1463,
+      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\nThey may also include the use of derivatives (i.e. investments the prices of which are based on one or more underlying assets).\n- The Fund may also engage in short-term secured lending of its investments to certain eligible third parties. This is used as a means of generating additional income and to off-set the costs of the Fund.\n- Recommendation: This Fund may not be appropriate for short-term investment.\n- Your units will be accumulating units (i.e. ",
+      "text_length": 552,
       "metadata": {
         "isin": "GB00B08HD364",
         "product_name": "iShares UK Gilts All Stocks Index Fund (UK)",
@@ -37,16 +39,14 @@
         "section": "product_and_description",
         "sub_index": 1
       },
-      "key_phrases": [
-        "Objectives and Investment Policy"
-      ]
+      "key_phrases": []
     },
     {
       "id": "GB00B08HD364_product_and_description_2",
       "section": "product_and_description",
       "sub_index": 2,
-      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\nThey may also include the use of derivatives (i.e. investments the prices of which are based on one or more underlying assets).\n- The Fund may also engage in short-term secured lending of its investments to certain eligible third parties. This is used as a means of generating additional income and to off-set the costs of the Fund.\n- Recommendation: This Fund may not be appropriate for short-term investment.\n- Your units will be accumulating units (i.e. dividend income will be included in their value).\n- Your units will be denominated in Sterling, the Fund's base currency.\n- You can buy and sell your units daily. The minimum initial investment for this unit class is £1,000,000.\n\nFor more information on the Fund, share/unit classes, risks and charges, please see the Fund's prospectus, available on the product pages at www.blackrock.com",
-      "text_length": 940,
+      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\ndividend income will be included in their value).\n- Your units will be denominated in Sterling, the Fund's base currency.\n- You can buy and sell your units daily. The minimum initial investment for this unit class is £1,000,000.\n\nFor more information on the Fund, share/unit classes, risks and charges, please see the Fund's prospectus, available on the product pages at www.blackrock.com",
+      "text_length": 483,
       "metadata": {
         "isin": "GB00B08HD364",
         "product_name": "iShares UK Gilts All Stocks Index Fund (UK)",

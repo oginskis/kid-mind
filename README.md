@@ -118,7 +118,7 @@ Optional [Arize Phoenix](https://phoenix.arize.com/) integration for tracing LLM
 ### Step 1: Clone and install dependencies
 
 ```bash
-git clone <repo-url> kid-mind
+git clone https://github.com/oginskis/kid-mind.git
 cd kid-mind
 uv sync
 ```
@@ -171,7 +171,7 @@ docker compose up -d
 Verify it's running:
 
 ```bash
-curl http://localhost:8000/api/v1/heartbeat
+curl http://localhost:8000/api/v2/heartbeat
 ```
 
 ### Step 4: Discover ISINs and download KID documents (optional)
