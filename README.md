@@ -18,12 +18,10 @@ Every answer is grounded in the actual KID documents — no hallucination, no gu
 ## Architecture overview
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph Providers["ETF Provider Websites"]
-        V[Vanguard]
-        I[iShares / BlackRock]
-        X[Xtrackers / DWS]
-        S[SPDR / State Street]
+        V[Vanguard] ~~~ I[iShares]
+        X[Xtrackers] ~~~ S[SPDR]
     end
 
     subgraph Pipeline["Data Pipeline"]
@@ -32,19 +30,24 @@ flowchart LR
         D3 --> D4[Embed & index]
     end
 
-    subgraph Agent["AI Agent"]
-        LLM[LLM\nClaude / OpenAI-compat]
-        Tools[Tool calls]
-        Prompt[System prompt]
+    DB[(ChromaDB)]
+
+    subgraph Tools["Agent Tools"]
+        T1[Semantic search]
+        T2[Filter by risk / provider / year]
+        T3[ISIN lookup & compare]
+        T4[Live price]
+        T5[Chart rendering]
     end
 
-    DB[(ChromaDB\nvector store)]
-    UI[Streamlit UI\nchat + charts]
+    LLM[LLM — Claude / Ollama / OpenAI]
+    UI[Streamlit chat UI]
 
     Providers --> Pipeline
     D4 --> DB
-    DB <--> Agent
-    Agent <--> UI
+    DB <--> Tools
+    Tools <--> LLM
+    LLM <--> UI
 ```
 
 ## Components
