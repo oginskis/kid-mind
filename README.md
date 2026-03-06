@@ -40,12 +40,20 @@ flowchart TD
         T5[Chart rendering]
     end
 
+    subgraph External["External APIs"]
+        OF[OpenFIGI
+ISIN → ticker]
+        YF[yfinance
+market prices]
+    end
+
     LLM[LLM — Claude / Ollama / OpenAI]
     UI[Streamlit chat UI]
 
     Providers --> Pipeline
     D4 --> DB
     DB <--> Tools
+    T4 --> OF --> YF
     Tools <--> LLM
     LLM <--> UI
 ```
