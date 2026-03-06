@@ -217,27 +217,13 @@ uv run --with-requirements $REQS $SCRIPTS/download_kids.py -p spdr -m 10
 
 ### Step 5: Build the ChromaDB index
 
-Parse all downloaded KIDs, chunk them, and upsert into ChromaDB:
+Parse the KID PDFs, chunk them, and upsert into ChromaDB:
 
 ```bash
 uv run python chunk_kids_cli.py
 ```
 
-This takes a while (Docling PDF parsing is CPU-intensive). You can process a single provider first to get started quickly:
-
-```bash
-uv run python chunk_kids_cli.py -p xtrackers -m 50
-```
-
-Other useful options:
-
-```bash
-# JSON debug output only, no ChromaDB needed
-uv run python chunk_kids_cli.py --skip-chromadb --dump-json
-
-# Patch metadata on existing chunks without re-indexing
-uv run python chunk_kids_cli.py --patch-metadata
-```
+The 40 sample documents included in the repo take around 10–15 minutes to index. Indexing the full dataset of 1,400+ PDFs takes several hours — Docling PDF parsing is CPU-intensive.
 
 ### Step 6: Run the Streamlit app
 
