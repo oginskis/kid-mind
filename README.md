@@ -64,11 +64,11 @@ market prices]
 
 Three phases turn provider websites into searchable vectors:
 
-**1. ISIN discovery** — scrapes each provider’s website to find all available ETF ISINs. Vanguard and iShares need browser automation (Playwright); Xtrackers and SPDR work with plain HTTP.
+[**1. ISIN discovery**](.claude/skills/kid-collector/scripts/discover_isins.py) — scrapes each provider’s website to find all available ETF ISINs. Vanguard and iShares need browser automation (Playwright); Xtrackers and SPDR work with plain HTTP.
 
-**2. KID download** — fetches the PDF documents via direct HTTP. Downloads are resumable — re-running skips files you already have.
+[**2. KID download**](.claude/skills/kid-collector/scripts/download_kids.py) — fetches the PDF documents via direct HTTP. Downloads are resumable — re-running skips files you already have.
 
-**3. Chunking and indexing** — converts PDFs into searchable knowledge. Each document is parsed into Markdown, split along the standardised EU KID headings (product description, risks, costs, etc.), then semantically sub-chunked so each piece stays on a single topic. Structured metadata (product name, risk level, launch year) is extracted and stored alongside each chunk.
+[**3. Chunking and indexing**](src/kid_mind/parser.py) — converts PDFs into searchable knowledge. Each document is parsed into Markdown, split along the standardised EU KID headings (product description, risks, costs, etc.), then semantically sub-chunked so each piece stays on a single topic. Structured metadata (product name, risk level, launch year) is extracted and stored alongside each chunk.
 
 The section-aware chunking means a cost question matches cost sections, not unrelated product descriptions. If a document doesn’t follow the standard headings, the system falls back to storing the full text as a single chunk.
 
@@ -101,7 +101,7 @@ Every answer is grounded in the retrieved documents — the agent doesn’t gues
 
 ### Streamlit app
 
-A chat interface built with [Streamlit](https://streamlit.io/). Includes a welcome screen with example questions, conversational message history, inline Plotly charts when the agent visualises data, and a sidebar with provider logos. Custom-themed with a clean blue/grey palette.
+A [chat interface](streamlit_app.py) built with [Streamlit](https://streamlit.io/). Includes a welcome screen with example questions, conversational message history, inline Plotly charts when the agent visualises data, and a sidebar with provider logos. Custom-themed with a clean blue/grey palette.
 
 ### Observability
 
