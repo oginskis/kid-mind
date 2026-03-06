@@ -91,11 +91,11 @@ Two interchangeable backends:
 
 The agent has access to these tools:
 
-- **Search** — find ETFs by topic, sector, region, or strategy
-- **Filter** — list ETFs by risk level, provider, or launch year
-- **ISIN lookup** — retrieve the full KID document for one or more specific funds
-- **Live price** — get current market prices for European-listed ETFs
-- **Charts** — render visual comparisons (bar, pie) in the Streamlit UI
+- [**Search**](src/kid_mind/tools.py) — find ETFs by topic, sector, region, or strategy
+- [**Filter**](src/kid_mind/tools.py) — list ETFs by risk level, provider, or launch year
+- [**ISIN lookup**](src/kid_mind/tools.py) — retrieve the full KID document for one or more specific funds
+- [**Live price**](src/kid_mind/tools.py) — get current market prices for European-listed ETFs
+- [**Charts**](src/kid_mind/agent_pydantic.py) — render visual comparisons (bar, pie) in the Streamlit UI
 
 Every answer is grounded in the retrieved documents — the agent doesn’t guess or fill gaps with general knowledge.
 
