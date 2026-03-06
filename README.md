@@ -249,18 +249,21 @@ uv run --with-requirements .claude/skills/kid-collector/scripts/requirements.txt
 uv run python chunk_kids_cli.py
 ```
 
-## Running tests
+## Testing
 
 ```bash
-# All tests
 uv run python -m pytest tests/ -v
-
-# Tool function tests only
-uv run python -m pytest tests/test_tools.py -v
-
-# Specific test class
-uv run python -m pytest tests/test_tools.py::TestGetEtfPrice -v
 ```
+
+The test suite covers three layers:
+
+**[Chunking pipeline tests](tests/test_chunk_pipeline.py)** — verify that the PDF parsing and chunking pipeline produces correct output. Each of the 9 test PDFs (from all 4 providers) is processed and compared against committed [ground truth JSON](tests/fixtures/ground_truth/). Tests check chunk count, section names and ordering, metadata extraction (risk level, product name, launch year), text length stability (within 10% tolerance for minor Docling changes), and presence of EU-mandated key phrases in the right sections. The ground truth is auto-regenerated at test time from the same pipeline run, so tests stay self-consistent even when the semantic chunker produces slightly different splits.
+
+**[Content correctness tests](tests/test_chunk_pipeline.py)** — structural invariants that must hold for any correctly parsed KID, independent of ground truth. These use regex patterns to verify that risk classification text lands in the risks section (not costs or product description), cost data appears in the costs section, performance scenarios are in risks, and every document produces the expected 4-section structure. These catch section mis-placement bugs that ground truth tests alone might miss.
+
+**[Tool integration tests](tests/test_tools.py)** — 83 tests covering all tool functions against an in-memory ChromaDB seeded with the test fixture chunks. Validates semantic search relevance (e.g. a “gold” query finds gold ETCs), section and provider filtering, ISIN lookup, multi-ISIN comparison, provider listing, metadata filtering, and price lookup with mocked yfinance/OpenFIGI responses.
+
+**[Section splitting unit tests](tests/test_section_splitting.py)** — fast tests using synthetic Markdown (no PDF processing). Cover the regex-based section splitter, SRI paragraph relocation, metadata extraction, and edge cases like missing headings or non-standard formats.
 
 ## Project structure
 
