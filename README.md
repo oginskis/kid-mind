@@ -233,20 +233,6 @@ uv run streamlit run streamlit_app.py
 
 Opens at `http://localhost:8501`. Ask questions, compare ETFs, render charts.
 
-### Alternative: CLI agent
-
-For a terminal-based experience:
-
-```bash
-# Interactive conversation
-uv run python agent_cli.py
-
-# One-shot query
-uv run python agent_cli.py -q "What are the cheapest S&P 500 ETFs?"
-```
-
-Note: The CLI agent uses the Claude Agent SDK backend and requires `ANTHROPIC_API_KEY`.
-
 ## Keeping data up to date
 
 Check for new or updated KID documents:
