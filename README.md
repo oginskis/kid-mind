@@ -56,57 +56,48 @@ flowchart TD
 
 Three phases turn provider websites into searchable vectors:
 
-**1. ISIN discovery** — finds every ETF each provider offers. Vanguard and iShares require Playwright (browser automation) because their sites are JS-heavy. Xtrackers and SPDR use plain HTTP against sitemaps — much faster. Output: `data/isins/<provider>.json`.
+**1. ISIN discovery** — scrapes each provider’s website to find all available ETF ISINs. Vanguard and iShares need browser automation (Playwright); Xtrackers and SPDR work with plain HTTP.
 
-**2. KID download** — fetches the actual PDFs via direct HTTP (no browser). Each provider has a different URL pattern. Downloads are resumable and validated (`%PDF-` header, minimum 5 KB). Success rates range from ~81% (Vanguard) to ~99% (iShares). Output: `data/kids/<provider>/<ISIN>.pdf`.
+**2. KID download** — fetches the PDF documents via direct HTTP. Downloads are resumable — re-running skips files you already have.
 
-**3. Chunking and indexing** — transforms PDFs into searchable knowledge:
+**3. Chunking and indexing** — converts PDFs into searchable knowledge. Each document is parsed into Markdown, split along the standardised EU KID headings (product description, risks, costs, etc.), then semantically sub-chunked so each piece stays on a single topic. Structured metadata (product name, risk level, launch year) is extracted and stored alongside each chunk.
 
-- [Docling](https://github.com/DS4SD/docling) converts PDFs to Markdown (preserves tables, headings, layout)
-- Regex splits the Markdown into EU-mandated KID sections (product description, risks, costs, etc.)
-- [Chonkie](https://github.com/chonkie-ai/chonkie) semantically sub-chunks each section at natural topic boundaries
-- Metadata is extracted (product name, risk level 1-7, launch year, document date)
-- Chunks are embedded and upserted into ChromaDB with a metadata prefix for fund identity
-
-**Chunking trade-offs:** Section-first splitting respects the document's logical structure — cost queries hit cost sections, not product descriptions — and enables precise metadata filters. The downside is it depends on consistent EU headings (non-standard formatting falls back to the full document as one chunk) and the two-pass approach is slower than single-pass chunking.
+The section-aware chunking means a cost question matches cost sections, not unrelated product descriptions. If a document doesn’t follow the standard headings, the system falls back to storing the full text as a single chunk.
 
 ### ChromaDB
 
-[ChromaDB](https://www.trychroma.com/) stores chunks with embeddings and structured metadata, enabling hybrid queries — semantic search combined with exact filters like provider or risk level.
+[ChromaDB](https://www.trychroma.com/) is the vector store. It holds the embedded chunks with metadata, so the agent can combine semantic search (“find ETFs investing in emerging markets”) with exact filters (“only Vanguard, risk level 3”) in a single query.
 
-Embedding models are pluggable — any OpenAI-compatible API (Ollama, LiteLLM, OpenAI) or local sentence-transformers. The model must match between indexing and query time.
+Embedding models are pluggable — works with Ollama, OpenAI, or local sentence-transformers out of the box.
 
 ### Reranking
 
-Optional cross-encoder reranking improves search precision. Vector search embeds queries and documents independently; a cross-encoder reads them *together* for more accurate scoring — but it's too slow for the whole collection. So: over-fetch 3x candidates from ChromaDB, rerank with the cross-encoder, keep the top N. Falls back gracefully if the reranker is unavailable.
-
-Configure via `RERANKER_ENABLED` and `RERANKER_MODEL` in `.env`.
+An optional second pass that improves search quality. After ChromaDB returns initial candidates based on embedding similarity, a cross-encoder model re-scores each result by reading the query and document together. This is more accurate than embedding comparison alone but too slow to run on the whole collection, so it only runs on the top candidates. Configurable in `.env`, falls back gracefully if disabled.
 
 ### Agent and tools
 
-Two interchangeable agent backends, both exposing the same tools:
+Two interchangeable backends:
 
-- **PydanticAI** (default) — connects to any OpenAI-compatible LLM (Ollama, LiteLLM, OpenAI). Recommended for local deployments.
-- **Claude Agent SDK** — uses Anthropic's Claude with extended thinking. Requires `ANTHROPIC_API_KEY`.
+- **PydanticAI** (default) — works with any OpenAI-compatible LLM (Ollama, OpenAI, LiteLLM). Recommended for local or self-hosted setups.
+- **Claude Agent SDK** — uses Anthropic’s Claude. Requires an API key.
 
-Available tools: semantic search, metadata filtering (risk/provider/launch year), provider listing, single and multi-ISIN lookup, live price via OpenFIGI + yfinance, and chart rendering.
+The agent has access to these tools:
 
-The system prompt keeps the agent grounded — it only answers from retrieved documents, never guesses.
+- **Search** — find ETFs by topic, sector, region, or strategy
+- **Filter** — list ETFs by risk level, provider, or launch year
+- **ISIN lookup** — retrieve the full KID document for one or more specific funds
+- **Live price** — get current market prices for European-listed ETFs
+- **Charts** — render visual comparisons (bar, pie) in the Streamlit UI
+
+Every answer is grounded in the retrieved documents — the agent doesn’t guess or fill gaps with general knowledge.
 
 ### Streamlit app
 
-Chat UI built with [Streamlit](https://streamlit.io/):
-
-- Welcome screen with clickable example questions across 6 categories
-- Conversational chat with message history
-- Interactive Plotly charts (bar, pie) rendered inline when the agent compares data
-- Sidebar with provider logos and conversation reset
-- Custom CSS theming (blue/grey palette, responsive layout)
-- Switch between PydanticAI and Claude backends via `AGENT_BACKEND` in `.env`
+A chat interface built with [Streamlit](https://streamlit.io/). Includes a welcome screen with example questions, conversational message history, inline Plotly charts when the agent visualises data, and a sidebar with provider logos. Custom-themed with a clean blue/grey palette.
 
 ### Observability
 
-Optional [Arize Phoenix](https://phoenix.arize.com/) integration exports OpenTelemetry traces for LLM calls, tool usage, and latencies. Set `PHOENIX_COLLECTOR_ENDPOINT` and `PHOENIX_API_KEY` in `.env`.
+Optional [Arize Phoenix](https://phoenix.arize.com/) integration for tracing LLM calls, tool usage, and latencies via OpenTelemetry.
 
 ## Running it locally
 
