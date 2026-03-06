@@ -1,0 +1,99 @@
+/* kid-mind Streamlit theme — loaded by streamlit_app.py */
+
+/* ── Base layout ── */
+.stMainBlockContainer {
+    max-width: 920px;
+    padding-top: 1rem;
+}
+section[data-testid="stSidebar"] {
+    min-width: 280px;
+    max-width: 320px;
+}
+section[data-testid="stSidebar"] .stMarkdown h1 {
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+}
+.stChatInput textarea {
+    border-radius: 12px;
+}
+.stChatMessage .stCaption {
+    text-align: right;
+    opacity: 0.6;
+}
+header[data-testid="stHeader"] {
+    display: none !important;
+}
+h1 a, h2 a, h3 a { display: none; }
+
+/* ── Tertiary buttons (sidebar + main area) ── */
+section[data-testid="stSidebar"] .stButton > button[kind="tertiary"],
+.stMainBlockContainer .stButton > button[kind="tertiary"] {
+    text-align: left !important;
+    justify-content: flex-start !important;
+    padding: 0.4rem 0.7rem !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    font-size: 0.8rem !important;
+    color: var(--text) !important;
+    transition: border-color 0.15s, background-color 0.15s !important;
+}
+section[data-testid="stSidebar"] .stButton > button[kind="tertiary"]:hover,
+.stMainBlockContainer .stButton > button[kind="tertiary"]:hover {
+    border-color: var(--primary) !important;
+    background-color: var(--bg-surface) !important;
+}
+
+/* ── Welcome hero ── */
+.hero-section {
+    background: var(--accent-gradient);
+    border-radius: 16px;
+    padding: 2.5rem 2rem 2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+}
+.hero-section h2 {
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+    font-size: 1.6rem;
+}
+.hero-section p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+}
+.hero-section .hero-stats {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    opacity: 0.8;
+    margin-top: 0.6rem;
+}
+
+/* ── Category cards ── */
+.cat-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem 0.8rem;
+    margin-bottom: 0.6rem;
+}
+.cat-card .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.35rem;
+}
+.cat-card .cat-icon { font-size: 1.2rem; }
+.cat-card .cat-title { font-weight: 600; color: var(--text); font-size: 0.88rem; }
+.cat-card .cat-desc { color: var(--text-secondary); font-size: 0.78rem; margin-bottom: 0.15rem; }
+
+/* ── Sidebar provider grid ── */
+.provider-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+    align-items: center;
+}
+.provider-grid img {
+    max-height: 28px;
+    width: auto;
+}

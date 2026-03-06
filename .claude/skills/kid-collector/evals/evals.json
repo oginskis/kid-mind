@@ -1,0 +1,23 @@
+{
+  "skill_name": "kid-collector",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "can you discover all the vanguard ETF ISINs and save them?",
+      "expected_output": "Claude uses 'uv run python -m kid_mind.discover_isins -p vanguard' (not bare python), understands it outputs to data/isins/vanguard.json",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "the xtrackers scraper isn't finding any ISINs, it just returns an empty list. can you figure out what's wrong?",
+      "expected_output": "Claude reads xtrackers reference, suggests --no-headless debugging, investigates XHR interception and DOM selectors, understands Xtrackers uses Nuxt.js SPA",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I want to add Amundi ETFs as a new provider to the system",
+      "expected_output": "Claude follows the add-new-provider workflow: research site, determine HTTP vs Playwright, add to config.py PROVIDER_URLS, add discover_amundi() and download_amundi(), create references/amundi.md",
+      "files": []
+    }
+  ]
+}

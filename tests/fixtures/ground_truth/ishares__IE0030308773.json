@@ -1,0 +1,252 @@
+{
+  "_generated_at": "2026-03-06T09:34:09.354385+00:00",
+  "_pdf_sha256": "d654c57f0c0ea0654c3e4df0536828682c9f1daf12cfc2718f33c4500ac0ef82",
+  "isin": "IE0030308773",
+  "provider": "ishares",
+  "chunk_count": 13,
+  "chunks": [
+    {
+      "id": "IE0030308773_product_and_description_0",
+      "section": "product_and_description",
+      "sub_index": 0,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\n## Key Information Document\n\n## Purpose\n\nThis document provides you with key information about this investment product. It is not marketing material. The information is required by law to help you understand the nature, risks, costs, potential gains and losses of this product and to help you compare it with other products.\n\n## Product\n\niShares   GiltTrak   Index   Fund   (IE) (the   'Fund'), Inst   Dist   GBP (the   \"Share   Class\"),   ISIN: IE0030308773 ,   is   authorised   in   Ireland   and manufactured by BlackRock Asset Management Ireland Limited (the 'Manager') which is part of the BlackRock, Inc group.\n\nThe Manager is authorised in Ireland and regulated by the Central Bank of Ireland (the 'CBI') and the CBI is responsible for supervising the Manager in relation to this Key Information Document.\n\nMore information is available at www.blackrock.com or by calling +353 1 612 3394 . This document is dated 09 April 2025.\n\n## What is this product?\n\nType: The Fund is a sub-fund of BlackRock Fixed Income Dublin Funds plc, an umbrella company incorporated in Ireland, authorised by the Central Bank of Ireland as a Undertaking for Collective Investment in Transferable Securities ('UCITS').\n\nTerm: The Fund does not have a fixed term of existence or maturity period but in certain circumstances, as described in the Fund prospectus, the Fund may be unilaterally terminated following written notice to unitholders subject to compliance with the Fund prospectus and applicable regulation.\n\n## Objectives\n\n- The Fund aims to achieve a total return on your investment, through a combination of capital growth and income, which reflects the return of the FTSE Government All Stocks Gilt Index, the Fund's benchmark index. A gilt is a fixed income (FI) security such as a bond issued by the British Government.\n- The Fund will invest in the FI securities that predominantly make up the benchmark index (which comprises gilts).\n- The benchmark index measures the performance of all conventional (i.e. excluding index-linked) gilts with varying redemption dates (i.e. the date on which some, or all, of the principal amount and interest is repaid during the life of the bond) and maturities (i.e. the time until the bond becomes due for repayment).\n",
+      "text_length": 2338,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "product_and_description",
+        "sub_index": 0
+      },
+      "key_phrases": [
+        "What is this product"
+      ]
+    },
+    {
+      "id": "IE0030308773_product_and_description_1",
+      "section": "product_and_description",
+      "sub_index": 1,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\n- The Fund is passively managed and intends to replicate the Index by holding the FI securities in substantially similar proportions to that of the benchmark constituents.\n- The Fund uses techniques for efficient portfolio management purposes or to protect against exchange rate risk. These techniques may include  the   strategic   selection   of   certain   securities   that   make   up   the   benchmark   index   or   other   FI   securities   which   provide   simi performance to certain constituent securities. They may also include the use of financial derivative instruments (i.e. investments the prices of which are based on one or more underlying assets).\n- The Fund may also engage in short-term secured lending of its investments to certain eligible third parties. This is used as a means of generating additional income and to off-set the costs of the Fund.\n- The price of fixed income securities may be affected by changing interest rates which in turn may affect the value of your investment. Fixed income securities prices move inversely to interest rates. Therefore, the market value of fixed income securities may decrease as interest rates increase. The credit rating of an issuing entity will generally affect the yield that can be earned on fixed income securities; the better the credit rating the smaller the yield.\n- The return on your investment in the Fund is directly related to the value of the underlying assets of the Fund, less costs (see 'What are the costs?' below).\n- The relationship between the return on your investment, how it is impacted and the period for which you hold your investment is considered below (see 'How long should I hold it and can I take my money out early?').\n- The depositary of the Fund is J.P. Morgan SE - Dublin Branch.\n- Further information about the Fund can be obtained from the latest annual report and half-yearly reports of the BlackRock Fixed Income Dublin Funds plc. ",
+      "text_length": 2022,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "product_and_description",
+        "sub_index": 1
+      },
+      "key_phrases": [
+        "What are the costs",
+        "How long should I hold"
+      ]
+    },
+    {
+      "id": "IE0030308773_product_and_description_2",
+      "section": "product_and_description",
+      "sub_index": 2,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\nThese documents are available free of charge in English and certain other languages. These can be found, along with other  (practical)   information,   including   prices   of   units,   on   the   BlackRock   website   at:   www.blackrock.com   or   the   iShares   website www.ishares.com or by calling the International Investor Servicing team on +353 1612 3394.\n- Your shares will be distributing shares (i.e. dividend income will be paid on the shares semi-annually).\n- Your shares will be denominated in Sterling, the Fund's base currency.\n- You can buy and sell your shares daily. The minimum initial investment for this share class is £500,000.\n\nIntended retail investor: The Fund is intended for retail investors with the ability to bear losses up to the amount invested in the Fund (see 'How long should I hold it and can I take my money out early?').\n\nInsurance benefits: The Fund does not offer any insurance benefits.\n\n<!-- image -->",
+      "text_length": 1030,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "product_and_description",
+        "sub_index": 2
+      },
+      "key_phrases": [
+        "How long should I hold"
+      ]
+    },
+    {
+      "id": "IE0030308773_risks_and_return_0",
+      "section": "risks_and_return",
+      "sub_index": 0,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\n## What are the risks and what could I get in return?\n\nRisk Indicator\n\nLower risk\n\nHigher risk\n\n<!-- image -->\n\n- The summary risk indicator is a guide to the level of risk of this product compared to other products. It shows how likely it is that th product will lose money because of movements in the markets or because we are not able to pay you.\n- We have classified this product as 3 out of 7, which is a medium low risk class. This classification rates the potential losses from future performance  at   a   medium   low   level,   and   poor   market   conditions   could   affect   the   value   of   your   investment.   This   classification   is   n guaranteed and may change over time and may not be a reliable indication of the future risk profile of the Fund. The lowest category does not mean risk free.\n- Be aware of currency risk. If you receive payments in a currency that is different to the product's base currency, the final return you will get depends on the exchange rate between the two currencies. This risk is not considered in the indicator shown above.\n- Please refer to the product's Prospectus for details of other materially relevant risks that may apply to this product.\n- This product does not include any protection from future market performance so you could lose some or all of your investment.\n- If the product is not able to pay you what is owed, you could lose your entire investment.\n\n## Performance Scenarios\n\nThe figures shown include all the costs of the product itself, but may not include all the costs that you pay to your advisor or distributor. The figures do not take into account your personal tax situation, which may also affect how much you get back. What you will get from this product depends  on   future   market   performance.   Market   developments   in   the   future   are   uncertain   and   cannot   be   accurately   predicted. unfavourable, moderate, and favourable scenarios shown are illustrations using the worst, average, and best performance of the product, which may include input from benchmark(s) / proxy, over the last ten years. Markets could develop very differently in the future.\n\n| Recommended holding period : 3 years   | Recommended holding period : 3 years                                                  | Example Investment : GBP10,000                                                        | Example Investment : GBP10,000                                                        |\n",
+      "text_length": 2551,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "risks_and_return",
+        "sub_index": 0
+      },
+      "key_phrases": [
+        "What are the risks",
+        "Performance Scenarios"
+      ]
+    },
+    {
+      "id": "IE0030308773_risks_and_return_1",
+      "section": "risks_and_return",
+      "sub_index": 1,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\n|----------------------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|\n| Scenarios                              |                                                                                       | If you exit after 1 year                                                              | If you exit after 3 years                                                             |\n| Minimum                                | There is no minimum guaranteed return. You could lose some or all of your investment. | There is no minimum guaranteed return. You could lose some or all of your investment. | There is no minimum guaranteed return. You could lose some or all of your investment. |\n| Stress*                                | What you might get back after costs                                                   | 7,610 GBP                                                                             | 6,480 GBP                                                                             |\n|                                        | Average return each year                                                              | -23.9%                                                                                | -13.5%                                                                                |\n| Unfavourable**                         | What you might get back after costs                                                   | 7,610 GBP                                                                             | 6,900 GBP                                                                             |\n|                                        | Average return each year                                                              | -23.9%                                                                                | -11.6%                                                                                |\n| Moderate**                             | What you might get back after costs                                                   | 10,120 GBP                                                                            | 10,760 GBP                                                                            |\n|                                        | Average return each year                                                              | 1.2%                                                                                  | 2.5%                                                                                  |\n| Favourable**                           | What you might get back after costs                                                   | 11,660 GBP                                                                            | 11,870 GBP                                                                            |\n|                                        | Average return each year                                                              | 16.6%                                                                                 | 5.9%                                                                                  |\n\n| Scenarios    | 1 year                        | 3 years               |\n",
+      "text_length": 3535,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "risks_and_return",
+        "sub_index": 1
+      },
+      "key_phrases": []
+    },
+    {
+      "id": "IE0030308773_risks_and_return_2",
+      "section": "risks_and_return",
+      "sub_index": 2,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\n|--------------|-------------------------------|-----------------------|\n| Unfavourable | December 2021 - December 2022 | May 2020 - May 2023   |\n| Moderate     | October 2017 - October 2018   | May 2018 - May 2021   |\n| Favourable   | August 2015 - August 2016     | July 2017 - July 2020 |",
+      "text_length": 375,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "risks_and_return",
+        "sub_index": 2
+      },
+      "key_phrases": []
+    },
+    {
+      "id": "IE0030308773_costs_0",
+      "section": "costs",
+      "sub_index": 0,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\n## What are the costs?\n\nThe person advising on or selling you this product may charge you other costs. If so, this person will provide you with information about these costs and how they affect your investment.\n\nCosts over time: The tables show the amounts that are taken from your investment to cover different types of costs. These amounts depend on how much you invest, how long you hold the product and how well the product does. The amounts shown here are illustrations based on an example investment amount and different possible investment periods.\n\n## We have assumed:\n\n- In the first year you would get back the amount that you invested (0 % annual return).\n- For the other holding periods we have assumed the product performs as shown in the moderate scenario.\n- GBP 10,000 is invested.\n\n|                        | If you exit after 1 year If you exit after 3 years   | If you exit after 1 year If you exit after 3 years   |\n",
+      "text_length": 1019,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "costs",
+        "sub_index": 0
+      },
+      "key_phrases": [
+        "What are the costs"
+      ]
+    },
+    {
+      "id": "IE0030308773_costs_1",
+      "section": "costs",
+      "sub_index": 1,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\n|------------------------|------------------------------------------------------|------------------------------------------------------|\n| Total costs            | 13 GBP                                               | 42 GBP                                               |\n| Annual cost Impact (*) | 0.1%                                                 | 0.1%                                                 |\n\n(*) This illustrates how costs reduce your return each year over the holding period. For example it shows that if you exit at the recommended holding period your average return per year is projected to be 2.6% before costs and 2.5% after costs.\n\nWe may share part of the costs with the person selling you the product to cover the services they provide to you. They will inform you of the amount.\n\n| Composition of Costs                                        | Composition of Costs                                                                                                                                                                                                                                                                  | If you exit after year        |\n",
+      "text_length": 1269,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "costs",
+        "sub_index": 1
+      },
+      "key_phrases": []
+    },
+    {
+      "id": "IE0030308773_costs_2",
+      "section": "costs",
+      "sub_index": 2,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\n|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|\n| Entry costs                                                 | Wedonot charge an entry fee.                                                                                                                                                                                                                                                          | -                             |\n| Exit costs                                                  | Wedonot charge an exit fee.                                                                                                                                                                                                                                                           | -                             |\n| Ongoing costs taken each year                               | Ongoing costs taken each year                                                                                                                                                                                                                                                         | Ongoing costs taken each year |\n| Management fees and other administrative or operating costs | 0.13% of the value of your investment per year. This is based on a combination of estimated and actual costs data over the last year. Any underlying product costs are included here with the exception of transaction costs which would be included below under 'Transaction costs'. | 13 GBP                        |\n| Transaction costs                                           | 0.00% of the value of your investment per year. This is an estimate of the costs incurred when we buy and sell the underlying investments for the product. The actual amount will vary depending on how much we buy and sell. 0                                                       | GBP                           |\n\n## Incidental costs taken under specific conditions\n\nPerformance fees There is no performance fee for this product.",
+      "text_length": 2456,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "costs",
+        "sub_index": 2
+      },
+      "key_phrases": []
+    },
+    {
+      "id": "IE0030308773_tail_0",
+      "section": "tail",
+      "sub_index": 0,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\n## What happens if BlackRock Asset Management Ireland Limited is unable to pay out?\n\nThe  assets   of   the   Fund   are   held   in   safekeeping   by   its   depositary,   J.P.   Morgan   SE   -   Dublin   Branch   (the   'Depositary').   In   the   event   of   t insolvency of the Manager, the Fund's assets in the safekeeping of the Depositary will not be affected. However, in the event of the Depositary's insolvency, or someone acting on its behalf, the Fund may suffer a financial loss. However, this risk is mitigated to a certain extent by the fact the Depositary is required by law and regulation to segregate its own assets from the assets of the Fund. The Depositary will also be liable to the  Fund   and   the   investors   for   any   loss   arising   from,   among   other   things,   its   negligence,   fraud   or   intentional   failure   properly   to   fulfil   it obligations (subject to certain limitations). As a shareholder of the Fund you would not be able to make a claim to the UK Financial Services Compensation Scheme or any other scheme about the Fund in the event that the Fund is unable to pay out.\n\n",
+      "text_length": 1219,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "tail",
+        "sub_index": 0
+      },
+      "key_phrases": [
+        "unable to pay"
+      ]
+    },
+    {
+      "id": "IE0030308773_tail_1",
+      "section": "tail",
+      "sub_index": 1,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\n## How long should I hold it and can I take money out early? Recommended Holding Period: 3 years\n\nThe recommended holding period (RHP) has been calculated in line with the investment strategy of the Fund and the time frame in which it is expected that it will be possible to achieve the investment objective of the Fund. Any investment should be considered against your specific investment needs and appetite for risk. BlackRock has not considered the suitability or appropriateness of this investment for your personal circumstances. If you are in any doubt about the suitability of the Fund to your needs you should seek appropriate professional advice. Details of dealing frequency can be found under 'What is this product?'. ",
+      "text_length": 813,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "tail",
+        "sub_index": 1
+      },
+      "key_phrases": [
+        "What is this product",
+        "How long should I hold"
+      ]
+    },
+    {
+      "id": "IE0030308773_tail_2",
+      "section": "tail",
+      "sub_index": 2,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\nYou may receive less than expected if you cash in earlier than the RHP. The RHP is an estimate and must not be taken as a guarantee or an indication of future performance, return or risk levels. Please see the 'What are the costs?' section for details of any exit fees.\n\n## How can I complain?\n\nIf you are not entirely satisfied with any aspect of the service you have received and you wish to complain, details of our complaints handling process  are   available   at   www.blackrock.com/uk/individual/about-blackrock/contact-us.   Additionally,   you   can   also   write   to   the   Investor Services Team, at BlackRock's UK Registered Office, 12 Throgmorton Avenue, London, EC2N 2DL or eenquiry@ukclientservices.blackrock.com.\n\n## Other relevant information\n\nThe latest version of this document, 10 year(s) of past performance of the Fund, previous performance scenario of the Fund, the latest annual report  and   half-yearly   report   and   any   additional   information   issued   to   shareholders   can   be   obtained   free   of   charge,   in   English,   f www.blackrock.com or by calling the Investor Services Team on +353 1 612 3394 or from your broker, financial adviser or distributor.\n\nThe benchmark(s) referenced herein are the intellectual property of the index provider(s). ",
+      "text_length": 1382,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "tail",
+        "sub_index": 2
+      },
+      "key_phrases": [
+        "What are the costs",
+        "How can I complain",
+        "Other relevant information",
+        "Past Performance"
+      ]
+    },
+    {
+      "id": "IE0030308773_tail_3",
+      "section": "tail",
+      "sub_index": 3,
+      "text": "ISIN: IE0030308773 | Product: iShares GiltTrak Index Fund (IE) | Provider: ishares\n\nThe product is not sponsored or endorsed by the index provider(s). Please refer to the product's prospectus and/or www.blackrock.com for full disclaimer(s).\n\nThe Remuneration Policy of the Management Company, which describes how remuneration and benefits are determined and awarded, and the associated governance arrangements, is available at www.blackrock.com/Remunerationpolicy or on request from the registered office of the Manager.\n\n-",
+      "text_length": 523,
+      "metadata": {
+        "isin": "IE0030308773",
+        "product_name": "iShares GiltTrak Index Fund (IE)",
+        "provider": "ishares",
+        "risk_level": 3,
+        "kid_date": "2025-04-09",
+        "section": "tail",
+        "sub_index": 3
+      },
+      "key_phrases": []
+    }
+  ]
+}
