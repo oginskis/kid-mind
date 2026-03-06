@@ -9,8 +9,6 @@ from __future__ import annotations
 import logging
 
 from pydantic_ai import Agent
-from pydantic_ai.models.openai import OpenAIChatModel
-from pydantic_ai.providers.openai import OpenAIProvider
 from pydantic_ai.settings import ModelSettings
 
 from kid_mind import config, tools
@@ -50,8 +48,36 @@ def _setup_telemetry() -> None:
 
 _setup_telemetry()
 
-_provider = OpenAIProvider(base_url=config.OPENAI_API_BASE) if config.OPENAI_API_BASE else OpenAIProvider()
-model = OpenAIChatModel(config.OPENAI_MODEL, provider=_provider)
+
+def _resolve_model():
+    """Pick the right PydanticAI model wrapper based on env config.
+
+    GEMINI_API_KEY set → native Gemini provider.
+    Otherwise → OpenAI-compatible (OPENAI_API_BASE / OPENAI_API_KEY).
+    """
+    if not config.MODEL:
+        raise RuntimeError(
+            "No inference model configured. Set MODEL + GEMINI_API_KEY, "
+            "or MODEL + OPENAI_API_BASE + OPENAI_API_KEY in .env"
+        )
+
+    if config.GEMINI_API_KEY:
+        from pydantic_ai.models.google import GoogleModel
+        from pydantic_ai.providers.google import GoogleProvider
+
+        provider = GoogleProvider(api_key=config.GEMINI_API_KEY)
+        log.info("Using Gemini provider: model=%s", config.MODEL)
+        return GoogleModel(config.MODEL, provider=provider)
+
+    from pydantic_ai.models.openai import OpenAIChatModel
+    from pydantic_ai.providers.openai import OpenAIProvider
+
+    provider = OpenAIProvider(base_url=config.OPENAI_API_BASE) if config.OPENAI_API_BASE else OpenAIProvider()
+    log.info("Using OpenAI-compatible provider: model=%s, api_base=%s", config.MODEL, config.OPENAI_API_BASE or "default")
+    return OpenAIChatModel(config.MODEL, provider=provider)
+
+
+model = _resolve_model()
 
 agent = Agent(
     model,
@@ -72,7 +98,6 @@ agent = Agent(
 @agent.tool_plain
 def search_etf_documents(
     query: str,
-    n_results: int = tools.DEFAULT_SEARCH_RESULTS,
     section: str | None = None,
     provider: str | None = None,
 ) -> str:
@@ -84,7 +109,6 @@ def search_etf_documents(
 
     Args:
         query: Search query in formal financial terms.
-        n_results: Max results to return (default 10, max 20).
         section: Filter by KID section: 'product_and_description',
             'risks_and_return', 'costs', or 'tail'.
         provider: Provider name (lowercase): 'vanguard', 'ishares',
@@ -92,7 +116,6 @@ def search_etf_documents(
     """
     return tools.search_etf_documents(
         query=query,
-        n_results=n_results,
         section=section,
         provider=provider,
     )

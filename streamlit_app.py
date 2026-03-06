@@ -93,6 +93,9 @@ QUESTION_CATEGORIES = [
             "Show ETF counts by provider",
             "Visualise the risk level distribution",
             "Compare number of funds per risk level across providers",
+            "Chart the cost breakdown for S&P 500 ETFs",
+            "Pie chart of provider market share by fund count",
+            "Show risk levels of bond ETFs as a bar chart",
         ],
     },
     {
@@ -102,6 +105,38 @@ QUESTION_CATEGORIES = [
         "questions": [
             "What does the KID say about Vanguard S&P 500 costs?",
             "Show me the full document for an emerging market ETF",
+            "What are the performance scenarios for the Xtrackers MSCI World?",
+            "Summarise the risks section of the Xtrackers Physical Gold ETC",
+        ],
+    },
+    {
+        "title": "Costs deep dive",
+        "icon": "\U0001f4b8",
+        "desc": "Analyse fees, charges, and total cost of ownership",
+        "questions": [
+            "What are the cheapest equity ETFs from Vanguard?",
+            "Compare entry and exit costs across SPDR funds",
+            "Which provider has the lowest-cost bond ETFs?",
+        ],
+    },
+    {
+        "title": "Risk explorer",
+        "icon": "\U0001f6e1\ufe0f",
+        "desc": "Understand risk ratings and what-if scenarios",
+        "questions": [
+            "Which ETFs have risk level 1 or 2?",
+            "What could I lose in a bad year with the Vanguard ESG Developed World fund?",
+            "Compare risk levels of gold vs bond ETFs",
+        ],
+    },
+    {
+        "title": "Provider spotlight",
+        "icon": "\U0001f3e2",
+        "desc": "Explore what each provider offers",
+        "questions": [
+            "What types of ETFs does SPDR offer?",
+            "How does the Vanguard fund range compare to iShares?",
+            "Show all Xtrackers commodity products",
         ],
     },
 ]
@@ -447,10 +482,10 @@ def _render_welcome(placeholder: st.delta_generator.DeltaGenerator) -> None:
             unsafe_allow_html=True,
         )
 
-        cols = st.columns(2, gap="medium")
+        cols = st.columns(3, gap="medium")
         btn_idx = 0
         for i, cat in enumerate(QUESTION_CATEGORIES):
-            with cols[i % 2]:
+            with cols[i % 3]:
                 st.markdown(
                     f'<div class="cat-card"><div class="cat-header">'
                     f'<span class="cat-icon">{cat["icon"]}</span>'

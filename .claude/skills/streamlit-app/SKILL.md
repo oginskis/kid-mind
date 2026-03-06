@@ -56,7 +56,7 @@ The app reads from `.env` at project root. Key variables:
 | `CHROMADB_PORT` | Yes | ChromaDB port (default: `8000`) |
 | `OPENAI_API_BASE` | For remote embeddings | OpenAI-compatible API endpoint |
 | `OPENAI_API_KEY` | For remote embeddings | API key for embeddings |
-| `OPENAI_MODEL` | No | LLM model name (default: `gemini-3-pro-preview-litellm-gbl`) |
+| `MODEL` | No | LLM model name (e.g. `gemini-2.5-flash`, `qwen3:30b`) |
 | `AGENT_BACKEND` | No | `pydantic` (default) or `claude` |
 
 ## Troubleshooting

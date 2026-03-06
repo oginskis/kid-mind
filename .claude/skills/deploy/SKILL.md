@@ -50,3 +50,4 @@ $SSH "docker compose ls"
 - `SSH_HOST` and `SSH_USER` come from the project `.env` (set up via the SSH skill)
 - Compose files can live anywhere locally — just copy them to a known remote directory before running
 - The remote directory `~/compose/` is a convention, not a requirement — use whatever path fits
+- **NEVER rsync with `--delete` or remove `data/` directories on the remote** — they contain KID PDFs, ISIN metadata, and ChromaDB data that may not exist locally

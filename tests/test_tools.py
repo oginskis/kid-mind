@@ -43,33 +43,24 @@ class TestSearchEtfDocuments:
     """Semantic search via search_etf_documents()."""
 
     def test_bond_query_finds_vanguard_bond(self) -> None:
-        result = search_etf_documents("eurozone government bond", n_results=5)
+        result = search_etf_documents("eurozone government bond", )
         assert "IE00004S2680" in result
 
     def test_gold_query_finds_gold_etcs(self) -> None:
-        result = search_etf_documents("gold", n_results=10)
+        result = search_etf_documents("gold", )
         assert "DE000A1E0HR8" in result or "DE000A1EK0G3" in result
 
     def test_treasury_query_finds_spdr(self) -> None:
-        result = search_etf_documents("US treasury bond", n_results=5)
+        result = search_etf_documents("US treasury bond", )
         assert "IE000191HKF0" in result
 
     def test_esg_query_finds_vanguard_esg(self) -> None:
-        result = search_etf_documents("ESG sustainable responsible investing", n_results=5)
+        result = search_etf_documents("ESG sustainable responsible investing", )
         assert "IE0001RDRUG3" in result
 
     def test_china_query_finds_csi300(self) -> None:
-        result = search_etf_documents("China CSI 300 index", n_results=5)
+        result = search_etf_documents("China CSI 300 index", )
         assert "LU0779800910" in result
-
-    def test_n_results_limits_output(self) -> None:
-        result = search_etf_documents("fund", n_results=3)
-        assert result.count("--- Result") <= 3
-
-    def test_n_results_capped_at_max(self) -> None:
-        """Requesting more than MAX_SEARCH_RESULTS still works (capped)."""
-        result = search_etf_documents("fund", n_results=100)
-        assert "Found" in result
 
     def test_section_filter_costs(self) -> None:
         result = search_etf_documents("costs and charges", section="costs")
@@ -95,12 +86,12 @@ class TestSearchEtfDocuments:
         assert "IE00004S2680" in result or "IE0001RDRUG3" in result
 
     def test_output_format_header(self) -> None:
-        result = search_etf_documents("bond", n_results=2)
+        result = search_etf_documents("bond")
         assert result.startswith("Found")
         assert "--- Result 1 ---" in result
 
     def test_output_format_fields(self) -> None:
-        result = search_etf_documents("bond", n_results=1)
+        result = search_etf_documents("bond")
         assert "ISIN:" in result
         assert "Provider:" in result
         assert "Product:" in result
@@ -306,18 +297,19 @@ class TestGetEtfByIsin:
 class TestReranking:
     """Tests for cross-encoder reranking in search_etf_documents()."""
 
-    def test_reranking_preserves_result_count(self) -> None:
-        """Result count matches requested n_results regardless of overfetch."""
-        result = search_etf_documents("government bond", n_results=3)
-        assert result.count("--- Result") == 3
+    def test_reranking_returns_results(self) -> None:
+        """Reranking returns results successfully."""
+        result = search_etf_documents("government bond")
+        assert "Found" in result
+        assert result.count("--- Result") >= 1
 
     def test_reranking_disabled_via_env(self, monkeypatch) -> None:
         """When RERANKER_ENABLED is false, results are still returned."""
         monkeypatch.setattr(tools_module, "RERANKER_ENABLED", False)
         monkeypatch.setattr(tools_module, "_reranker_instance", None)
-        result = search_etf_documents("bond", n_results=5)
+        result = search_etf_documents("bond")
         assert "Found" in result
-        assert result.count("--- Result") <= 5
+        assert result.count("--- Result") >= 1
 
     def test_reranker_fallback_on_failure(self, monkeypatch) -> None:
         """If the reranker raises, results fall back to original ordering."""
@@ -325,13 +317,13 @@ class TestReranking:
         broken_reranker.rank.side_effect = RuntimeError("reranker exploded")
         monkeypatch.setattr(tools_module, "_reranker_instance", broken_reranker)
         monkeypatch.setattr(tools_module, "RERANKER_ENABLED", True)
-        result = search_etf_documents("gold", n_results=3)
+        result = search_etf_documents("gold")
         assert "Found" in result
-        assert result.count("--- Result") <= 3
+        assert result.count("--- Result") >= 1
 
     def test_reranking_output_format_unchanged(self) -> None:
         """Output format stays identical with reranking enabled."""
-        result = search_etf_documents("ESG sustainable", n_results=2)
+        result = search_etf_documents("ESG sustainable")
         assert result.startswith("Found")
         assert "--- Result 1 ---" in result
         assert "ISIN:" in result

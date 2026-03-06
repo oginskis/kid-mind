@@ -19,14 +19,15 @@ load_dotenv(_project_root / ".env")
 
 # Force local sentence-transformers embeddings in tests — tests must not
 # depend on external API endpoints (Ollama, OpenAI, etc.)
-os.environ.pop("OPENAI_API_KEY", None)
-os.environ.pop("OPENAI_API_BASE", None)
-os.environ.pop("EMBEDDING_MODEL", None)
+for _key in ("OPENAI_API_KEY", "OPENAI_API_BASE", "EMBEDDING_API_KEY", "EMBEDDING_API_BASE", "EMBEDDING_MODEL", "GEMINI_API_KEY"):
+    os.environ.pop(_key, None)
 
 import kid_mind.config  # noqa: E402
 
 kid_mind.config.OPENAI_API_KEY = None
 kid_mind.config.OPENAI_API_BASE = None
+kid_mind.config.EMBEDDING_API_KEY = None
+kid_mind.config.EMBEDDING_API_BASE = None
 kid_mind.config.EMBEDDING_MODEL = None
 
 import kid_mind.tools as tools_module  # noqa: E402

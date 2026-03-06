@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 
 # Load .env from project root (walk up from this file: src/kid_mind/config.py → project root)
 _project_root = Path(__file__).resolve().parent.parent.parent
-load_dotenv(_project_root / ".env")
+load_dotenv(_project_root / ".env", override=True)
 
 
 def _env(key: str, default: str = "") -> str | None:
@@ -27,39 +27,40 @@ CHROMADB_HOST = os.environ.get("CHROMADB_HOST", "localhost")
 CHROMADB_PORT = int(os.environ.get("CHROMADB_PORT", "8000"))
 CHROMADB_COLLECTION = os.environ.get("CHROMADB_COLLECTION", "kid_chunks")
 
+# ── Inference (LLM) ─────────────────────────────────────────────────────────
+# Priority: GEMINI_API_KEY set → native Gemini provider.
+#           Otherwise → OpenAI-compatible (OPENAI_API_BASE / OPENAI_API_KEY).
+OPENAI_API_BASE = _env("OPENAI_API_BASE")
+OPENAI_API_KEY = _env("OPENAI_API_KEY")
+GEMINI_API_KEY = _env("GEMINI_API_KEY")
+
 # ── Embeddings ───────────────────────────────────────────────────────────────
-# Two modes, selected by whether OPENAI_API_KEY is set:
+# Embeddings can use a DIFFERENT provider than inference.
 #
-#   OPENAI_API_KEY set → remote OpenAI-compatible API (default: text-embedding-3-small)
-#     Pros:  higher quality embeddings, no local GPU/CPU load
-#     Cons:  requires network + API key, adds latency per call, costs money
-#
-#   OPENAI_API_KEY unset → local sentence-transformers (default: all-MiniLM-L6-v2)
-#     Pros:  fully offline, free, no API dependency
-#     Cons:  lower embedding quality (384-dim vs 1536-dim), slower on CPU,
-#            downloads ~90 MB model on first run
+# Fallback chain:
+#   EMBEDDING_API_KEY set → dedicated embedding endpoint
+#   Otherwise OPENAI_API_KEY set → same endpoint as inference
+#   Neither → local sentence-transformers (all-MiniLM-L6-v2)
 #
 # IMPORTANT: the embedding model used at query time MUST match the one used
 # when the ChromaDB collection was indexed. Switching models requires
 # re-indexing (uv run python chunk_kids_cli.py).
-#
-# Override the default model name with EMBEDDING_MODEL env var.
 LOCAL_EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
+EMBEDDING_API_BASE = _env("EMBEDDING_API_BASE") or OPENAI_API_BASE
+EMBEDDING_API_KEY = _env("EMBEDDING_API_KEY") or OPENAI_API_KEY
 EMBEDDING_MODEL = _env("EMBEDDING_MODEL")
-OPENAI_API_BASE = _env("OPENAI_API_BASE")
-OPENAI_API_KEY = _env("OPENAI_API_KEY")
 EMBEDDING_DIMENSION = int(os.environ.get("EMBEDDING_DIMENSION", "768"))
 
 # ── Search ───────────────────────────────────────────────────────────────────
-MAX_SEARCH_RESULTS = 20
-DEFAULT_SEARCH_RESULTS = 10
+SEARCH_RESULTS = 40                # results returned to the agent (fixed)
+SEARCH_FETCH_NO_RERANK = 40        # candidates fetched when reranker is off
+SEARCH_FETCH_RERANK = 60           # candidates fetched when reranker is on
 
 # ── Reranker ─────────────────────────────────────────────────────────────────
 # Set RERANKER_ENABLED=false to disable cross-encoder reranking.
 RERANKER_ENABLED = os.environ.get("RERANKER_ENABLED", "true").strip().lower() != "false"
 RERANKER_MODEL = os.environ.get("RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2")
-RERANK_OVERFETCH_FACTOR = 3
 
 # ── Price lookup ──────────────────────────────────────────────────────────────
 # OpenFIGI maps ISINs to tickers. We try European exchanges in priority order
@@ -82,7 +83,7 @@ PHOENIX_API_KEY = _env("PHOENIX_API_KEY")
 PHOENIX_PROJECT = _env("PHOENIX_PROJECT", "default")
 
 # ── LLM model ───────────────────────────────────────────────────────────────
-OPENAI_MODEL = _env("OPENAI_MODEL") or "gemini-3-pro-preview-litellm-gbl"
+MODEL = _env("MODEL") or _env("OPENAI_MODEL")
 
 # ── Streamlit UI ──────────────────────────────────────────────────────────────
 AGENT_BACKEND = _env("AGENT_BACKEND") or "pydantic"  # "pydantic" or "claude"

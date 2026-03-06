@@ -28,7 +28,6 @@ from kid_mind.prompt import SYSTEM_PROMPT
         "type": "object",
         "properties": {
             "query": {"type": "string", "description": "Search query in formal financial terms"},
-            "n_results": {"type": "integer", "description": "Max results to return (default 10, max 30)"},
             "section": {
                 "type": "string",
                 "description": "Filter by KID section: 'product_and_description', 'risks_and_return', 'costs', or 'tail'",
@@ -45,7 +44,6 @@ async def search_etf_documents(args: dict[str, Any]) -> dict[str, Any]:
     """Search ETF fund documents by semantic similarity."""
     result = tools.search_etf_documents(
         query=args["query"],
-        n_results=args.get("n_results", tools.DEFAULT_SEARCH_RESULTS),
         section=args.get("section"),
         provider=args.get("provider"),
     )

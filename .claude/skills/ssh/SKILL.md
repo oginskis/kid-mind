@@ -32,6 +32,14 @@ SSH_USER=<username>
 
 SSH key-based authentication must be configured for the remote host.
 
+## Data directory guardrail
+
+**NEVER rsync, delete, or overwrite `data/` directories on the remote host.** The remote `~/kid-mind/data/` contains downloaded KID PDFs, ISIN metadata, ChromaDB chunks, and other artifacts that may not exist locally or may differ. Syncing with `--delete` would destroy them.
+
+- Do NOT run `rsync --delete` targeting any `data/` path on the remote
+- Do NOT run `rm -rf` on remote `data/` directories
+- To add files to remote `data/`, use `rsync` **without** `--delete` or use `scp`
+
 ## Scripts
 
 | Script | Purpose |

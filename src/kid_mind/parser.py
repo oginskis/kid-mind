@@ -12,10 +12,10 @@ import threading
 from pathlib import Path
 
 from kid_mind.config import (
+    EMBEDDING_API_BASE,
+    EMBEDDING_API_KEY,
     EMBEDDING_DIMENSION,
     EMBEDDING_MODEL,
-    OPENAI_API_BASE,
-    OPENAI_API_KEY,
     OPENAI_EMBEDDING_MODEL,
 )
 
@@ -495,8 +495,8 @@ _CHUNKER_MAX_TOKENS = 8192
 def _get_chunker() -> object | None:
     """Lazily initialize the Chonkie SemanticChunker (thread-safe).
 
-    Uses OpenAI-compatible embeddings when OPENAI_API_KEY is set,
-    otherwise falls back to local sentence-transformers (all-MiniLM-L6-v2).
+    Uses OpenAI-compatible embeddings when EMBEDDING_API_KEY is set,
+    otherwise falls back to local sentence-transformers.
     Returns None only if initialization fails.
     """
     global _chunker_instance  # noqa: PLW0603
@@ -515,20 +515,20 @@ def _get_chunker() -> object | None:
         try:
             from chonkie import SemanticChunker
 
-            if OPENAI_API_KEY:
+            if EMBEDDING_API_KEY:
                 import tiktoken
                 from chonkie import OpenAIEmbeddings
 
                 model = EMBEDDING_MODEL or OPENAI_EMBEDDING_MODEL
-                kwargs: dict = {"model": model, "api_key": OPENAI_API_KEY}
-                if OPENAI_API_BASE:
-                    kwargs["base_url"] = OPENAI_API_BASE
+                kwargs: dict = {"model": model, "api_key": EMBEDDING_API_KEY}
+                if EMBEDDING_API_BASE:
+                    kwargs["base_url"] = EMBEDDING_API_BASE
                 if model not in OpenAIEmbeddings.AVAILABLE_MODELS:
                     kwargs["tokenizer"] = tiktoken.get_encoding("cl100k_base")
                     kwargs["dimension"] = EMBEDDING_DIMENSION
                     kwargs["max_tokens"] = _CHUNKER_MAX_TOKENS
                 embeddings = OpenAIEmbeddings(**kwargs)
-                log.info("SemanticChunker ready: model=%s, api_base=%s", model, OPENAI_API_BASE or "default")
+                log.info("SemanticChunker ready: model=%s, api_base=%s", model, EMBEDDING_API_BASE or "default")
             else:
                 from chonkie import SentenceTransformerEmbeddings
 

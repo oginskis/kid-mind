@@ -41,7 +41,7 @@ CHROMADB_HOST="${CHROMADB_HOST:-localhost}"
 CHROMADB_PORT="${CHROMADB_PORT:-8000}"
 
 echo "Checking ChromaDB at ${CHROMADB_HOST}:${CHROMADB_PORT}..."
-if ! curl -sf --max-time 5 "http://${CHROMADB_HOST}:${CHROMADB_PORT}/api/v1/heartbeat" > /dev/null 2>&1; then
+if ! curl -sf --max-time 5 "http://${CHROMADB_HOST}:${CHROMADB_PORT}/api/v2/heartbeat" > /dev/null 2>&1; then
     echo "ERROR: ChromaDB is not reachable at ${CHROMADB_HOST}:${CHROMADB_PORT}"
     echo ""
     echo "Start it with:  chroma run --host ${CHROMADB_HOST} --port ${CHROMADB_PORT}"

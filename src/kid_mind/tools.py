@@ -17,18 +17,18 @@ from kid_mind.config import (
     CHROMADB_COLLECTION,
     CHROMADB_HOST,
     CHROMADB_PORT,
-    DEFAULT_SEARCH_RESULTS,
+    EMBEDDING_API_BASE,
+    EMBEDDING_API_KEY,
     EMBEDDING_MODEL,
     EXCHANGE_PRIORITY,
     LOCAL_EMBEDDING_MODEL,
-    MAX_SEARCH_RESULTS,
-    OPENAI_API_BASE,
-    OPENAI_API_KEY,
     OPENAI_EMBEDDING_MODEL,
     OPENFIGI_URL,
-    RERANK_OVERFETCH_FACTOR,
     RERANKER_ENABLED,
     RERANKER_MODEL,
+    SEARCH_FETCH_NO_RERANK,
+    SEARCH_FETCH_RERANK,
+    SEARCH_RESULTS,
     SECTION_ORDER,
 )
 
@@ -54,18 +54,17 @@ def _ensure_yfinance() -> None:
 def create_embedding_function() -> object:
     """Create the embedding function based on environment configuration.
 
-    Uses OpenAI-compatible endpoint when OPENAI_API_KEY is set,
-    otherwise falls back to local sentence-transformers.
-    Each backend has its own default model name; override via EMBEDDING_MODEL env var.
+    Uses EMBEDDING_API_KEY/EMBEDDING_API_BASE when set (with fallback
+    to OPENAI_API_KEY/OPENAI_API_BASE). Otherwise local sentence-transformers.
     """
-    if OPENAI_API_KEY:
+    if EMBEDDING_API_KEY:
         from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 
         model = EMBEDDING_MODEL or OPENAI_EMBEDDING_MODEL
-        kwargs = {"api_key": OPENAI_API_KEY, "model_name": model}
-        if OPENAI_API_BASE:
-            kwargs["api_base"] = OPENAI_API_BASE
-        log.info("Using OpenAI-compatible embeddings: model=%s, api_base=%s", model, OPENAI_API_BASE or "default")
+        kwargs = {"api_key": EMBEDDING_API_KEY, "model_name": model}
+        if EMBEDDING_API_BASE:
+            kwargs["api_base"] = EMBEDDING_API_BASE
+        log.info("Using OpenAI-compatible embeddings: model=%s, api_base=%s", model, EMBEDDING_API_BASE or "default")
         return OpenAIEmbeddingFunction(**kwargs)
 
     from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
@@ -107,9 +106,9 @@ def _get_collection() -> object:
 #   relevance — but it's too slow to run on the whole collection.
 #
 # Flow:
-#   1. Over-fetch N * RERANK_OVERFETCH_FACTOR candidates from ChromaDB
+#   1. Fetch SEARCH_FETCH_RERANK (50) candidates from ChromaDB
 #   2. Score each candidate with the cross-encoder (query + doc jointly)
-#   3. Keep the top N by cross-encoder score → final results
+#   3. Keep top SEARCH_RESULTS (30) by cross-encoder score → final results
 #
 # Graceful fallback: if the reranker can't load or crashes at runtime,
 # we just return the original ChromaDB ordering trimmed to N.
@@ -228,7 +227,6 @@ def _format_search_results(results: dict) -> str:
 
 def search_etf_documents(
     query: str,
-    n_results: int = DEFAULT_SEARCH_RESULTS,
     section: str | None = None,
     provider: str | None = None,
 ) -> str:
@@ -236,14 +234,12 @@ def search_etf_documents(
 
     Args:
         query: Natural language search query.
-        n_results: Max results to return (capped at 30, optional, defaults to 10).
         section: Filter by KID section (optional).
         provider: Filter by ETF provider (optional).
 
     Returns:
         Formatted search results with ISIN, product name, and matched text.
     """
-    n_results = min(n_results or DEFAULT_SEARCH_RESULTS, MAX_SEARCH_RESULTS)
     if provider:
         provider = provider.lower().strip()
     if section:
@@ -251,8 +247,7 @@ def search_etf_documents(
     where = _build_where_filter(section, provider)
 
     collection = _get_collection()
-    fetch_n = n_results * RERANK_OVERFETCH_FACTOR if _get_reranker() else n_results
-    fetch_n = min(fetch_n, MAX_SEARCH_RESULTS)
+    fetch_n = SEARCH_FETCH_RERANK if _get_reranker() else SEARCH_FETCH_NO_RERANK
     results = collection.query(
         query_texts=[query],
         n_results=fetch_n,
@@ -263,7 +258,7 @@ def search_etf_documents(
     if not results["ids"][0]:
         return "No matching documents found."
 
-    results = _rerank_results(query, results, n_results)
+    results = _rerank_results(query, results, SEARCH_RESULTS)
 
     count = len(results["ids"][0])
     formatted = _format_search_results(results)
