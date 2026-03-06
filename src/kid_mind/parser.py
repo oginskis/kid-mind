@@ -231,6 +231,9 @@ def _extract_risk_level(markdown: str) -> int | None:
 
 _LAUNCH_YEAR_RE = re.compile(r"was\s+launched\s+in\s+(\d{4})", re.IGNORECASE)
 
+# Xtrackers ETCs: "Securities were issued in 2010"
+_ISSUED_YEAR_RE = re.compile(r"(?:were|was)\s+(?:first\s+)?issued\s+in\s+(\d{4})", re.IGNORECASE)
+
 
 def extract_launch_year(markdown: str) -> int | None:
     """Extract the fund/share-class launch year from KID markdown text.
@@ -239,6 +242,9 @@ def extract_launch_year(markdown: str) -> int | None:
     which typically refers to the specific share class ISIN.
     """
     matches = _LAUNCH_YEAR_RE.findall(markdown)
+    if not matches:
+        # Fallback: Xtrackers ETCs use "Securities were issued in YYYY"
+        matches = _ISSUED_YEAR_RE.findall(markdown)
     if not matches:
         return None
     year = int(matches[-1])

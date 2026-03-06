@@ -1,5 +1,5 @@
 {
-  "_generated_at": "2026-03-06T12:10:03.600356+00:00",
+  "_generated_at": "2026-03-06T12:12:16.444460+00:00",
   "_pdf_sha256": "68f191118d59798854be282b4bdd8cd4bcf5b08b90ff12955a6b2b48797d4978",
   "isin": "DE000A1E0HR8",
   "provider": "xtrackers",
@@ -16,6 +16,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "product_and_description",
         "sub_index": 0
@@ -33,6 +34,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "product_and_description",
         "sub_index": 1
@@ -53,6 +55,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "product_and_description",
         "sub_index": 2
@@ -70,6 +73,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "risks_and_return",
         "sub_index": 0
@@ -89,6 +93,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "risks_and_return",
         "sub_index": 1
@@ -106,6 +111,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "costs",
         "sub_index": 0
@@ -125,6 +131,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "costs",
         "sub_index": 1
@@ -142,6 +149,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "costs",
         "sub_index": 2
@@ -159,6 +167,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "costs",
         "sub_index": 3
@@ -178,6 +187,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "tail",
         "sub_index": 0
@@ -198,6 +208,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "tail",
         "sub_index": 1
@@ -218,6 +229,7 @@
         "product_name": "Xtrackers Physical Gold ETC (EUR)",
         "provider": "xtrackers",
         "risk_level": 4,
+        "launch_year": 2010,
         "kid_date": "2026-01-31",
         "section": "tail",
         "sub_index": 2
