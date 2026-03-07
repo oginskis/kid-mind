@@ -1,31 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" fill="none">
-  <!-- Document/brain icon -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 56" fill="none">
+  <defs>
+    <linearGradient id="glow" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00D4AA"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+    <filter id="soft-glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- Icon: abstract document + neural network -->
   <g transform="translate(4, 4)">
-    <!-- Document outline -->
-    <rect x="2" y="0" width="32" height="42" rx="4" fill="#D6EAF8" stroke="#1B4F72" stroke-width="2"/>
-    <!-- Folded corner -->
-    <path d="M24 0 L34 10 L24 10 Z" fill="#AED6F1" stroke="#1B4F72" stroke-width="1.5" stroke-linejoin="round"/>
-    <!-- Neural network nodes on document -->
-    <circle cx="12" cy="16" r="3" fill="#2E86C1"/>
-    <circle cx="24" cy="14" r="2.5" fill="#1B4F72"/>
-    <circle cx="10" cy="28" r="2.5" fill="#1B4F72"/>
-    <circle cx="22" cy="26" r="3" fill="#2E86C1"/>
-    <circle cx="16" cy="36" r="2" fill="#5DADE2"/>
+    <!-- Document shape -->
+    <rect x="4" y="2" width="30" height="40" rx="6" fill="none" stroke="url(#glow)" stroke-width="1.8" opacity="0.6"/>
+    <path d="M24 2 L34 12 L24 12 Z" fill="none" stroke="url(#glow)" stroke-width="1.2" stroke-linejoin="round" opacity="0.4"/>
+    <!-- Neural nodes -->
+    <circle cx="14" cy="16" r="3" fill="#00D4AA" opacity="0.9" filter="url(#soft-glow)"/>
+    <circle cx="26" cy="14" r="2.2" fill="#0891B2" opacity="0.8"/>
+    <circle cx="12" cy="28" r="2.2" fill="#0891B2" opacity="0.8"/>
+    <circle cx="24" cy="27" r="3" fill="#00D4AA" opacity="0.9" filter="url(#soft-glow)"/>
+    <circle cx="18" cy="37" r="1.8" fill="#06B6D4" opacity="0.7"/>
     <!-- Neural connections -->
-    <line x1="12" y1="16" x2="24" y2="14" stroke="#5DADE2" stroke-width="1.2" opacity="0.7"/>
-    <line x1="12" y1="16" x2="10" y2="28" stroke="#5DADE2" stroke-width="1.2" opacity="0.7"/>
-    <line x1="12" y1="16" x2="22" y2="26" stroke="#5DADE2" stroke-width="1.2" opacity="0.7"/>
-    <line x1="24" y1="14" x2="22" y2="26" stroke="#5DADE2" stroke-width="1.2" opacity="0.7"/>
-    <line x1="10" y1="28" x2="22" y2="26" stroke="#5DADE2" stroke-width="1.2" opacity="0.7"/>
-    <line x1="10" y1="28" x2="16" y2="36" stroke="#5DADE2" stroke-width="1.2" opacity="0.7"/>
-    <line x1="22" y1="26" x2="16" y2="36" stroke="#5DADE2" stroke-width="1.2" opacity="0.7"/>
-    <!-- Small sparkle/pulse dots -->
-    <circle cx="28" cy="20" r="1.5" fill="#85C1E9" opacity="0.8"/>
-    <circle cx="6" cy="22" r="1" fill="#85C1E9" opacity="0.6"/>
+    <line x1="14" y1="16" x2="26" y2="14" stroke="#00D4AA" stroke-width="0.8" opacity="0.35"/>
+    <line x1="14" y1="16" x2="12" y2="28" stroke="#00D4AA" stroke-width="0.8" opacity="0.35"/>
+    <line x1="14" y1="16" x2="24" y2="27" stroke="#06B6D4" stroke-width="0.8" opacity="0.3"/>
+    <line x1="26" y1="14" x2="24" y2="27" stroke="#06B6D4" stroke-width="0.8" opacity="0.3"/>
+    <line x1="12" y1="28" x2="24" y2="27" stroke="#00D4AA" stroke-width="0.8" opacity="0.35"/>
+    <line x1="12" y1="28" x2="18" y2="37" stroke="#06B6D4" stroke-width="0.8" opacity="0.25"/>
+    <line x1="24" y1="27" x2="18" y2="37" stroke="#06B6D4" stroke-width="0.8" opacity="0.25"/>
   </g>
-  <!-- Text: kid-mind -->
-  <text x="50" y="24" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#1B4F72" letter-spacing="-0.5">kid</text>
-  <text x="83" y="24" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#2E86C1" letter-spacing="-0.5">mind</text>
+  <!-- Text -->
+  <text x="52" y="26" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="24" font-weight="700" fill="#E8EAED" letter-spacing="-0.5">kid</text>
+  <text x="88" y="26" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="24" font-weight="700" fill="#00D4AA" letter-spacing="-0.5">mind</text>
   <!-- Tagline -->
-  <text x="50" y="42" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#6B7280" letter-spacing="0.3">European ETF Research</text>
+  <text x="52" y="44" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="10" fill="#9AA0A6" letter-spacing="1.5" text-transform="uppercase">KID DOCUMENT INTELLIGENCE</text>
 </svg>

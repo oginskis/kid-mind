@@ -1,4 +1,4 @@
-/* kid-mind Streamlit theme — loaded by streamlit_app.py */
+/* kid-mind — dark glassmorphism theme (2026) */
 
 /* ── Base layout ── */
 .stMainBlockContainer {
@@ -8,92 +8,213 @@
 section[data-testid="stSidebar"] {
     min-width: 280px;
     max-width: 320px;
+    border-right: 1px solid var(--border) !important;
 }
 section[data-testid="stSidebar"] .stMarkdown h1 {
     font-size: 1.4rem;
     letter-spacing: -0.02em;
-}
-.stChatInput textarea {
-    border-radius: 12px;
-}
-.stChatMessage .stCaption {
-    text-align: right;
-    opacity: 0.6;
 }
 header[data-testid="stHeader"] {
     display: none !important;
 }
 h1 a, h2 a, h3 a { display: none; }
 
-/* ── Tertiary buttons (sidebar + main area) ── */
+/* ── Chat input ── */
+.stChatInput {
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    overflow: hidden !important;
+}
+.stChatInput textarea {
+    border: none !important;
+    background: transparent !important;
+    padding: 0.7rem 1rem !important;
+}
+.stChatInput:focus-within {
+    border-color: rgba(0, 212, 170, 0.3) !important;
+    box-shadow: 0 0 16px rgba(0, 212, 170, 0.06) !important;
+}
+.stChatInput button {
+    background: transparent !important;
+    border: none !important;
+    opacity: 0.5;
+    transition: opacity 0.2s !important;
+}
+.stChatInput button:hover {
+    opacity: 0.9;
+}
+
+/* ── Chat messages ── */
+.stChatMessage {
+    border-radius: 12px !important;
+}
+.stChatMessage .stCaption {
+    text-align: right;
+    opacity: 0.5;
+}
+
+/* ── Buttons: tertiary (example questions) ── */
 section[data-testid="stSidebar"] .stButton > button[kind="tertiary"],
 .stMainBlockContainer .stButton > button[kind="tertiary"] {
     text-align: left !important;
     justify-content: flex-start !important;
-    padding: 0.4rem 0.7rem !important;
+    padding: 0.5rem 0.8rem !important;
     border: 1px solid var(--border) !important;
-    border-radius: 8px !important;
+    border-radius: 10px !important;
     font-size: 0.8rem !important;
-    color: var(--text) !important;
-    transition: border-color 0.15s, background-color 0.15s !important;
+    color: var(--text-secondary) !important;
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    transition: all 0.2s ease !important;
 }
 section[data-testid="stSidebar"] .stButton > button[kind="tertiary"]:hover,
 .stMainBlockContainer .stButton > button[kind="tertiary"]:hover {
     border-color: var(--primary) !important;
-    background-color: var(--bg-surface) !important;
+    color: var(--text) !important;
+    background: rgba(0, 212, 170, 0.06) !important;
+    box-shadow: 0 0 12px rgba(0, 212, 170, 0.08) !important;
+}
+
+/* ── Buttons: secondary (sidebar navigation) ── */
+section[data-testid="stSidebar"] .stButton > button[kind="secondary"] {
+    border: 1px solid var(--border) !important;
+    border-radius: 10px !important;
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    transition: all 0.2s ease !important;
+}
+section[data-testid="stSidebar"] .stButton > button[kind="secondary"]:hover {
+    border-color: var(--primary) !important;
+    background: rgba(0, 212, 170, 0.06) !important;
 }
 
 /* ── Welcome hero ── */
 .hero-section {
-    background: var(--accent-gradient);
-    border-radius: 16px;
-    padding: 2.5rem 2rem 2rem;
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 18px;
+    padding: 2.5rem 2.2rem 2rem;
     margin-bottom: 1.5rem;
     border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.5;
 }
 .hero-section h2 {
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+.hero-section h2 .accent {
     color: var(--primary);
-    margin-bottom: 0.3rem;
-    font-size: 1.6rem;
 }
 .hero-section p {
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     margin-bottom: 0.2rem;
+    line-height: 1.5;
 }
 .hero-section .hero-stats {
     color: var(--text-secondary);
-    font-size: 0.82rem;
-    opacity: 0.8;
-    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 0.8rem;
+    letter-spacing: 0.02em;
+}
+.hero-section .hero-stats .stat-value {
+    color: var(--primary);
+    font-weight: 600;
 }
 
-/* ── Category cards ── */
+/* ── Category cards (glass) ── */
 .cat-card {
-    background: var(--bg-elevated);
+    background: var(--bg-glass);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 1rem 1.1rem 0.8rem;
     margin-bottom: 0.6rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cat-card:hover {
+    border-color: rgba(0, 212, 170, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.05);
 }
 .cat-card .cat-header {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
     margin-bottom: 0.35rem;
 }
-.cat-card .cat-icon { font-size: 1.2rem; }
-.cat-card .cat-title { font-weight: 600; color: var(--text); font-size: 0.88rem; }
-.cat-card .cat-desc { color: var(--text-secondary); font-size: 0.78rem; margin-bottom: 0.15rem; }
+.cat-card .cat-icon {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+.cat-card .cat-title {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.88rem;
+}
+.cat-card .cat-desc {
+    color: var(--text-secondary);
+    font-size: 0.76rem;
+    margin-bottom: 0.15rem;
+    line-height: 1.4;
+}
 
 /* ── Sidebar provider grid ── */
 .provider-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px 12px;
+    gap: 10px;
     align-items: center;
 }
 .provider-grid img {
-    max-height: 28px;
+    max-height: 26px;
     width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.55;
+    transition: opacity 0.2s;
+}
+.provider-grid img:hover {
+    opacity: 0.85;
+}
+
+/* ── Dividers ── */
+section[data-testid="stSidebar"] hr {
+    border-color: var(--border) !important;
+    opacity: 0.5;
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
 }

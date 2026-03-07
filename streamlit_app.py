@@ -30,7 +30,7 @@ log = logging.getLogger(__name__)
 # ── Constants ────────────────────────────────────────────────────────────────
 
 PAGE_TITLE = "kid-mind"
-PAGE_SUBTITLE = "AI-powered European ETF research, grounded in official KID documents"
+PAGE_SUBTITLE = "KID document intelligence for European ETFs"
 THINKING_TEXT = "Researching..."
 ASSETS_DIR = Path(__file__).parent / "assets"
 LOGOS_DIR = ASSETS_DIR / "logos"
@@ -143,16 +143,14 @@ QUESTION_CATEGORIES = [
 # ── Theme colours ────────────────────────────────────────────────────────────
 
 THEME = {
-    "bg_surface": "#F0F4F8",
-    "bg_elevated": "#F8FAFC",
-    "text": "#1C2833",
-    "text_secondary": "#6B7280",
-    "border": "#E5E8EB",
-    "primary": "#1B4F72",
-    "accent_gradient": "linear-gradient(135deg, #F0F4F8 0%, #D6EAF8 50%, #F0F4F8 100%)",
+    "bg_glass": "rgba(255, 255, 255, 0.03)",
+    "text": "#E8EAED",
+    "text_secondary": "#9AA0A6",
+    "border": "rgba(255, 255, 255, 0.08)",
+    "primary": "#00D4AA",
 }
 
-CHART_PALETTE = ["#1B4F72", "#2E86C1", "#5DADE2", "#85C1E9", "#AED6F1", "#D6EAF8"]
+CHART_PALETTE = ["#00D4AA", "#0891B2", "#06B6D4", "#22D3EE", "#67E8F9", "#A5F3FC"]
 
 
 # ── CSS injection ────────────────────────────────────────────────────────────
@@ -371,14 +369,16 @@ def _render_chart(block: dict, *, key: str = "chart") -> None:
         fig = go.Figure(go.Bar(x=labels, y=values, marker_color=colors, text=values, textposition="auto"))
 
     fig.update_layout(
-        title={"text": title, "font": {"size": 16, "color": THEME["primary"]}},
+        title={"text": title, "font": {"size": 15, "color": THEME["text"]}},
         xaxis_title=x_label,
         yaxis_title=y_label,
         height=400,
         margin={"l": 40, "r": 20, "t": 50, "b": 40},
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        font={"family": "sans-serif", "color": THEME["text"]},
+        font={"family": "system-ui, sans-serif", "color": THEME["text_secondary"]},
+        xaxis={"gridcolor": "rgba(255,255,255,0.05)", "zerolinecolor": "rgba(255,255,255,0.05)"},
+        yaxis={"gridcolor": "rgba(255,255,255,0.05)", "zerolinecolor": "rgba(255,255,255,0.05)"},
         showlegend=chart_type == "pie",
     )
     st.plotly_chart(fig, use_container_width=True, key=key)
@@ -459,18 +459,20 @@ def _render_welcome(placeholder: st.delta_generator.DeltaGenerator) -> None:
     with placeholder.container():
         st.markdown(
             '<div class="hero-section">'
-            f"<h2>{PAGE_SUBTITLE}</h2>"
-            "<p>Ask anything about European ETFs — costs, risks, holdings, "
-            "comparisons, live prices, or provider coverage.</p>"
+            '<h2><span class="accent">KID</span> document intelligence for European ETFs</h2>'
+            "<p>Grounded in official Key Information Documents (KIDs). Ask about costs, risks, "
+            "holdings, comparisons, live prices, or provider coverage.</p>"
             '<div class="hero-stats">'
-            "1,400+ funds &middot; 4 providers &middot; Vanguard, iShares, Xtrackers, SPDR"
+            '<span class="stat-value">1,400+</span> funds &middot; '
+            '<span class="stat-value">4</span> providers &middot; '
+            "Vanguard, iShares, Xtrackers, SPDR"
             "</div></div>",
             unsafe_allow_html=True,
         )
 
         st.markdown(
-            f'<p style="color: {THEME["text_secondary"]}; font-size: 0.9rem; '
-            f'font-weight: 500; margin: 0.5rem 0;">'
+            f'<p style="color: {THEME["text_secondary"]}; font-size: 0.85rem; '
+            f'font-weight: 400; margin: 0.5rem 0; letter-spacing: 0.01em;">'
             "Try one of these, or type your own question below</p>",
             unsafe_allow_html=True,
         )
