@@ -6,7 +6,6 @@ Layout:
     _render_welcome()      → hero banner + categorised example prompts
     _render_chat_history() → replay stored messages
     _process_prompt()      → send new prompt, render + store response
-    main()                 → page config, wiring, Streamlit top-level flow
 """
 
 from __future__ import annotations
@@ -144,14 +143,12 @@ QUESTION_CATEGORIES = [
 # ── Theme colours ────────────────────────────────────────────────────────────
 
 THEME = {
-    "bg": "#FFFFFF",
     "bg_surface": "#F0F4F8",
     "bg_elevated": "#F8FAFC",
     "text": "#1C2833",
     "text_secondary": "#6B7280",
     "border": "#E5E8EB",
     "primary": "#1B4F72",
-    "primary_hover": "#2E86C1",
     "accent_gradient": "linear-gradient(135deg, #F0F4F8 0%, #D6EAF8 50%, #F0F4F8 100%)",
 }
 
@@ -179,19 +176,23 @@ def _start_loop(loop: asyncio.AbstractEventLoop) -> None:
     loop.run_forever()
 
 
+@st.cache_resource
+def _get_shared_loop() -> tuple[asyncio.AbstractEventLoop, threading.Thread]:
+    """Create a single shared event loop + thread, cached across all sessions."""
+    loop = asyncio.new_event_loop()
+    thread = threading.Thread(target=_start_loop, args=(loop,), daemon=True)
+    thread.start()
+    return loop, thread
+
+
+_shared_loop, _shared_thread = _get_shared_loop()
+
+
 def _run(coro: object) -> object:
-    """Submit a coroutine to the background loop and block for the result."""
-    return asyncio.run_coroutine_threadsafe(coro, st.session_state.loop).result()
-
-
-def _ensure_loop() -> None:
-    """Ensure a persistent background event loop exists in session_state."""
-    if "loop" not in st.session_state:
-        loop = asyncio.new_event_loop()
-        thread = threading.Thread(target=_start_loop, args=(loop,), daemon=True)
-        thread.start()
-        st.session_state.loop = loop
-        st.session_state.thread = thread
+    """Submit a coroutine to the shared background loop and block for the result."""
+    if not _shared_thread.is_alive():
+        raise RuntimeError("Background event loop thread has died")
+    return asyncio.run_coroutine_threadsafe(coro, _shared_loop).result()
 
 
 # ── Backend: Claude Agent SDK ───────────────────────────────────────────────
@@ -203,7 +204,6 @@ def _ensure_client_claude() -> None:
 
     from kid_mind.agent import build_options
 
-    _ensure_loop()
     if "client" not in st.session_state:
         options = build_options()
         client = ClaudeSDKClient(options=options)
@@ -245,10 +245,6 @@ def _reset_claude() -> None:
         with contextlib.suppress(ProcessError, CLIConnectionError, RuntimeError):
             _run(st.session_state.client.disconnect())
         del st.session_state.client
-    if "loop" in st.session_state:
-        st.session_state.loop.call_soon_threadsafe(st.session_state.loop.stop)
-        del st.session_state.loop
-        del st.session_state.thread
 
 
 # ── Backend: PydanticAI ─────────────────────────────────────────────────────
@@ -256,7 +252,6 @@ def _reset_claude() -> None:
 
 def _ensure_client_pydantic() -> None:
     """Set up PydanticAI agent."""
-    _ensure_loop()
     if "pydantic_agent" not in st.session_state:
         from kid_mind.agent_pydantic import agent
 
@@ -301,10 +296,8 @@ def _send_message_pydantic(prompt: str) -> list[dict]:
 
 def _reset_pydantic() -> None:
     """Reset PydanticAI conversation state."""
-    if "pydantic_agent" in st.session_state:
-        del st.session_state.pydantic_agent
-    if "pydantic_history" in st.session_state:
-        del st.session_state.pydantic_history
+    for key in ("pydantic_agent", "pydantic_history"):
+        st.session_state.pop(key, None)
 
 
 # ── Backend dispatch ─────────────────────────────────────────────────────────
@@ -374,13 +367,13 @@ def _render_chart(block: dict, *, key: str = "chart") -> None:
         fig = go.Figure(
             go.Bar(y=labels, x=values, orientation="h", marker_color=colors, text=values, textposition="auto")
         )
-        fig.update_layout(xaxis_title=x_label, yaxis_title=y_label)
     else:
         fig = go.Figure(go.Bar(x=labels, y=values, marker_color=colors, text=values, textposition="auto"))
-        fig.update_layout(xaxis_title=x_label, yaxis_title=y_label)
 
     fig.update_layout(
         title={"text": title, "font": {"size": 16, "color": THEME["primary"]}},
+        xaxis_title=x_label,
+        yaxis_title=y_label,
         height=400,
         margin={"l": 40, "r": 20, "t": 50, "b": 40},
         plot_bgcolor="rgba(0,0,0,0)",
@@ -458,7 +451,7 @@ def _render_sidebar() -> None:
 
 def _on_example_click(question: str) -> None:
     """Callback for example question buttons."""
-    st.session_state._pending_question = question
+    st.session_state["_pending_question"] = question
 
 
 def _render_welcome(placeholder: st.delta_generator.DeltaGenerator) -> None:
