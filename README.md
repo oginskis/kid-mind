@@ -76,7 +76,7 @@ The section-aware chunking means a cost question matches cost sections, not unre
 
 [ChromaDB](https://www.trychroma.com/) is the vector store. It holds the embedded chunks with metadata, so the agent can combine semantic search (“find ETFs investing in emerging markets”) with exact filters (“only Vanguard, risk level 3”) in a single query.
 
-Embedding models are pluggable — works with Ollama, OpenAI, or local sentence-transformers out of the box.
+Embedding models are pluggable — works with Gemini (native API), Ollama, OpenAI, or local sentence-transformers out of the box.
 
 ### Reranking
 
@@ -143,7 +143,10 @@ Edit `.env`. The agent works with multiple LLM providers — pick the setup that
 | **Anthropic** | `AGENT_BACKEND=claude` `ANTHROPIC_API_KEY=sk-ant-...` | Switches to Claude Agent SDK backend |
 | **Other** (LiteLLM, vLLM, etc.) | `OPENAI_API_BASE=<url>` `OPENAI_API_KEY=<key>` `MODEL=<model>` | Any OpenAI-compatible API works |
 
-**Embeddings** can use a different provider than inference. Set `EMBEDDING_API_BASE` and `EMBEDDING_API_KEY` to point embeddings at a separate endpoint. If not set, they fall back to the inference endpoint. If no API key is set at all, local sentence-transformers (`all-MiniLM-L6-v2`) are used automatically.
+**Embeddings** can use a different provider than inference:
+1. `EMBEDDING_API_KEY` set → OpenAI-compatible endpoint (Ollama, OpenAI, etc.)
+2. `GEMINI_API_KEY` set (no `EMBEDDING_API_KEY`) → native Google GenAI API (`gemini-embedding-001`)
+3. Neither → local sentence-transformers (`all-MiniLM-L6-v2`)
 
 ```bash
 # ── Inference: pick one ──
@@ -243,6 +246,33 @@ uv run streamlit run streamlit_app.py
 
 Opens at `http://localhost:8501`. Ask questions, compare ETFs, render charts.
 
+## Deploying to GKE
+
+The app can run on GKE Autopilot with ChromaDB as a StatefulSet, Streamlit as a Deployment, and a chunking Job that pulls PDFs from GCS.
+
+```bash
+# Build and push the Docker image via Cloud Build
+gcloud builds submit \
+  --tag europe-north1-docker.pkg.dev/alteronic-ai/kid-mind/kid-mind:latest \
+  --project=alteronic-ai .
+
+# Deploy core infrastructure
+kubectl apply -f k8s/namespace.yaml
+kubectl apply -f k8s/chromadb/
+
+# Set secrets, then deploy Streamlit
+kubectl create secret generic streamlit-secrets \
+  --from-literal="GEMINI_API_KEY=<your-key>" -n kid-mind
+kubectl apply -f k8s/streamlit/
+
+# Run the chunking job (one-time setup for Workload Identity first)
+./scripts/setup-workload-identity.sh
+./scripts/upload-kids-to-gcs.sh
+kubectl apply -f k8s/chunker/
+```
+
+HTTPS access is via GKE Gateway API with a managed certificate. See `CLAUDE.md` for full deployment details.
+
 ## Keeping data up to date
 
 Check for new or updated KID documents:
@@ -296,9 +326,22 @@ kid-mind/
 │   ├── kids/                      # Downloaded KID PDFs
 │   └── chunks/                    # Debug JSON output
 ├── tests/                         # Test suite (83+ tests)
-├── docker-compose.yml             # ChromaDB service
+├── Dockerfile                     # App image (Streamlit + chunker)
+├── .dockerignore                  # Exclude data/, .env, .git, etc.
+├── docker-compose.yml             # ChromaDB service (local dev)
 ├── pyproject.toml                 # Dependencies and project config
-└── .claude/skills/kid-collector/  # ISIN discovery and KID download scripts
+├── k8s/                           # Kubernetes manifests (GKE Autopilot)
+│   ├── chromadb/                  # ChromaDB StatefulSet + Service
+│   ├── streamlit/                 # Deployment + Service + Gateway API
+│   └── chunker/                   # Job (GCS init container + chunker)
+├── scripts/                       # Infrastructure scripts (POSIX shell)
+│   ├── upload-kids-to-gcs.sh      # Upload KID PDFs from remote box to GCS
+│   └── setup-workload-identity.sh # Provision Workload Identity for chunker
+└── .claude/skills/                # Agent skills
+    ├── kid-collector/             # ISIN discovery and KID download
+    ├── cloud-build/               # Build & push Docker images via Cloud Build
+    ├── ssh/                       # Remote command execution
+    └── deploy/                    # Docker Compose deployment via SSH
 ```
 
 ## License
