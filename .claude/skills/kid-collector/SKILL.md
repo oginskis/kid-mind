@@ -175,6 +175,25 @@ Each must be a separate `run_in_background` call in a single message. Report eac
 4. Add `download_<provider>()` to `download_kids.py`, add to `--provider` choices and dispatch
 5. Create `references/<provider>.md` with URL patterns, cookie selectors, known issues
 
+## Remote execution
+
+To run collection scripts on the remote server, use the **SSH skill** (`.claude/skills/ssh/scripts/ssh-run.sh`). Never rsync files directly — the SSH skill's `sync.sh` enforces `.env` exclusion and `data/` directory protection.
+
+Sync project code first (respecting standard exclusions):
+```bash
+. .env && rsync -az --exclude='.env' --exclude='data/' --exclude='.venv' --exclude='__pycache__' --exclude='.git' ./ ${SSH_USER}@${SSH_HOST}:~/kid-mind/
+```
+
+Then run scripts remotely:
+```bash
+SSH=.claude/skills/ssh/scripts/ssh-run.sh
+REQS=.claude/skills/kid-collector/scripts/requirements.txt
+SCRIPTS=.claude/skills/kid-collector/scripts
+
+$SSH --no-sync "cd ~/kid-mind && uv run --with-requirements $REQS $SCRIPTS/discover_isins.py"
+$SSH --no-sync "cd ~/kid-mind && uv run --with-requirements $REQS $SCRIPTS/download_kids.py -p vanguard"
+```
+
 ## Troubleshooting
 
 ### Discovery returns 0 ISINs

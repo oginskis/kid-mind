@@ -18,9 +18,19 @@ if [ -z "${SSH_HOST:-}" ] || [ -z "${SSH_USER:-}" ]; then
   exit 1
 fi
 
-# Sync scripts to remote before executing
-"${SCRIPT_DIR}/sync.sh"
+SYNC=true
+ARGS=""
+for arg in "$@"; do
+  case "${arg}" in
+    --no-sync) SYNC=false ;;
+    *) ARGS="${ARGS:+${ARGS} }${arg}" ;;
+  esac
+done
 
-CMD="${*:-hostname && uptime}"
+if [ "${SYNC}" = true ]; then
+  "${SCRIPT_DIR}/sync.sh"
+fi
 
-ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 "${SSH_USER}@${SSH_HOST}" "${CMD}"
+CMD="${ARGS:-hostname && uptime}"
+
+ssh -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 "${SSH_USER}@${SSH_HOST}" "${CMD}"

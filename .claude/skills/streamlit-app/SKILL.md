@@ -59,6 +59,18 @@ The app reads from `.env` at project root. Key variables:
 | `MODEL` | No | LLM model name (e.g. `gemini-2.5-flash`, `qwen3:30b`) |
 | `AGENT_BACKEND` | No | `pydantic` (default) or `claude` |
 
+## Remote deployment
+
+This skill manages the Streamlit app **locally only**. To run or manage the app on the remote server, use the **SSH skill** (`.claude/skills/ssh/scripts/ssh-run.sh`) for both file syncing and command execution.
+
+- **NEVER rsync files from this skill** — all file syncing to the remote must go through the SSH skill's `sync.sh`, which enforces `.env` exclusion and `data/` directory protection.
+- **Sync project code first** — the SSH skill's `sync.sh` only syncs the `scripts/` directory. Before running the app remotely, sync the project code with rsync (respecting the standard exclusions from the SSH skill's deployment guardrails):
+  ```bash
+  . .env && rsync -az --exclude='.env' --exclude='data/' --exclude='.venv' --exclude='__pycache__' --exclude='.git' ./ ${SSH_USER}@${SSH_HOST}:~/kid-mind/
+  ```
+- To start the app remotely: `.claude/skills/ssh/scripts/ssh-run.sh --no-sync "cd ~/kid-mind && uv run streamlit run streamlit_app.py --server.headless true"`
+- To check status remotely: `.claude/skills/ssh/scripts/ssh-run.sh --no-sync "cd ~/kid-mind && .claude/skills/streamlit-app/scripts/status.sh"`
+
 ## Troubleshooting
 
 If a script reports an error, relay the exact error message to the user. The scripts provide actionable instructions for each failure mode. Do not guess — run `status.sh` first to diagnose.

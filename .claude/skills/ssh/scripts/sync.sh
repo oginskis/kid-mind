@@ -21,8 +21,9 @@ fi
 REMOTE_DIR="${1:-~/scripts/}"
 
 # Guardrail: never sync to a data directory on the remote
-case "${REMOTE_DIR}" in
-  */data/*|*/data|*data/)
+NORMALIZED_DIR=$(echo "${REMOTE_DIR}" | sed 's:/*$::')
+case "${NORMALIZED_DIR}" in
+  data|*/data|*/data/*)
     echo "Error: refusing to rsync to a data/ directory on the remote." >&2
     echo "Remote data directories must not be overwritten. Use scp or rsync without --delete." >&2
     exit 1
@@ -31,6 +32,7 @@ esac
 
 # shellcheck disable=SC2154  # SSH_USER and SSH_HOST come from .env
 rsync -avz --delete \
-  -e "ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10" \
+  --exclude='.env' \
+  -e "ssh -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10" \
   "${SCRIPT_DIR}/" \
   "${SSH_USER}@${SSH_HOST}:${REMOTE_DIR}"

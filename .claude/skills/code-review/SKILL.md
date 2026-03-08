@@ -71,6 +71,7 @@ Read `AGENTS.md` before every review — it may have been updated. Focus on thes
 - **Primary**: `src/kid_mind/*.py` — these files must strictly follow AGENTS.md
 - **Secondary**: `chunk_kids_cli.py`, `streamlit_app.py`, `agent_cli.py` — project root scripts, should follow conventions
 - **Tertiary**: `.claude/skills/*/scripts/*.py` — skill scripts, lighter standards but should still be clean
+- **Shell scripts**: `.claude/skills/ssh/scripts/*.sh`, `.claude/skills/streamlit-app/scripts/*.sh` — not covered by the automated review script (Python only). Review manually for: `set -eu`/`set -euo pipefail`, proper quoting, `.env` sourcing patterns, and deployment guardrail compliance (`.env` exclusion, `data/` protection).
 - **Skip**: `tests/`, `.venv/`, third-party code
 
 ### Output format
