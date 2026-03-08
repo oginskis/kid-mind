@@ -15,6 +15,11 @@ section[data-testid="stSidebar"] .stMarkdown h1 {
     letter-spacing: -0.02em;
 }
 header[data-testid="stHeader"] {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+header[data-testid="stHeader"] [data-testid="stToolbar"] [data-testid="stToolbarActions"],
+header[data-testid="stHeader"] [data-testid="stToolbar"] [data-testid="stMainMenu"] {
     display: none !important;
 }
 h1 a, h2 a, h3 a { display: none; }
