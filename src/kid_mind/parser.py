@@ -16,7 +16,7 @@ from kid_mind.config import (
     EMBEDDING_API_KEY,
     EMBEDDING_DIMENSION,
     EMBEDDING_MODEL,
-    OPENAI_EMBEDDING_MODEL,
+    GEMINI_API_KEY,
 )
 
 log = logging.getLogger(__name__)
@@ -495,8 +495,10 @@ _CHUNKER_MAX_TOKENS = 8192
 def _get_chunker() -> object | None:
     """Lazily initialize the Chonkie SemanticChunker (thread-safe).
 
-    Uses OpenAI-compatible embeddings when EMBEDDING_API_KEY is set,
-    otherwise falls back to local sentence-transformers.
+    Embedding provider follows the same fallback chain as tools.py:
+      1. EMBEDDING_API_KEY → OpenAI-compatible (Ollama, OpenAI, etc.)
+      2. GEMINI_API_KEY → native Google GenAI API
+      3. Neither → local sentence-transformers
     Returns None only if initialization fails.
     """
     global _chunker_instance  # noqa: PLW0603
@@ -519,7 +521,7 @@ def _get_chunker() -> object | None:
                 import tiktoken
                 from chonkie import OpenAIEmbeddings
 
-                model = EMBEDDING_MODEL or OPENAI_EMBEDDING_MODEL
+                model = EMBEDDING_MODEL or "text-embedding-3-small"
                 kwargs: dict = {"model": model, "api_key": EMBEDDING_API_KEY}
                 if EMBEDDING_API_BASE:
                     kwargs["base_url"] = EMBEDDING_API_BASE
@@ -529,6 +531,15 @@ def _get_chunker() -> object | None:
                     kwargs["max_tokens"] = _CHUNKER_MAX_TOKENS
                 embeddings = OpenAIEmbeddings(**kwargs)
                 log.info("SemanticChunker ready: model=%s, api_base=%s", model, EMBEDDING_API_BASE or "default")
+            elif GEMINI_API_KEY:
+                from chonkie import GeminiEmbeddings
+
+                model = EMBEDDING_MODEL or "gemini-embedding-001"
+                embeddings = GeminiEmbeddings(
+                    model=model,
+                    api_key=GEMINI_API_KEY,
+                )
+                log.info("SemanticChunker ready: Gemini model=%s", model)
             else:
                 from chonkie import SentenceTransformerEmbeddings
 

@@ -43,23 +43,33 @@ class TestSearchEtfDocuments:
     """Semantic search via search_etf_documents()."""
 
     def test_bond_query_finds_vanguard_bond(self) -> None:
-        result = search_etf_documents("eurozone government bond", )
+        result = search_etf_documents(
+            "eurozone government bond",
+        )
         assert "IE00004S2680" in result
 
     def test_gold_query_finds_gold_etcs(self) -> None:
-        result = search_etf_documents("gold", )
+        result = search_etf_documents(
+            "gold",
+        )
         assert "DE000A1E0HR8" in result or "DE000A1EK0G3" in result
 
     def test_treasury_query_finds_spdr(self) -> None:
-        result = search_etf_documents("US treasury bond", )
+        result = search_etf_documents(
+            "US treasury bond",
+        )
         assert "IE000191HKF0" in result
 
     def test_esg_query_finds_vanguard_esg(self) -> None:
-        result = search_etf_documents("ESG sustainable responsible investing", )
+        result = search_etf_documents(
+            "ESG sustainable responsible investing",
+        )
         assert "IE0001RDRUG3" in result
 
     def test_china_query_finds_csi300(self) -> None:
-        result = search_etf_documents("China CSI 300 index", )
+        result = search_etf_documents(
+            "China CSI 300 index",
+        )
         assert "LU0779800910" in result
 
     def test_section_filter_costs(self) -> None:

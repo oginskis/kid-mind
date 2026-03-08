@@ -73,7 +73,9 @@ def _resolve_model():
     from pydantic_ai.providers.openai import OpenAIProvider
 
     provider = OpenAIProvider(base_url=config.OPENAI_API_BASE) if config.OPENAI_API_BASE else OpenAIProvider()
-    log.info("Using OpenAI-compatible provider: model=%s, api_base=%s", config.MODEL, config.OPENAI_API_BASE or "default")
+    log.info(
+        "Using OpenAI-compatible provider: model=%s, api_base=%s", config.MODEL, config.OPENAI_API_BASE or "default"
+    )
     return OpenAIChatModel(config.MODEL, provider=provider)
 
 

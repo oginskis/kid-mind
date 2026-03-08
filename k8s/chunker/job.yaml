@@ -1,0 +1,58 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: chunk-kids
+  namespace: kid-mind
+spec:
+  backoffLimit: 2
+  template:
+    metadata:
+      labels:
+        app: chunker
+    spec:
+      serviceAccountName: chunker
+      initContainers:
+        - name: download-kids
+          image: google/cloud-sdk:slim
+          command: ["sh", "-c"]
+          args:
+            - |
+              echo "Downloading KID PDFs and ISIN metadata from GCS..."
+              mkdir -p /data/kids /data/isins &&
+              gcloud storage cp -r 'gs://kid-mind-data/kids/*' /data/kids/ &&
+              gcloud storage cp -r 'gs://kid-mind-data/isins/*' /data/isins/ &&
+              echo "Downloaded $(find /data/kids -name '*.pdf' | wc -l) PDFs"
+          volumeMounts:
+            - name: kid-data
+              mountPath: /data
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: 250m
+              memory: 512Mi
+      containers:
+        - name: chunker
+          image: europe-north1-docker.pkg.dev/alteronic-ai/kid-mind/kid-mind:latest
+          workingDir: /app
+          command: ["uv", "run", "python", "chunk_kids_cli.py"]
+          envFrom:
+            - configMapRef:
+                name: chunker-config
+            - secretRef:
+                name: chunker-secrets
+          volumeMounts:
+            - name: kid-data
+              mountPath: /app/data
+          resources:
+            requests:
+              cpu: "4"
+              memory: 6Gi
+            limits:
+              cpu: "4"
+              memory: 6Gi
+      volumes:
+        - name: kid-data
+          emptyDir: {}
+      restartPolicy: Never

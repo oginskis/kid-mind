@@ -4,10 +4,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
-
-import os
 
 import chromadb
 import pytest
@@ -19,7 +18,14 @@ load_dotenv(_project_root / ".env")
 
 # Force local sentence-transformers embeddings in tests — tests must not
 # depend on external API endpoints (Ollama, OpenAI, etc.)
-for _key in ("OPENAI_API_KEY", "OPENAI_API_BASE", "EMBEDDING_API_KEY", "EMBEDDING_API_BASE", "EMBEDDING_MODEL", "GEMINI_API_KEY"):
+for _key in (
+    "OPENAI_API_KEY",
+    "OPENAI_API_BASE",
+    "EMBEDDING_API_KEY",
+    "EMBEDDING_API_BASE",
+    "EMBEDDING_MODEL",
+    "GEMINI_API_KEY",
+):
     os.environ.pop(_key, None)
 
 import kid_mind.config  # noqa: E402

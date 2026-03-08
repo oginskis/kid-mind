@@ -36,9 +36,10 @@ OUT = Path(__file__).parent / "model_comparison_raw.json"
 
 def ssh(cmd):
     r = subprocess.run(
-        ["ssh", "-o", "StrictHostKeyChecking=no", "-o", "ConnectTimeout=10",
-         f"{SSH_USER}@{SSH_HOST}", cmd],
-        capture_output=True, text=True, timeout=60,
+        ["ssh", "-o", "StrictHostKeyChecking=no", "-o", "ConnectTimeout=10", f"{SSH_USER}@{SSH_HOST}", cmd],
+        capture_output=True,
+        text=True,
+        timeout=60,
     )
     return r.stdout.strip()
 
@@ -52,13 +53,22 @@ def switch_model_on_box(model):
     time.sleep(2)
     # Start streamlit via ssh -f (forks to background immediately)
     subprocess.run(
-        ["ssh", "-f", "-o", "StrictHostKeyChecking=no", "-o", "ConnectTimeout=10",
-         f"{SSH_USER}@{SSH_HOST}",
-         "cd ~/kid-mind && export PATH=$HOME/.local/bin:$PATH && "
-         "nohup uv run streamlit run streamlit_app.py "
-         "--server.headless true --server.address 0.0.0.0 --server.port 8501 "
-         "</dev/null >/tmp/streamlit.log 2>&1 &"],
-        capture_output=True, text=True, timeout=10,
+        [
+            "ssh",
+            "-f",
+            "-o",
+            "StrictHostKeyChecking=no",
+            "-o",
+            "ConnectTimeout=10",
+            f"{SSH_USER}@{SSH_HOST}",
+            "cd ~/kid-mind && export PATH=$HOME/.local/bin:$PATH && "
+            "nohup uv run streamlit run streamlit_app.py "
+            "--server.headless true --server.address 0.0.0.0 --server.port 8501 "
+            "</dev/null >/tmp/streamlit.log 2>&1 &",
+        ],
+        capture_output=True,
+        text=True,
+        timeout=10,
     )
     print("  Waiting for Streamlit to be ready...")
     for _ in range(30):
@@ -125,9 +135,9 @@ def main():
         browser = pw.chromium.launch(headless=False)
 
         for mi, model in enumerate(MODELS):
-            print(f"\n{'='*60}")
-            print(f"MODEL {mi+1}/{len(MODELS)}: {model}")
-            print(f"{'='*60}")
+            print(f"\n{'=' * 60}")
+            print(f"MODEL {mi + 1}/{len(MODELS)}: {model}")
+            print(f"{'=' * 60}")
 
             if mi > 0:
                 switch_model_on_box(model)
@@ -140,13 +150,15 @@ def main():
 
             for qi, question in enumerate(QUESTIONS, 1):
                 answer, elapsed = ask(page, question, qi)
-                all_results.append({
-                    "model": model,
-                    "question": question,
-                    "answer": answer,
-                    "elapsed_sec": elapsed,
-                    "word_count": len(answer.split()),
-                })
+                all_results.append(
+                    {
+                        "model": model,
+                        "question": question,
+                        "answer": answer,
+                        "elapsed_sec": elapsed,
+                        "word_count": len(answer.split()),
+                    }
+                )
                 # Save after each question in case of crash
                 OUT.write_text(json.dumps(all_results, indent=2, ensure_ascii=False))
 

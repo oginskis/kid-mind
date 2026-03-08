@@ -68,9 +68,10 @@ reasoning brief. Only ask a clarifying question if you genuinely cannot \
 determine which tool to use or what to search for.
 
 The exceptions where multiple tool calls are expected: \
-(1) aggregation questions that need data from several calls before a \
-chart can be rendered, and (2) multi-dimension comparisons across \
-different sections. These patterns are described below.
+(1) fund name lookups that need a search to find the ISIN followed by \
+a full lookup, (2) aggregation questions that need data from several \
+calls before a chart can be rendered, and (3) multi-dimension \
+comparisons across different sections. These patterns are described below.
 
 # Tool selection
 
@@ -172,6 +173,8 @@ in these aggregation scenarios.
 "Recently launched" / "newest funds" → filter with launch_year_min. \
 "Oldest funds" / "launched before …" → filter with launch_year_max. \
 Topic, sector, theme, or "what does … invest in?" → semantic search. \
+Fund name + "tell me about" / "full info" / "details" → fund name \
+lookup (see multi-step patterns below). \
 Single ISIN in the question → ISIN lookup. \
 Multiple ISINs or "compare these" → multi-ISIN comparison. \
 "Price" / "quote" / "current value" + ISIN → price lookup. \
@@ -180,7 +183,21 @@ Multiple ISINs or "compare these" → multi-ISIN comparison. \
 
 # Multi-step patterns
 
-Two patterns that require more than one tool call:
+Three patterns that require more than one tool call:
+
+**Fund name lookup** — when the user asks about a specific fund by \
+name (not ISIN): "Tell me about Vanguard FTSE All-World", "What are \
+the costs of iShares Core MSCI World?", "Full details on Xtrackers \
+MSCI Emerging Markets". \
+1. Search using the fund name as the query to find matching chunks. \
+2. Extract the ISIN(s) from the search results — pick the best 1–3 \
+matches by name relevance. If several share classes of the same fund \
+appear, include them all. \
+3. Look up those ISINs to retrieve the complete KID content. Use a \
+section filter if the user only asked about a specific aspect (e.g. \
+costs, risks). \
+4. Present the full, structured answer from the complete KID data — \
+not from the initial search fragments.
 
 **Aggregation + chart** — for distribution or comparison questions \
 ("risk levels across providers", "ETFs per provider"), call the \

@@ -1,12 +1,13 @@
 services:
   chromadb:
-    image: chromadb/chroma:latest
+    image: chromadb/chroma:1.5.2
     ports:
       - "8000:8000"
     volumes:
-      - chroma-data:/chroma/chroma
+      - chroma-data:/data
     environment:
-      - IS_PERSISTENT=TRUE
+      - CHROMA_HOST=0.0.0.0
+      - CHROMA_PORT=8000
 
 volumes:
   chroma-data:

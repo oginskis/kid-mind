@@ -38,24 +38,23 @@ GEMINI_API_KEY = _env("GEMINI_API_KEY")
 # Embeddings can use a DIFFERENT provider than inference.
 #
 # Fallback chain:
-#   EMBEDDING_API_KEY set → dedicated embedding endpoint
-#   Otherwise OPENAI_API_KEY set → same endpoint as inference
-#   Neither → local sentence-transformers (all-MiniLM-L6-v2)
+#   1. EMBEDDING_API_KEY set → OpenAI-compatible endpoint (Ollama, OpenAI, etc.)
+#   2. GEMINI_API_KEY set (no EMBEDDING_API_KEY) → native Google GenAI API
+#   3. Neither → local sentence-transformers (all-MiniLM-L6-v2)
 #
 # IMPORTANT: the embedding model used at query time MUST match the one used
 # when the ChromaDB collection was indexed. Switching models requires
 # re-indexing (uv run python chunk_kids_cli.py).
-LOCAL_EMBEDDING_MODEL = "all-MiniLM-L6-v2"
-OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_API_BASE = _env("EMBEDDING_API_BASE") or OPENAI_API_BASE
 EMBEDDING_API_KEY = _env("EMBEDDING_API_KEY") or OPENAI_API_KEY
 EMBEDDING_MODEL = _env("EMBEDDING_MODEL")
 EMBEDDING_DIMENSION = int(os.environ.get("EMBEDDING_DIMENSION", "768"))
 
+
 # ── Search ───────────────────────────────────────────────────────────────────
-SEARCH_RESULTS = 40                # results returned to the agent (fixed)
-SEARCH_FETCH_NO_RERANK = 40        # candidates fetched when reranker is off
-SEARCH_FETCH_RERANK = 60           # candidates fetched when reranker is on
+SEARCH_RESULTS = 40  # results returned to the agent (fixed)
+SEARCH_FETCH_NO_RERANK = 40  # candidates fetched when reranker is off
+SEARCH_FETCH_RERANK = 60  # candidates fetched when reranker is on
 
 # ── Reranker ─────────────────────────────────────────────────────────────────
 # Set RERANKER_ENABLED=false to disable cross-encoder reranking.

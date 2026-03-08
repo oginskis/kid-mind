@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chunker-config
+  namespace: kid-mind
+data:
+  CHROMADB_HOST: chromadb.kid-mind.svc.cluster.local
+  CHROMADB_PORT: "8000"
+  CHROMADB_COLLECTION: kid_chunks
+  EMBEDDING_MODEL: gemini-embedding-001
+  MAX_WORKERS: "3"

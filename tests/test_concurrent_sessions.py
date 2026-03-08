@@ -57,9 +57,7 @@ async def run_session(
                 msg_locator = page.locator('[data-testid="stChatMessage"]')
                 msgs_before = await msg_locator.count()
 
-                chat_input = page.locator(
-                    'textarea[aria-label="Ask about European ETFs..."]'
-                )
+                chat_input = page.locator('textarea[aria-label="Ask about European ETFs..."]')
                 await chat_input.fill(query)
                 await page.keyboard.press("Enter")
 
@@ -73,22 +71,26 @@ async def run_session(
 
                         page_text = await page.inner_text("body")
                         if EVENT_LOOP_ERROR in page_text:
-                            results.append({
-                                "id": query_id,
-                                "ok": False,
-                                "loop_error": True,
-                                "detail": "Event loop error in page body",
-                            })
+                            results.append(
+                                {
+                                    "id": query_id,
+                                    "ok": False,
+                                    "loop_error": True,
+                                    "detail": "Event loop error in page body",
+                                }
+                            )
                             log.warning("%s FAIL: event loop error", query_id)
                             break
 
                         if "Agent error" in page_text:
-                            results.append({
-                                "id": query_id,
-                                "ok": False,
-                                "loop_error": False,
-                                "detail": "Agent error in page body",
-                            })
+                            results.append(
+                                {
+                                    "id": query_id,
+                                    "ok": False,
+                                    "loop_error": False,
+                                    "detail": "Agent error in page body",
+                                }
+                            )
                             log.warning("%s FAIL: agent error", query_id)
                             break
 
@@ -96,32 +98,40 @@ async def run_session(
                         if count >= expected:
                             response_text = await msg_locator.nth(expected - 1).inner_text()
                             if len(response_text) > 30:
-                                results.append({
-                                    "id": query_id,
-                                    "ok": True,
-                                    "loop_error": False,
-                                    "detail": response_text[:120],
-                                })
+                                results.append(
+                                    {
+                                        "id": query_id,
+                                        "ok": True,
+                                        "loop_error": False,
+                                        "detail": response_text[:120],
+                                    }
+                                )
                                 log.info("%s OK (%d chars)", query_id, len(response_text))
                                 break
                     else:
-                        results.append({
-                            "id": query_id,
-                            "ok": False,
-                            "loop_error": False,
-                            "detail": f"Timeout ({response_text[:80]})" if response_text else "Timeout (no response)",
-                        })
+                        results.append(
+                            {
+                                "id": query_id,
+                                "ok": False,
+                                "loop_error": False,
+                                "detail": f"Timeout ({response_text[:80]})"
+                                if response_text
+                                else "Timeout (no response)",
+                            }
+                        )
                         log.warning("%s FAIL: timeout", query_id)
 
                 except Exception as exc:
                     page_text = await page.inner_text("body")
                     is_loop_error = EVENT_LOOP_ERROR in str(exc) or EVENT_LOOP_ERROR in page_text
-                    results.append({
-                        "id": query_id,
-                        "ok": False,
-                        "loop_error": is_loop_error,
-                        "detail": str(exc)[:200],
-                    })
+                    results.append(
+                        {
+                            "id": query_id,
+                            "ok": False,
+                            "loop_error": is_loop_error,
+                            "detail": str(exc)[:200],
+                        }
+                    )
                     log.warning("%s FAIL: %s", query_id, str(exc)[:120])
 
         finally:
@@ -133,10 +143,7 @@ async def main(base_url: str) -> None:
     results: list[dict] = []
     start = time.monotonic()
 
-    tasks = [
-        run_session(i, base_url, results)
-        for i in range(NUM_SESSIONS)
-    ]
+    tasks = [run_session(i, base_url, results) for i in range(NUM_SESSIONS)]
     await asyncio.gather(*tasks, return_exceptions=True)
 
     elapsed = time.monotonic() - start
@@ -145,7 +152,7 @@ async def main(base_url: str) -> None:
     loop_errors = sum(1 for r in results if r.get("loop_error"))
 
     print(f"\n{'=' * 60}")
-    print(f"Concurrent session stress test")
+    print("Concurrent session stress test")
     print(f"Sessions: {NUM_SESSIONS}, Queries/session: {QUERIES_PER_SESSION}")
     print(f"Elapsed: {elapsed:.1f}s")
     print(f"Results: {passed}/{total} passed, {total - passed} failed")

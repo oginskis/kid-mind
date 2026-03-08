@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -44,7 +45,7 @@ CHUNKS_DIR = Path("data") / "chunks"
 
 # ── Batch ────────────────────────────────────────────────────────────────────
 CHROMADB_BATCH_SIZE = 100
-MAX_WORKERS = 5
+MAX_WORKERS = int(os.environ.get("MAX_WORKERS", "3"))
 
 
 # ── ISIN record lookup ────────────────────────────────────────────────────────

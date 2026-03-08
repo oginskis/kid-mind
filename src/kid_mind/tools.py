@@ -21,8 +21,7 @@ from kid_mind.config import (
     EMBEDDING_API_KEY,
     EMBEDDING_MODEL,
     EXCHANGE_PRIORITY,
-    LOCAL_EMBEDDING_MODEL,
-    OPENAI_EMBEDDING_MODEL,
+    GEMINI_API_KEY,
     OPENFIGI_URL,
     RERANKER_ENABLED,
     RERANKER_MODEL,
@@ -52,24 +51,36 @@ def _ensure_yfinance() -> None:
 
 
 def create_embedding_function() -> object:
-    """Create the embedding function based on environment configuration.
+    """Create the embedding function matching the EMBEDDING_MODEL env var.
 
-    Uses EMBEDDING_API_KEY/EMBEDDING_API_BASE when set (with fallback
-    to OPENAI_API_KEY/OPENAI_API_BASE). Otherwise local sentence-transformers.
+    Fallback chain:
+      1. EMBEDDING_API_KEY → OpenAI-compatible (Ollama, OpenAI, etc.)
+      2. GEMINI_API_KEY → native Google GenAI API
+      3. Neither → local sentence-transformers
     """
     if EMBEDDING_API_KEY:
         from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 
-        model = EMBEDDING_MODEL or OPENAI_EMBEDDING_MODEL
+        model = EMBEDDING_MODEL or "text-embedding-3-small"
         kwargs = {"api_key": EMBEDDING_API_KEY, "model_name": model}
         if EMBEDDING_API_BASE:
             kwargs["api_base"] = EMBEDDING_API_BASE
         log.info("Using OpenAI-compatible embeddings: model=%s, api_base=%s", model, EMBEDDING_API_BASE or "default")
         return OpenAIEmbeddingFunction(**kwargs)
 
+    if GEMINI_API_KEY:
+        from chromadb.utils.embedding_functions import GoogleGenaiEmbeddingFunction
+
+        model = EMBEDDING_MODEL or "gemini-embedding-001"
+        log.info("Using Gemini embeddings via google-genai: model=%s", model)
+        return GoogleGenaiEmbeddingFunction(
+            model_name=model,
+            api_key_env_var="GEMINI_API_KEY",
+        )
+
     from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
 
-    model = EMBEDDING_MODEL or LOCAL_EMBEDDING_MODEL
+    model = EMBEDDING_MODEL or "all-MiniLM-L6-v2"
     log.info("Using local sentence-transformers: model=%s", model)
     return SentenceTransformerEmbeddingFunction(model_name=model)
 

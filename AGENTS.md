@@ -108,6 +108,23 @@
 - Use lazy initialization for expensive resources (ML models, converters).
 - Data outputs go under `data/`.
 
+## Shell Scripts
+
+Scripts in `scripts/` must be POSIX-compatible (`/bin/sh`). No bashisms.
+
+- Shebang: `#!/bin/sh` (not `#!/usr/bin/env bash`)
+- Use `set -eu` (not `set -euo pipefail` — `pipefail` is not POSIX)
+- Use `[ ]` for tests (not `[[ ]]`)
+- Use `=` for string comparison (not `==`)
+- Use `>/dev/null 2>&1` for output suppression (not `&>/dev/null`)
+- Run `shellcheck` on all shell scripts before committing and fix all warnings
+- Use `# shellcheck disable=SCXXXX` only when the flagged pattern is intentional (e.g. variables meant to expand on a remote shell)
+
+```bash
+# Lint all shell scripts
+shellcheck scripts/*.sh
+```
+
 ## Ruff Linter
 
 **Configuration** lives in `pyproject.toml` under `[tool.ruff]`. Always check it before running.
@@ -157,4 +174,5 @@ Before pushing code:
 3. **Verify**: `uv run ruff check src/ tests/ chunk_kids_cli.py .claude/skills/kid-collector/scripts/` (no errors)
 4. **Tests**: `uv run python -m pytest tests/ -v`
 5. **Imports**: Verify no unused imports remain
-6. **Docs**: Update `CLAUDE.md` and `AGENTS.md` if project structure or conventions changed
+6. **Shellcheck**: `shellcheck scripts/*.sh` (no warnings)
+7. **Docs**: Update `CLAUDE.md` and `AGENTS.md` if project structure or conventions changed

@@ -1,0 +1,52 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: kid-mind-gateway
+  namespace: kid-mind
+  annotations:
+    networking.gke.io/certmap: "alteronic-certificate-map"
+spec:
+  gatewayClassName: gke-l7-global-external-managed
+  listeners:
+  - name: https
+    protocol: HTTPS
+    port: 443
+---
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: kid-mind-route
+  namespace: kid-mind
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: kid-mind-gateway
+  hostnames:
+  - "kid.alteronic.dev"
+  rules:
+  - backendRefs:
+    - name: streamlit
+      port: 8501
+---
+apiVersion: networking.gke.io/v1
+kind: HealthCheckPolicy
+metadata:
+  name: streamlit-health
+  namespace: kid-mind
+spec:
+  default:
+    checkIntervalSec: 10
+    timeoutSec: 5
+    healthyThreshold: 2
+    unhealthyThreshold: 3
+    logConfig:
+      enabled: true
+    config:
+      type: HTTP
+      httpHealthCheck:
+        requestPath: /healthz
+        port: 8501
+  targetRef:
+    group: ""
+    kind: Service
+    name: streamlit

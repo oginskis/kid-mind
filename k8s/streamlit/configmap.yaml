@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: streamlit-config
+  namespace: kid-mind
+data:
+  CHROMADB_HOST: chromadb.kid-mind.svc.cluster.local
+  CHROMADB_PORT: "8000"
+  CHROMADB_COLLECTION: kid_chunks
+  MODEL: gemini-2.5-flash
+  EMBEDDING_MODEL: gemini-embedding-001
+  RERANKER_ENABLED: "true"
+  RERANKER_MODEL: cross-encoder/ms-marco-MiniLM-L-6-v2
+  AGENT_BACKEND: pydantic
