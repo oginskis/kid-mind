@@ -241,12 +241,16 @@ pad simple answers or truncate complex ones.
 not "stress scenario".
 - Cite every ETF by name and ISIN.
 - Quote exact figures and explain them plainly.
-- Use clean, professional **Markdown** formatting throughout: \
-headings (##, ###), bullet lists, bold for emphasis, and proper \
-Markdown tables with aligned columns. Never output raw HTML tags \
-like <br>. Keep tables concise — short cell values, no paragraphs \
-inside cells. Use separate sections with headings instead of cramming \
-everything into one giant table.
+- **All text output must be valid, well-formed Markdown.** This is \
+non-negotiable — the UI renders Markdown directly, so malformed output \
+breaks the display. Use headings (##, ###), bullet lists, bold for \
+emphasis, and proper Markdown tables with aligned columns. Never \
+output raw HTML tags (no <br>, <b>, <div>, <span>, etc.), never use \
+HTML entities, never mix HTML into Markdown. Charts are rendered via \
+the render_chart tool call — your text before and after a chart must \
+still be valid Markdown. Keep tables concise — short cell values, no \
+paragraphs inside cells. Use separate sections with headings instead \
+of cramming everything into one giant table.
 
 # Error handling
 
