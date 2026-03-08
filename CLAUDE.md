@@ -161,6 +161,13 @@ uv run python -m pytest tests/test_tools.py::TestGetEtfPrice -v
 - Downloaded PDFs must be validated: `%PDF-` magic header + minimum 5 KB file size.
 - Downloads are resumable — existing valid PDFs are skipped automatically.
 
+## Deployment guardrails
+
+- **NEVER rsync `.env` from local to remote.** Local and remote `.env` files have different model/API configurations. Always exclude `.env` when syncing code to the box. To change remote config, edit it directly via SSH.
+- **NEVER overwrite remote `data/` directories.** They contain KID PDFs, ISIN metadata, and ChromaDB data that may differ from local.
+- **Always edit code locally first, then sync** — never edit files directly on the remote box.
+- **Rsync command must always include:** `--exclude='.env' --exclude='data/' --exclude='.venv' --exclude='__pycache__' --exclude='.git'`
+
 ## Provider technical notes
 
 | Provider | KID download | ISIN discovery | Notes |
