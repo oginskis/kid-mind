@@ -246,32 +246,9 @@ uv run streamlit run streamlit_app.py
 
 Opens at `http://localhost:8501`. Ask questions, compare ETFs, render charts.
 
-## Deploying to GKE
+## Deploying to Kubernetes
 
-The app can run on GKE Autopilot with ChromaDB as a StatefulSet, Streamlit as a Deployment, and a chunking Job that pulls PDFs from GCS.
-
-```bash
-# Build and push the Docker image via Cloud Build
-gcloud builds submit \
-  --tag europe-north1-docker.pkg.dev/alteronic-ai/kid-mind/kid-mind:latest \
-  --project=alteronic-ai .
-
-# Deploy core infrastructure
-kubectl apply -f k8s/namespace.yaml
-kubectl apply -f k8s/chromadb/
-
-# Set secrets, then deploy Streamlit
-kubectl create secret generic streamlit-secrets \
-  --from-literal="GEMINI_API_KEY=<your-key>" -n kid-mind
-kubectl apply -f k8s/streamlit/
-
-# Run the chunking job (one-time setup for Workload Identity first)
-./scripts/setup-workload-identity.sh
-./scripts/upload-kids-to-gcs.sh
-kubectl apply -f k8s/chunker/
-```
-
-HTTPS access is via GKE Gateway API with a managed certificate. See `CLAUDE.md` for full deployment details.
+Sample Kubernetes manifests for GKE Autopilot are included in `k8s/` — ChromaDB as a StatefulSet, Streamlit as a Deployment, and a chunking Job that pulls PDFs from GCS. See `CLAUDE.md` for deployment details.
 
 ## Keeping data up to date
 
