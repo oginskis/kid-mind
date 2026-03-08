@@ -25,6 +25,7 @@ os.environ.pop("CLAUDECODE", None)
 
 from kid_mind.config import AGENT_BACKEND
 
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
 log = logging.getLogger(__name__)
 
 # ── Constants ────────────────────────────────────────────────────────────────
@@ -186,11 +187,16 @@ def _get_shared_loop() -> tuple[asyncio.AbstractEventLoop, threading.Thread]:
 _shared_loop, _shared_thread = _get_shared_loop()
 
 
-def _run(coro: object) -> object:
+def _run(coro: object, timeout: float = 300) -> object:
     """Submit a coroutine to the shared background loop and block for the result."""
     if not _shared_thread.is_alive():
         raise RuntimeError("Background event loop thread has died")
-    return asyncio.run_coroutine_threadsafe(coro, _shared_loop).result()
+    future = asyncio.run_coroutine_threadsafe(coro, _shared_loop)
+    try:
+        return future.result(timeout=timeout)
+    except TimeoutError:
+        future.cancel()
+        raise RuntimeError(f"Agent call timed out after {timeout}s")
 
 
 # ── Backend: Claude Agent SDK ───────────────────────────────────────────────
@@ -267,17 +273,25 @@ async def _collect_response_pydantic(prompt: str) -> list[dict]:
 
     from pydantic_ai.usage import UsageLimits
 
+    log.info("PydanticAI agent.run() starting — prompt: %s", prompt[:80])
     result = await agent.run(
         prompt,
         message_history=history or None,
-        usage_limits=UsageLimits(request_limit=15),
+        usage_limits=UsageLimits(request_limit=20),
     )
+    log.info("PydanticAI agent.run() completed")
 
     all_messages = result.all_messages()
     prev_len = len(history)
     st.session_state.pydantic_history = all_messages
 
-    blocks: list[dict] = [{"type": "text", "text": result.output}]
+    output = result.output
+    clean = "".join(ch for ch in output if ch.isprintable() or ch in "\n\r\t") if output else ""
+    if len(clean.strip()) < 10:
+        clean = "I couldn't generate a proper response. Please try rephrasing your question."
+        log.warning("Empty/malformed model output (%d chars): %r", len(output or ""), (output or "")[:100])
+
+    blocks: list[dict] = [{"type": "text", "text": clean}]
     blocks.extend(_extract_chart_blocks(all_messages[prev_len:]))
 
     usage = result.usage()
@@ -517,13 +531,16 @@ def _render_chat_history() -> None:
 
 def _process_prompt(prompt: str) -> None:
     """Send a new prompt and render + store the response."""
+    log.info("_process_prompt called — prompt: %s", prompt[:80])
     with st.chat_message("assistant", avatar=AVATAR_AGENT):
         try:
             with st.spinner(THINKING_TEXT):
+                log.info("Calling _send_message...")
                 blocks = _send_message(prompt)
+                log.info("_send_message returned %d blocks", len(blocks))
             _render_blocks(blocks, technical=st.session_state.get("show_technical", False))
             st.session_state.messages.append({"role": "assistant", "content": blocks})
-        except (RuntimeError, ValueError, OSError, ConnectionError) as exc:
+        except Exception as exc:
             log.warning("Agent error: %s", exc, exc_info=True)
             st.error(f"Agent error: {exc}")
 
