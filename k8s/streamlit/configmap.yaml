@@ -7,8 +7,10 @@ data:
   CHROMADB_HOST: chromadb.kid-mind.svc.cluster.local
   CHROMADB_PORT: "8000"
   CHROMADB_COLLECTION: kid_chunks
-  MODEL: gemini-2.5-flash
+  MODEL: gemini-3-flash-preview
   EMBEDDING_MODEL: gemini-embedding-001
   RERANKER_ENABLED: "true"
   RERANKER_MODEL: cross-encoder/ms-marco-MiniLM-L-6-v2
   AGENT_BACKEND: pydantic
+  VERTEX_AI: "true"
+  GOOGLE_CLOUD_LOCATION: europe-north1

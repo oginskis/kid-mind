@@ -1,16 +1,16 @@
 {
-  "_generated_at": "2026-03-07T12:04:45.858829+00:00",
+  "_generated_at": "2026-03-09T10:22:47.568761+00:00",
   "_pdf_sha256": "5a5fc6f16801816f5461b66ffe530ca5b6c480279850871497b8a69703d06bc0",
   "isin": "IE00004S2680",
   "provider": "vanguard",
-  "chunk_count": 11,
+  "chunk_count": 12,
   "chunks": [
     {
       "id": "IE00004S2680_product_and_description_0",
       "section": "product_and_description",
       "sub_index": 0,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n## Key Information Document\n\n## Purpose\n\nThis document provides you with key information about this investment Fund. It is not marketing material. The information is required by law to help you understand the nature, risks, costs, potential gains and losses of this Fund and to help you compare it with other funds.\n\n## Product\n\nProduct: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF (the \"Fund\") - (EUR) Accumulating Shares IE00004S2680\n\n## Vanguard Group (Ireland) Limited (\"VGIL\")\n\nCall +44 207 489 4305 for more information - https://global.vanguard.com - This Key Information Document is dated 23/07/2025.\n\nThe Central Bank of Ireland (the 'Central Bank') is responsible for supervising VGIL in relation to this Key Information Document.\n\nThe Fund is authorised in Ireland and has been registered for sale in other EEA Member States.\n\nVGIL is authorised in EEA Member States and regulated by the Central Bank.\n\nYou are about to purchase a Fund that is not simple and may be difficult to understand.\n\n## What is this product?\n\nType: The  Fund  is  a  sub-fund  of  Vanguard  Funds  plc  (\"VF\"),  a  UCITS authorised by the Central Bank of Ireland.\n\nTerm: The Fund has no fixed maturity date, however it may be terminated in  certain  circumstances  as  described  in  the  prospectus  of  VF  (the 'Prospectus')  including  if  the  net  asset  value  of  the  Fund  falls  below US$100 million or its equivalent in another currency.\n\nObjectives: The  Fund employs a passive management - or indexing investment approach, through physical acquisition of securities, and seeks to track the performance of the Bloomberg Euro-Aggregate: Treasury - 1-3 Year Index (the 'Index\").\n\nThe Fund invests in a representative sample of bonds included in the Index in order to closely match the Index's capital and income return.\n\nThe  Index  measures  the  performance  of  fixed-rate  Euro-denominated sovereign bonds issued by the governments of European Union member states  participating  in  the  European  Monetary  Union  which  have  a  par amount outstanding greater than or equal to €300 million.\n\nBonds in the Index have maturities of one and three years and are generally rated investment grade.\n\nTo a lesser extent the Fund may invest in similar types of bonds outside the Index, but whose risk and return characteristics closely resemble the risk and return characteristics of constituents of the Index or of the Index as a whole.\n\n",
-      "text_length": 2556,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n## Key Information Document\n\n## Purpose\n\nThis document provides you with key information about this investment Fund. It is not marketing material. The information is required by law to help you understand the nature, risks, costs, potential gains and losses of this Fund and to help you compare it with other funds.\n\n## Product\n\nProduct: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF (the \"Fund\") - (EUR) Accumulating Shares IE00004S2680\n\n## Vanguard Group (Ireland) Limited (\"VGIL\")\n\nCall +44 207 489 4305 for more information - https://global.vanguard.com - This Key Information Document is dated 23/07/2025.\n\nThe Central Bank of Ireland (the 'Central Bank') is responsible for supervising VGIL in relation to this Key Information Document.\n\nThe Fund is authorised in Ireland and has been registered for sale in other EEA Member States.\n\nVGIL is authorised in EEA Member States and regulated by the Central Bank.\n\n",
+      "text_length": 1036,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -20,16 +20,14 @@
         "section": "product_and_description",
         "sub_index": 0
       },
-      "key_phrases": [
-        "What is this product"
-      ]
+      "key_phrases": []
     },
     {
       "id": "IE00004S2680_product_and_description_1",
       "section": "product_and_description",
       "sub_index": 1,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\nThe Fund attempts to remain fully invested except in extraordinary market, political or similar conditions where the Fund may temporarily depart from this investment policy to avoid losses.\n\nWhile the Fund is expected to track the Index as closely as possible, it typically will not match the performance of the targeted Index exactly, due to various factors such as expenses to be paid by the Fund and regulatory constraints. Details of these factors and the anticipated tracking error of the Fund are set out in the Prospectus.\n\nInformation on the Fund's portfolio can be found at https://www.ie.vanguard/ products. The Indicative Net Asset Value for the Fund  is  calculated  throughout  the  trading  day  and  is  published  on Bloomberg or Reuters.\n\n<!-- image -->\n\nThe  Fund  may  use  derivatives  in  order  to  reduce  risk  or  cost  and/or generate extra income or growth. A derivative is a financial contract whose value is based on the value of a financial asset (such as a share, bond, or currency) or a market index.\n\nETF Shares in the Fund can be bought or sold on a daily basis (save on certain bank holidays or public holidays and subject to certain restrictions described in the Prospectus). ETF Shares are listed on one or more stock exchange(s).  Subject  to  certain  exceptions  set  out  in  the  Prospectus, investors who are not Authorised Participants may only buy or sell ETF Shares through a company that is a member of a relevant stock exchange at any time when that stock exchange is open for business. A list of the days on which shares in the Fund cannot be bought or sold is available on:\n\n",
-      "text_length": 1734,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\nYou are about to purchase a Fund that is not simple and may be difficult to understand.\n\n## What is this product?\n\nType: The  Fund  is  a  sub-fund  of  Vanguard  Funds  plc  (\"VF\"),  a  UCITS authorised by the Central Bank of Ireland.\n\nTerm: The Fund has no fixed maturity date, however it may be terminated in  certain  circumstances  as  described  in  the  prospectus  of  VF  (the 'Prospectus')  including  if  the  net  asset  value  of  the  Fund  falls  below US$100 million or its equivalent in another currency.\n\nObjectives: The  Fund employs a passive management - or indexing investment approach, through physical acquisition of securities, and seeks to track the performance of the Bloomberg Euro-Aggregate: Treasury - 1-3 Year Index (the 'Index\").\n\nThe Fund invests in a representative sample of bonds included in the Index in order to closely match the Index's capital and income return.\n\nThe  Index  measures  the  performance  of  fixed-rate  Euro-denominated sovereign bonds issued by the governments of European Union member states  participating  in  the  European  Monetary  Union  which  have  a  par amount outstanding greater than or equal to €300 million.\n\nBonds in the Index have maturities of one and three years and are generally rated investment grade.\n\nTo a lesser extent the Fund may invest in similar types of bonds outside the Index, but whose risk and return characteristics closely resemble the risk and return characteristics of constituents of the Index or of the Index as a whole.\n\nThe Fund attempts to remain fully invested except in extraordinary market, political or similar conditions where the Fund may temporarily depart from this investment policy to avoid losses.\n\nWhile the Fund is expected to track the Index as closely as possible, it typically will not match the performance of the targeted Index exactly, due to various factors such as expenses to be paid by the Fund and regulatory constraints. Details of these factors and the anticipated tracking error of the Fund are set out in the Prospectus.\n\nInformation on the Fund's portfolio can be found at https://www.ie.vanguard/ products. The Indicative Net Asset Value for the Fund  is  calculated  throughout  the  trading  day  and  is  published  on Bloomberg or Reuters.\n\n<!-- image -->\n\n",
+      "text_length": 2401,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -39,14 +37,16 @@
         "section": "product_and_description",
         "sub_index": 1
       },
-      "key_phrases": []
+      "key_phrases": [
+        "What is this product"
+      ]
     },
     {
       "id": "IE00004S2680_product_and_description_2",
       "section": "product_and_description",
       "sub_index": 2,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\nhttps://fund-docs.vanguard.com/holiday-calendar-vanguard-funds-plcETFs.pdf\n\nIncome from the ETF Shares will be reinvested and reflected in the price of shares in the ETF.\n\nVF is an umbrella Fund with segregated liability between sub-funds. This means that the holdings of the Fund are maintained separately under Irish law from holdings of other sub-funds of VF and your investment in the Fund will not be affected by any claims against any other sub-fund of VF.\n\nIntended  retail  investor: The  Fund  is  available  to  a  wide  range  of investors  seeking  access  to  a  portfolio  managed  in  accordance  with  a specific investment objective and policy.\n\nThe VF depositary is Brown Brothers Harriman Trustee Services (Ireland) Limited.\n\nYou can obtain copies of the Prospectus and the latest annual and semiannual report and accounts for Vanguard Funds plc ('VF') along with the latest published prices of shares and other practical information, from VF c/o  Brown  Brothers  Harriman  Fund  Administration  Services  (Ireland) Limited, 30 Herbert Street, Dublin 2, D02 W329, Ireland or from our website at https://global.vanguard.com. Information on the Fund's portfolio disclosure policy and  publication of the  iNAV  can  be  obtained  at https://global.vanguard.com/portal/site/portal/ucits-documentation. ",
-      "text_length": 1428,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\nThe  Fund  may  use  derivatives  in  order  to  reduce  risk  or  cost  and/or generate extra income or growth. A derivative is a financial contract whose value is based on the value of a financial asset (such as a share, bond, or currency) or a market index.\n\nETF Shares in the Fund can be bought or sold on a daily basis (save on certain bank holidays or public holidays and subject to certain restrictions described in the Prospectus). ETF Shares are listed on one or more stock exchange(s).  Subject  to  certain  exceptions  set  out  in  the  Prospectus, investors who are not Authorised Participants may only buy or sell ETF Shares through a company that is a member of a relevant stock exchange at any time when that stock exchange is open for business. A list of the days on which shares in the Fund cannot be bought or sold is available on:\n\nhttps://fund-docs.vanguard.com/holiday-calendar-vanguard-funds-plcETFs.pdf\n\nIncome from the ETF Shares will be reinvested and reflected in the price of shares in the ETF.\n\n",
+      "text_length": 1134,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -56,16 +56,14 @@
         "section": "product_and_description",
         "sub_index": 2
       },
-      "key_phrases": [
-        "Practical Information"
-      ]
+      "key_phrases": []
     },
     {
       "id": "IE00004S2680_product_and_description_3",
       "section": "product_and_description",
       "sub_index": 3,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\nThe documents are available in English and are free of charge.",
-      "text_length": 171,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\nVF is an umbrella Fund with segregated liability between sub-funds. This means that the holdings of the Fund are maintained separately under Irish law from holdings of other sub-funds of VF and your investment in the Fund will not be affected by any claims against any other sub-fund of VF.\n\nIntended  retail  investor: The  Fund  is  available  to  a  wide  range  of investors  seeking  access  to  a  portfolio  managed  in  accordance  with  a specific investment objective and policy.\n\nThe VF depositary is Brown Brothers Harriman Trustee Services (Ireland) Limited.\n\nYou can obtain copies of the Prospectus and the latest annual and semiannual report and accounts for Vanguard Funds plc ('VF') along with the latest published prices of shares and other practical information, from VF c/o  Brown  Brothers  Harriman  Fund  Administration  Services  (Ireland) Limited, 30 Herbert Street, Dublin 2, D02 W329, Ireland or from our website at https://global.vanguard.com. Information on the Fund's portfolio disclosure policy and  publication of the  iNAV  can  be  obtained  at https://global.vanguard.com/portal/site/portal/ucits-documentation. ",
+      "text_length": 1256,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -75,14 +73,33 @@
         "section": "product_and_description",
         "sub_index": 3
       },
+      "key_phrases": [
+        "Practical Information"
+      ]
+    },
+    {
+      "id": "IE00004S2680_product_and_description_4",
+      "section": "product_and_description",
+      "sub_index": 4,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\nThe documents are available in English and are free of charge.",
+      "text_length": 171,
+      "metadata": {
+        "isin": "IE00004S2680",
+        "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
+        "provider": "vanguard",
+        "risk_level": 2,
+        "kid_date": "2025-07-23",
+        "section": "product_and_description",
+        "sub_index": 4
+      },
       "key_phrases": []
     },
     {
       "id": "IE00004S2680_risks_and_return_0",
       "section": "risks_and_return",
       "sub_index": 0,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n## What are the risks and what could I get in return?\n\n## Risk Indicator\n\n| 1   | 3   | 4   | 5   | 6   | 7   |\n|-----|-----|-----|-----|-----|-----|\n\nLower risk\n\n<!-- image -->\n\nHigher risk\n\nThe  risk  indicator  assumes  you  keep  the  Fund  for  1 years. The actual risk can vary significantly if you cash in at an early stage and you may get back less.\n\nThe  summary  risk  indicator  is  a  guide  to  the  level  of  risk  of  this  Fund compared to other Funds. It shows how likely it is that the Fund will lose money because of movements in the markets or because we are not able to pay you.\n\n## Performance Scenarios\n\nWhat you will get from this Fund depends on future market performance. Market developments in the future are uncertain and cannot be accurately predicted.\n\n",
-      "text_length": 893,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n## What are the risks and what could I get in return?\n\n## Risk Indicator\n\n| 1   | 3   | 4   | 5   | 6   | 7   |\n|-----|-----|-----|-----|-----|-----|\n\nLower risk\n\n<!-- image -->\n\nHigher risk\n\nThe  risk  indicator  assumes  you  keep  the  Fund  for  1 years. The actual risk can vary significantly if you cash in at an early stage and you may get back less.\n\nThe  summary  risk  indicator  is  a  guide  to  the  level  of  risk  of  this  Fund compared to other Funds. It shows how likely it is that the Fund will lose money because of movements in the markets or because we are not able to pay you.\n\n## Performance Scenarios\n\nWhat you will get from this Fund depends on future market performance. Market developments in the future are uncertain and cannot be accurately predicted.\n\nThe unfavourable, moderate, and favourable scenarios shown are illustrations using the worst, average, and best performance of a suitable benchmark over the last 10 years. Markets could develop very differently in the future.\n\n## Recommended holding period: 1 years\n\n## Example Investment: EUR 10,000\n\n| Scenarios    | Scenarios                                                                                                        | If you exit after 1 year   |\n|--------------|------------------------------------------------------------------------------------------------------------------|----------------------------|\n| Minimum      | There is no minimum guaranteed return if you exit before 1 years. You could lose some or all of your investment. | -                          |\n| Stress       | What you might get back after costs                                                                              | EUR 9,040                  |\n| Stress       | Average return each year                                                                                         | -9.60%                     |\n| Unfavourable | What you might get back after costs                                                                              | EUR 9,510                  |\n| Unfavourable | Average return each year                                                                                         | -4.90%                     |\n| Moderate     | What you might get back after costs                                                                              | EUR 9,980                  |\n| Moderate     | Average return each year                                                                                         | -0.20%                     |\n| Favourable   | What you might get back after costs                                                                              | EUR 10,490                 |\n| Favourable   | Average return each year                                                                                         | 4.90%                      |\n\nThe figures  shown  include  all  the  costs  of  the  Fund  itself,  but  may  not include all the costs that you pay to your advisor or distributor. The figures do not take into account your personal tax situation, which may also affect how much you get back.\n\n",
+      "text_length": 3230,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -101,8 +118,8 @@
       "id": "IE00004S2680_risks_and_return_1",
       "section": "risks_and_return",
       "sub_index": 1,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\nThe unfavourable, moderate, and favourable scenarios shown are illustrations using the worst, average, and best performance of a suitable benchmark over the last 10 years. Markets could develop very differently in the future.\n\n## Recommended holding period: 1 years\n\n## Example Investment: EUR 10,000\n\n| Scenarios    | Scenarios                                                                                                        | If you exit after 1 year   |\n|--------------|------------------------------------------------------------------------------------------------------------------|----------------------------|\n| Minimum      | There is no minimum guaranteed return if you exit before 1 years. You could lose some or all of your investment. | -                          |\n| Stress       | What you might get back after costs                                                                              | EUR 9,040                  |\n| Stress       | Average return each year                                                                                         | -9.60%                     |\n| Unfavourable | What you might get back after costs                                                                              | EUR 9,510                  |\n| Unfavourable | Average return each year                                                                                         | -4.90%                     |\n| Moderate     | What you might get back after costs                                                                              | EUR 9,980                  |\n| Moderate     | Average return each year                                                                                         | -0.20%                     |\n| Favourable   | What you might get back after costs                                                                              | EUR 10,490                 |\n| Favourable   | Average return each year                                                                                         | 4.90%                      |\n\nThe figures  shown  include  all  the  costs  of  the  Fund  itself,  but  may  not include all the costs that you pay to your advisor or distributor. The figures do not take into account your personal tax situation, which may also affect how much you get back.\n\nThe stress scenario shows what you might get back in extreme market circumstances.\n\nThis Fund cannot be easily cashed in.\n\nWe have classified this Fund as 2 out of 7, which is a low risk class. This rates the potential losses from future performance at a low level, and poor market conditions are very unlikely to impact the Fund's capacity to pay you.\n\nBe aware of currency risk. You may receive payments in a different currency to the base currency of the Fund, so the final return you will get depends on the exchange rate between the two currencies. This risk is not considered in the indicator shown above.",
-      "text_length": 3057,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\nThe stress scenario shows what you might get back in extreme market circumstances.\n\nThis Fund cannot be easily cashed in.\n\nWe have classified this Fund as 2 out of 7, which is a low risk class. This rates the potential losses from future performance at a low level, and poor market conditions are very unlikely to impact the Fund's capacity to pay you.\n\nBe aware of currency risk. You may receive payments in a different currency to the base currency of the Fund, so the final return you will get depends on the exchange rate between the two currencies. This risk is not considered in the indicator shown above.",
+      "text_length": 720,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -118,8 +135,8 @@
       "id": "IE00004S2680_costs_0",
       "section": "costs",
       "sub_index": 0,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n## What are the costs?\n\nThe person advising on or selling you the Fund may charge you other costs. If so, this person will provide you with information about these costs and how they affect your investment.\n\n## Costs over Time\n\nThe tables show the amounts that are taken from your investment to cover different types of costs. These amounts depend on how much you invest, how long you invest in the Fund and how well the Fund does. The amounts shown here are illustrations based on an example investment amount and different possible investment periods.\n\nWe have assumed:\n\n- In the first year you would get back the amount that you invested (0% annual return). For the other holding periods we have assumed the Fund performs as shown in the moderate scenario\n- EUR 10,000 per year is invested.\n\nUnfavourable scenario: This type of scenario occurred for an investment using a suitable benchmark between 2021 and 2022.\n\nModerate scenario: This type of scenario occurred for an investment using a suitable benchmark between 2016 and 2017.\n\nFavourable  scenario:  This  type  of  scenario  occurred  for  an  investment using a suitable benchmark between 2023 and 2024.\n\nBeside the market risks included in the risk indicator, other risks may affect the Fund, including counterparty, index tracking and investment risks.\n\nFor further information on risks please see the 'Risk Factors' section of the Prospectus on our website at https://global.vanguard.com\n\nThis Fund does not include any protection from future market performance so you could lose some or all of your investment.\n\nThe  value  of  bonds  and  fixed  income-related  securities  is  affected  by influential  factors  such  as  interest  rates,  inflation,  credit  spreads  and volatility which, in turn, are driven by other factors including political events, economic news, company earnings and significant corporate events.\n\n| Costs over Time        | If you exit after 1 year   |\n",
-      "text_length": 2056,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n## What are the costs?\n\nThe person advising on or selling you the Fund may charge you other costs. If so, this person will provide you with information about these costs and how they affect your investment.\n\n## Costs over Time\n\nThe tables show the amounts that are taken from your investment to cover different types of costs. These amounts depend on how much you invest, how long you invest in the Fund and how well the Fund does. The amounts shown here are illustrations based on an example investment amount and different possible investment periods.\n\nWe have assumed:\n\n",
+      "text_length": 682,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -137,8 +154,8 @@
       "id": "IE00004S2680_costs_1",
       "section": "costs",
       "sub_index": 1,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n|------------------------|----------------------------|\n| Total costs            | EUR 10                     |\n| Annual cost impact (*) | 0.1%                       |\n\nWe may share part of the costs with the person selling you the Fund to cover the services they provide to you. They will inform you of the amount.\n\n## Composition of Costs\n\n| One-off costs upon entry or exit   | What are the costs?                                                                  | If you exit after 1 year   |\n",
-      "text_length": 606,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n- In the first year you would get back the amount that you invested (0% annual return). For the other holding periods we have assumed the Fund performs as shown in the moderate scenario\n- EUR 10,000 per year is invested.\n\nUnfavourable scenario: This type of scenario occurred for an investment using a suitable benchmark between 2021 and 2022.\n\nModerate scenario: This type of scenario occurred for an investment using a suitable benchmark between 2016 and 2017.\n\nFavourable  scenario:  This  type  of  scenario  occurred  for  an  investment using a suitable benchmark between 2023 and 2024.\n\nBeside the market risks included in the risk indicator, other risks may affect the Fund, including counterparty, index tracking and investment risks.\n\nFor further information on risks please see the 'Risk Factors' section of the Prospectus on our website at https://global.vanguard.com\n\nThis Fund does not include any protection from future market performance so you could lose some or all of your investment.\n\nThe  value  of  bonds  and  fixed  income-related  securities  is  affected  by influential  factors  such  as  interest  rates,  inflation,  credit  spreads  and volatility which, in turn, are driven by other factors including political events, economic news, company earnings and significant corporate events.\n\n",
+      "text_length": 1427,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -148,16 +165,14 @@
         "section": "costs",
         "sub_index": 1
       },
-      "key_phrases": [
-        "What are the costs"
-      ]
+      "key_phrases": []
     },
     {
       "id": "IE00004S2680_costs_2",
       "section": "costs",
       "sub_index": 2,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n|------------------------------------|--------------------------------------------------------------------------------------|----------------------------|\n| Entry costs                        | The Fund does not charge an entry fee.                                               | EUR 0                      |\n| Exit costs                         | The Fund does not charge an exit fee, but the person selling you the Fund may do so. | EUR 0                      |\n\n## Ongoing costs taken each year\n\nManagement fees and other administrative or operating costs\n\nTransaction costs\n\n## Incidental costs taken under specific conditions\n\nPerformance fees\n\nWhat are the costs?\n\n0.07% of the value of your investment p.a. This is an estimate based on actual costs over the last year and takes account of any known future changes.\n\n0.03% of the value of your investment per year. This is an estimate of the costs incurred when we buy and sell the underlying investments for the Fund. The actual\n\namount will vary depending on how much we buy and sell.\n\nWhat are the costs?\n\nThere is no performance fee for this Fund.",
-      "text_length": 1217,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n| Costs over Time        | If you exit after 1 year   |\n|------------------------|----------------------------|\n| Total costs            | EUR 10                     |\n| Annual cost impact (*) | 0.1%                       |\n\nWe may share part of the costs with the person selling you the Fund to cover the services they provide to you. They will inform you of the amount.\n\n## Composition of Costs\n\n| One-off costs upon entry or exit   | What are the costs?                                                                  | If you exit after 1 year   |\n|------------------------------------|--------------------------------------------------------------------------------------|----------------------------|\n| Entry costs                        | The Fund does not charge an entry fee.                                               | EUR 0                      |\n| Exit costs                         | The Fund does not charge an exit fee, but the person selling you the Fund may do so. | EUR 0                      |\n\n## Ongoing costs taken each year\n\nManagement fees and other administrative or operating costs\n\nTransaction costs\n\n## Incidental costs taken under specific conditions\n\nPerformance fees\n\nWhat are the costs?\n\n0.07% of the value of your investment p.a. This is an estimate based on actual costs over the last year and takes account of any known future changes.\n\n0.03% of the value of your investment per year. This is an estimate of the costs incurred when we buy and sell the underlying investments for the Fund. The actual\n\namount will vary depending on how much we buy and sell.\n\nWhat are the costs?\n\nThere is no performance fee for this Fund.",
+      "text_length": 1770,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -175,8 +190,8 @@
       "id": "IE00004S2680_tail_0",
       "section": "tail",
       "sub_index": 0,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n## What happens if VGIL is unable to pay out?\n\nThe assets of the Fund are held in safekeeping by its depositary. In the event of the insolvency of VGIL, the Fund's assets in the safekeeping of the depositary will not be affected. However, in the event of the depositary's insolvency, or someone acting on its behalf, the Fund may suffer a financial loss. This risk is mitigated to a certain extent by the fact the depositary is required by law and regulation to segregate its own assets from the assets of the Fund. The depositary will also be liable to the Fund and the investors for any loss arising from, among other things, its negligence, fraud or intentional failure to properly fulfil its obligations (subject to certain limitations).\n\nThere is no compensation or guarantee scheme protecting you from a default of the Fund's depositary.\n\n## How long should I hold it and can I take money out early?\n\n## Recommended holding period: 1 years\n\nThe Fund is appropriate for short-term investment.\n\nPlease see the section of the Prospectus entitled 'Redeeming Shares' for certain fees payable in respect of redemptions.\n\n## How can I complain?\n\nIf you are an investor in our VF range of Exchange Traded Funds (ETFs), it may be appropriate for you to liaise directly with the bank, broker, trading platform or financial adviser through which you purchased your shares, particularly if your complaint is service related. ",
-      "text_length": 1528,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n## What happens if VGIL is unable to pay out?\n\nThe assets of the Fund are held in safekeeping by its depositary. In the event of the insolvency of VGIL, the Fund's assets in the safekeeping of the depositary will not be affected. However, in the event of the depositary's insolvency, or someone acting on its behalf, the Fund may suffer a financial loss. This risk is mitigated to a certain extent by the fact the depositary is required by law and regulation to segregate its own assets from the assets of the Fund. The depositary will also be liable to the Fund and the investors for any loss arising from, among other things, its negligence, fraud or intentional failure to properly fulfil its obligations (subject to certain limitations).\n\nThere is no compensation or guarantee scheme protecting you from a default of the Fund's depositary.\n\n",
+      "text_length": 954,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -187,8 +202,6 @@
         "sub_index": 0
       },
       "key_phrases": [
-        "How long should I hold",
-        "How can I complain",
         "unable to pay"
       ]
     },
@@ -196,8 +209,8 @@
       "id": "IE00004S2680_tail_1",
       "section": "tail",
       "sub_index": 1,
-      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\nPlease be aware that we will usually provide responses in English. If for any reason you are experiencing problems submitting your complaint with us, then please contact, Vanguard, 4th Floor, The Walbrook Building, 25 Walbrook, London, EC4N 8AF or European\\_client\\_services@vanguard.co.uk. Please also be aware that there may be collective redress mechanisms or separate ombudsman arrangements available in your country. https://global.vanguard.com/\n\n## Other relevant information\n\nYou can find information related to the past performance of the Fund for up to 10 years of data at:\n\n- https://docs.data2report.lu/documents/Vanguard/KID\\_PP/KID\\_annex\\_PP\\_IE00004S2680\\_en.pdf.\n- https://docs.data2report.lu/documents/Vanguard/KID\\_PS/KID\\_annex\\_PS\\_IE00004S2680\\_en.pdf\n\nDetails of VGIL's Remuneration Policy are available at https://www.ie.vanguard/content/dam/intl/europe/documents/ch/en/ucits-v-remuneration-policy.pdf, including: (a) a description of how remuneration and benefits are calculated; and (b) the identities of persons responsible for awarding remuneration and benefits. A paper copy of these details may be obtained, free of charge, on request from VGIL at 70 Sir John Rogerson's Quay, Dublin 2, Ireland. Liability: VGIL may be held liable solely on the basis of any statement contained in this document that is misleading, inaccurate or inconsistent with the relevant parts of the Prospectus. Tax: VF is subject to the tax laws of Ireland. Depending on your country of residence, this may have an impact on your personal tax position. You are recommended to consult your professional tax adviser.\n\nIf you exit after 1\n\nyear\n\nEUR 7\n\nEUR 3\n\nIf you exit after 1\n\nyear\n\nEUR 0",
-      "text_length": 1801,
+      "text": "ISIN: IE00004S2680 | Product: Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF | Provider: vanguard\n\n## How long should I hold it and can I take money out early?\n\n## Recommended holding period: 1 years\n\nThe Fund is appropriate for short-term investment.\n\nPlease see the section of the Prospectus entitled 'Redeeming Shares' for certain fees payable in respect of redemptions.\n\n## How can I complain?\n\nIf you are an investor in our VF range of Exchange Traded Funds (ETFs), it may be appropriate for you to liaise directly with the bank, broker, trading platform or financial adviser through which you purchased your shares, particularly if your complaint is service related. Please be aware that we will usually provide responses in English. If for any reason you are experiencing problems submitting your complaint with us, then please contact, Vanguard, 4th Floor, The Walbrook Building, 25 Walbrook, London, EC4N 8AF or European\\_client\\_services@vanguard.co.uk. Please also be aware that there may be collective redress mechanisms or separate ombudsman arrangements available in your country. https://global.vanguard.com/\n\n## Other relevant information\n\nYou can find information related to the past performance of the Fund for up to 10 years of data at:\n\n- https://docs.data2report.lu/documents/Vanguard/KID\\_PP/KID\\_annex\\_PP\\_IE00004S2680\\_en.pdf.\n- https://docs.data2report.lu/documents/Vanguard/KID\\_PS/KID\\_annex\\_PS\\_IE00004S2680\\_en.pdf\n\nDetails of VGIL's Remuneration Policy are available at https://www.ie.vanguard/content/dam/intl/europe/documents/ch/en/ucits-v-remuneration-policy.pdf, including: (a) a description of how remuneration and benefits are calculated; and (b) the identities of persons responsible for awarding remuneration and benefits. A paper copy of these details may be obtained, free of charge, on request from VGIL at 70 Sir John Rogerson's Quay, Dublin 2, Ireland. Liability: VGIL may be held liable solely on the basis of any statement contained in this document that is misleading, inaccurate or inconsistent with the relevant parts of the Prospectus. Tax: VF is subject to the tax laws of Ireland. Depending on your country of residence, this may have an impact on your personal tax position. You are recommended to consult your professional tax adviser.\n\nIf you exit after 1\n\nyear\n\nEUR 7\n\nEUR 3\n\nIf you exit after 1\n\nyear\n\nEUR 0",
+      "text_length": 2375,
       "metadata": {
         "isin": "IE00004S2680",
         "product_name": "Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF",
@@ -208,6 +221,8 @@
         "sub_index": 1
       },
       "key_phrases": [
+        "How long should I hold",
+        "How can I complain",
         "Other relevant information",
         "Past Performance"
       ]

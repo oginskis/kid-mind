@@ -28,19 +28,30 @@ CHROMADB_PORT = int(os.environ.get("CHROMADB_PORT", "8000"))
 CHROMADB_COLLECTION = os.environ.get("CHROMADB_COLLECTION", "kid_chunks")
 
 # ── Inference (LLM) ─────────────────────────────────────────────────────────
-# Priority: GEMINI_API_KEY set → native Gemini provider.
+# Priority: VERTEX_AI=true → Vertex AI regional endpoint (ADC auth).
+#           GEMINI_API_KEY set → native Gemini provider (AI Studio).
 #           Otherwise → OpenAI-compatible (OPENAI_API_BASE / OPENAI_API_KEY).
 OPENAI_API_BASE = _env("OPENAI_API_BASE")
 OPENAI_API_KEY = _env("OPENAI_API_KEY")
 GEMINI_API_KEY = _env("GEMINI_API_KEY")
 
+# ── Vertex AI ────────────────────────────────────────────────────────────────
+# Set VERTEX_AI=true to use Vertex AI regional endpoints with ADC.
+# Requires GOOGLE_CLOUD_LOCATION. GOOGLE_CLOUD_PROJECT is auto-detected on
+# GKE; set it explicitly for local development.
+# Auth: Workload Identity (GKE) or `gcloud auth application-default login` (local).
+VERTEX_AI = os.environ.get("VERTEX_AI", "").strip().lower() == "true"
+GCP_LOCATION = _env("GOOGLE_CLOUD_LOCATION")
+GCP_PROJECT = _env("GOOGLE_CLOUD_PROJECT")
+
 # ── Embeddings ───────────────────────────────────────────────────────────────
 # Embeddings can use a DIFFERENT provider than inference.
 #
-# Fallback chain:
+# Provider selection (first match wins):
 #   1. EMBEDDING_API_KEY set → OpenAI-compatible endpoint (Ollama, OpenAI, etc.)
-#   2. GEMINI_API_KEY set (no EMBEDDING_API_KEY) → native Google GenAI API
-#   3. Neither → local sentence-transformers (all-MiniLM-L6-v2)
+#   2. VERTEX_AI=true → Vertex AI via google-genai SDK (ADC auth)
+#   3. GEMINI_API_KEY set → native Google GenAI API (AI Studio)
+#   4. None of the above → local sentence-transformers (all-MiniLM-L6-v2)
 #
 # IMPORTANT: the embedding model used at query time MUST match the one used
 # when the ChromaDB collection was indexed. Switching models requires

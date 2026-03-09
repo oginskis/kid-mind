@@ -260,6 +260,7 @@ def _ensure_client_pydantic() -> None:
         from kid_mind.agent_pydantic import agent
 
         st.session_state.pydantic_agent = agent
+    if "pydantic_history" not in st.session_state:
         st.session_state.pydantic_history = []
     if "messages" not in st.session_state:
         st.session_state.messages = []
@@ -308,8 +309,11 @@ def _send_message_pydantic(prompt: str) -> list[dict]:
 
 def _reset_pydantic() -> None:
     """Reset PydanticAI conversation state."""
+    had_history = "pydantic_history" in st.session_state
+    history_len = len(st.session_state.get("pydantic_history", []))
     for key in ("pydantic_agent", "pydantic_history"):
         st.session_state.pop(key, None)
+    log.info("PydanticAI reset — had_history=%s, history_len=%d", had_history, history_len)
 
 
 # ── Backend dispatch ─────────────────────────────────────────────────────────
@@ -447,9 +451,17 @@ def _render_sidebar() -> None:
 
         st.divider()
 
-        if st.button(":material/home: Back to menu", use_container_width=True, type="secondary"):
+        def _on_back_to_menu() -> None:
+            """Callback: clear all conversation state before rerun."""
             _reset_conversation()
             st.session_state.messages = []
+
+        if st.button(
+            ":material/home: Back to menu",
+            use_container_width=True,
+            type="secondary",
+            on_click=_on_back_to_menu,
+        ):
             st.rerun()
 
         st.divider()

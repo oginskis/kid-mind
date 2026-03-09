@@ -13,6 +13,7 @@ spec:
       labels:
         app: streamlit
     spec:
+      serviceAccountName: streamlit
       containers:
         - name: streamlit
           image: europe-north1-docker.pkg.dev/alteronic-ai/kid-mind/kid-mind:latest
@@ -21,8 +22,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: streamlit-config
-            - secretRef:
-                name: streamlit-secrets
           resources:
             requests:
               cpu: "2"

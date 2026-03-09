@@ -24,7 +24,7 @@ kid-mind discovers, downloads, and analyses these KID PDFs from major European E
 - **Chonkie** — semantic text chunking
 - **ChromaDB** — vector store for chunked KID documents
 - **sentence-transformers** — `all-MiniLM-L6-v2` embeddings (local fallback)
-- **google-genai** — native Gemini embedding API (`gemini-embedding-001`)
+- **google-genai** — Gemini embeddings + Vertex AI inference/embedding API
 - **yfinance** — ETF price lookups (lazy-loaded)
 - **Pydantic AI** — agent framework (`agent_pydantic.py`)
 - **Claude Agent SDK** — agent framework (`agent.py`)
@@ -76,18 +76,17 @@ kid-mind/
 │   │   ├── statefulset.yaml
 │   │   └── service.yaml
 │   ├── streamlit/
-│   │   ├── configmap.yaml
-│   │   ├── secret.yaml            # CHANGEME: set GEMINI_API_KEY before applying
+│   │   ├── configmap.yaml         # App config + Vertex AI settings
 │   │   ├── deployment.yaml
 │   │   ├── service.yaml
 │   │   └── gateway.yaml           # Gateway API: HTTPS ingress + HTTPRoute + HealthCheckPolicy
 │   └── chunker/
-│       ├── configmap.yaml         # ChromaDB + embedding config for the job
-│       ├── secret.yaml            # CHANGEME: set GEMINI_API_KEY before applying
+│       ├── configmap.yaml         # ChromaDB + embedding + Vertex AI config
 │       └── job.yaml               # K8s Job: init container (GCS→PDFs) + chunker
 ├── scripts/
-│   ├── upload-kids-to-gcs.sh      # Upload KID PDFs from remote box to GCS
-│   └── setup-workload-identity.sh # Provision Workload Identity for chunker job
+│   ├── upload-kids-to-gcs.sh          # Upload KID PDFs from remote box to GCS
+│   ├── setup-workload-identity.sh     # Provision Workload Identity for chunker job
+│   └── setup-vertex-ai-identity.sh    # Provision Workload Identity for Vertex AI access
 ├── .claude/skills/kid-collector/
 │   ├── SKILL.md                   # Skill instructions
 │   ├── scripts/
@@ -170,8 +169,11 @@ uv run python chunk_kids_cli.py --dump-json
 # Dry run (show what would be uploaded)
 ./scripts/upload-kids-to-gcs.sh --dry-run
 
-# Provision Workload Identity for chunker K8s Job
+# Provision Workload Identity for chunker K8s Job (GCS access)
 ./scripts/setup-workload-identity.sh
+
+# Provision Workload Identity for Vertex AI access (Streamlit + Chunker)
+./scripts/setup-vertex-ai-identity.sh
 
 # ── Tests ──
 
@@ -192,10 +194,12 @@ The app runs on GKE Autopilot with ChromaDB (StatefulSet), Streamlit (Deployment
 **Important:** On GKE Autopilot, resource `limits` MUST equal `requests`.
 
 ```bash
+# One-time: provision Workload Identity for Vertex AI access
+./scripts/setup-vertex-ai-identity.sh
+
 # Deploy core infrastructure
 kubectl apply -f k8s/namespace.yaml
 kubectl apply -f k8s/chromadb/
-# Edit k8s/streamlit/secret.yaml with your GEMINI_API_KEY first
 kubectl apply -f k8s/streamlit/
 
 # Deploy Gateway API (HTTPS ingress via kid.alteronic.dev)
@@ -228,7 +232,9 @@ kubectl logs -f job/chunk-kids -n kid-mind -c chunker
 
 **GCS bucket:** `gs://kid-mind-data` — contains `kids/` (PDFs by provider) and `isins/` (JSON metadata).
 
-**Workload Identity:** K8s SA `chunker` → GCP SA `kid-mind-chunker@alteronic-ai.iam.gserviceaccount.com` → `storage.objectViewer` on the bucket.
+**Workload Identity:**
+- Chunker: K8s SA `chunker` → GCP SA `kid-mind-chunker@alteronic-ai.iam.gserviceaccount.com` → `storage.objectViewer` + `aiplatform.user`
+- Streamlit: K8s SA `streamlit` → GCP SA `kid-mind-streamlit@alteronic-ai.iam.gserviceaccount.com` → `aiplatform.user`
 
 ### Building the Docker image
 
@@ -243,11 +249,18 @@ gcloud builds submit \
 
 The embedding model used during chunking (indexing) MUST match the model used by Streamlit (query time). Set `EMBEDDING_MODEL` to the same value in both configmaps. Switching models requires re-indexing the entire collection.
 
-## Embedding fallback chain
+## Embedding provider selection
+
+First match wins (not a fallback chain):
 
 1. `EMBEDDING_API_KEY` set → OpenAI-compatible endpoint (Ollama, OpenAI, etc.)
-2. `GEMINI_API_KEY` set (no `EMBEDDING_API_KEY`) → native Google GenAI API (`gemini-embedding-001`)
-3. Neither → local sentence-transformers (`all-MiniLM-L6-v2`)
+2. `VERTEX_AI=true` → Vertex AI via google-genai SDK (ADC auth)
+3. `GEMINI_API_KEY` set → native Google GenAI API (AI Studio)
+4. None of the above → local sentence-transformers (`all-MiniLM-L6-v2`)
+
+### Vertex AI configuration
+
+Set `VERTEX_AI=true` and `GOOGLE_CLOUD_LOCATION=europe-north1` to use Vertex AI regional endpoints. Auth is via ADC: Workload Identity on GKE, `gcloud auth application-default login` locally. `GOOGLE_CLOUD_PROJECT` is auto-detected on GKE; set it explicitly for local development.
 
 ## Development conventions
 

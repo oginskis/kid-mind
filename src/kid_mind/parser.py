@@ -16,10 +16,45 @@ from kid_mind.config import (
     EMBEDDING_API_KEY,
     EMBEDDING_DIMENSION,
     EMBEDDING_MODEL,
+    GCP_LOCATION,
+    GCP_PROJECT,
     GEMINI_API_KEY,
+    VERTEX_AI,
 )
 
 log = logging.getLogger(__name__)
+
+
+# ── Vertex AI embeddings for Chonkie ────────────────────────────────────────
+
+
+class VertexAIEmbeddings:
+    """Chonkie-compatible embeddings using Vertex AI via google-genai SDK."""
+
+    def __init__(self, model: str, project: str | None, location: str | None, dimension: int) -> None:
+        from google import genai
+
+        self._client = genai.Client(vertexai=True, project=project, location=location)
+        self._model = model
+        self._dimension = dimension
+
+    def embed(self, texts: list[str]) -> list[list[float]]:
+        result = self._client.models.embed_content(model=self._model, contents=texts)
+        return [e.values for e in result.embeddings]
+
+    def count_tokens(self, text: str) -> int:
+        import tiktoken
+
+        return len(tiktoken.get_encoding("cl100k_base").encode(text))
+
+    def get_tokenizer(self):
+        import tiktoken
+
+        return tiktoken.get_encoding("cl100k_base")
+
+    @property
+    def dimension(self) -> int:
+        return self._dimension
 
 
 # ── Section splitting ─────────────────────────────────────────────────────────
@@ -531,6 +566,10 @@ def _get_chunker() -> object | None:
                     kwargs["max_tokens"] = _CHUNKER_MAX_TOKENS
                 embeddings = OpenAIEmbeddings(**kwargs)
                 log.info("SemanticChunker ready: model=%s, api_base=%s", model, EMBEDDING_API_BASE or "default")
+            elif VERTEX_AI:
+                model = EMBEDDING_MODEL or "gemini-embedding-001"
+                embeddings = VertexAIEmbeddings(model, GCP_PROJECT, GCP_LOCATION, EMBEDDING_DIMENSION)
+                log.info("SemanticChunker ready: Vertex AI model=%s", model)
             elif GEMINI_API_KEY:
                 from chonkie import GeminiEmbeddings
 

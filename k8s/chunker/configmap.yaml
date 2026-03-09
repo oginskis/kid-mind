@@ -9,3 +9,5 @@ data:
   CHROMADB_COLLECTION: kid_chunks
   EMBEDDING_MODEL: gemini-embedding-001
   MAX_WORKERS: "3"
+  VERTEX_AI: "true"
+  GOOGLE_CLOUD_LOCATION: europe-north1

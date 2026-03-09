@@ -21,6 +21,8 @@ from kid_mind.config import (
     EMBEDDING_API_KEY,
     EMBEDDING_MODEL,
     EXCHANGE_PRIORITY,
+    GCP_LOCATION,
+    GCP_PROJECT,
     GEMINI_API_KEY,
     OPENFIGI_URL,
     RERANKER_ENABLED,
@@ -29,6 +31,7 @@ from kid_mind.config import (
     SEARCH_FETCH_RERANK,
     SEARCH_RESULTS,
     SECTION_ORDER,
+    VERTEX_AI,
 )
 
 log = logging.getLogger(__name__)
@@ -47,16 +50,34 @@ def _ensure_yfinance() -> None:
         yf = yfinance
 
 
+# ── Vertex AI embedding function ─────────────────────────────────────────────
+
+
+class VertexAIEmbeddingFunction:
+    """ChromaDB embedding function using Vertex AI via google-genai SDK."""
+
+    def __init__(self, model: str, project: str | None, location: str | None) -> None:
+        from google import genai
+
+        self._client = genai.Client(vertexai=True, project=project, location=location)
+        self._model = model
+
+    def __call__(self, input: list[str]) -> list[list[float]]:
+        result = self._client.models.embed_content(model=self._model, contents=input)
+        return [e.values for e in result.embeddings]
+
+
 # ── Embedding function factory ──────────────────────────────────────────────
 
 
 def create_embedding_function() -> object:
     """Create the embedding function matching the EMBEDDING_MODEL env var.
 
-    Fallback chain:
+    Provider selection (first match wins):
       1. EMBEDDING_API_KEY → OpenAI-compatible (Ollama, OpenAI, etc.)
-      2. GEMINI_API_KEY → native Google GenAI API
-      3. Neither → local sentence-transformers
+      2. VERTEX_AI → Vertex AI via google-genai SDK
+      3. GEMINI_API_KEY → native Google GenAI API
+      4. None → local sentence-transformers
     """
     if EMBEDDING_API_KEY:
         from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
@@ -67,6 +88,11 @@ def create_embedding_function() -> object:
             kwargs["api_base"] = EMBEDDING_API_BASE
         log.info("Using OpenAI-compatible embeddings: model=%s, api_base=%s", model, EMBEDDING_API_BASE or "default")
         return OpenAIEmbeddingFunction(**kwargs)
+
+    if VERTEX_AI:
+        model = EMBEDDING_MODEL or "gemini-embedding-001"
+        log.info("Using Vertex AI embeddings: model=%s, location=%s", model, GCP_LOCATION)
+        return VertexAIEmbeddingFunction(model, GCP_PROJECT, GCP_LOCATION)
 
     if GEMINI_API_KEY:
         from chromadb.utils.embedding_functions import GoogleGenaiEmbeddingFunction

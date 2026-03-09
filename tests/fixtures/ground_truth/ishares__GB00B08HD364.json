@@ -1,16 +1,16 @@
 {
-  "_generated_at": "2026-03-07T12:04:45.865130+00:00",
+  "_generated_at": "2026-03-09T10:22:47.574953+00:00",
   "_pdf_sha256": "c6cca049048d61509eeb6a75b6b88481d6fd4b2ab6f1c2f6d81bb2c9ad980053",
   "isin": "GB00B08HD364",
   "provider": "ishares",
-  "chunk_count": 9,
+  "chunk_count": 8,
   "chunks": [
     {
       "id": "GB00B08HD364_product_and_description_0",
       "section": "product_and_description",
       "sub_index": 0,
-      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n<!-- image -->\n\n## KEY INVESTOR INFORMATION\n\nThis document provides you with key investor information about this Fund. It is not marketing material. The information is required by law to help you understand the nature and risks of investing in this Fund. You are advised to read it so you can make an informed decision about whether to invest.\n\n## iShares UK Gilts All Stocks Index Fund (UK)\n\nA sub-fund of BlackRock Collective Investment Funds\n\n## Objectives and Investment Policy\n\n- The Fund aims to provide a return on your investment (generated through an increase in the value of the assets held by the Fund and/or income received from those assets) by tracking closely the performance of the FTSE Actuaries UK Conventional Gilts All Stocks Index, the Fund's benchmark index.\n- The Fund is passively managed and the investment manager has limited discretion to select the Fund's investments and in doing so may take into consideration the benchmark index. The Fund invests in fixed income securities (such as bonds) that make up the benchmark index and, at the time of purchase, comply with the credit rating requirements of the benchmark index.\n- The Fund's benchmark index measures the performance of Sterling denominated United Kingdom (UK) Government fixed income securities (gilts). The fixed income securities will have a credit rating which reflects that of the UK Government. The fixed income securities will pay income according to a fixed rate of interest.\n- The Fund uses techniques to achieve a similar return to its benchmark index. These techniques may include the strategic selection of certain securities that make up the benchmark index or other fixed income securities which provide similar performance to certain constituent securities. ",
-      "text_length": 1856,
+      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n<!-- image -->\n\n## KEY INVESTOR INFORMATION\n\nThis document provides you with key investor information about this Fund. It is not marketing material. The information is required by law to help you understand the nature and risks of investing in this Fund. You are advised to read it so you can make an informed decision about whether to invest.\n\n## iShares UK Gilts All Stocks Index Fund (UK)\n\nA sub-fund of BlackRock Collective Investment Funds\n\n## Objectives and Investment Policy\n\n- The Fund aims to provide a return on your investment (generated through an increase in the value of the assets held by the Fund and/or income received from those assets) by tracking closely the performance of the FTSE Actuaries UK Conventional Gilts All Stocks Index, the Fund's benchmark index.\n- The Fund is passively managed and the investment manager has limited discretion to select the Fund's investments and in doing so may take into consideration the benchmark index. The Fund invests in fixed income securities (such as bonds) that make up the benchmark index and, at the time of purchase, comply with the credit rating requirements of the benchmark index.\n- The Fund's benchmark index measures the performance of Sterling denominated United Kingdom (UK) Government fixed income securities (gilts). The fixed income securities will have a credit rating which reflects that of the UK Government. The fixed income securities will pay income according to a fixed rate of interest.\n- The Fund uses techniques to achieve a similar return to its benchmark index. These techniques may include the strategic selection of certain securities that make up the benchmark index or other fixed income securities which provide similar performance to certain constituent securities. They may also include the use of derivatives (i.e. investments the prices of which are based on one or more underlying assets).\n- The Fund may also engage in short-term secured lending of its investments to certain eligible third parties. This is used as a means of generating additional income and to off-set the costs of the Fund.\n",
+      "text_length": 2189,
       "metadata": {
         "isin": "GB00B08HD364",
         "product_name": "iShares UK Gilts All Stocks Index Fund (UK)",
@@ -29,8 +29,8 @@
       "id": "GB00B08HD364_product_and_description_1",
       "section": "product_and_description",
       "sub_index": 1,
-      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\nThey may also include the use of derivatives (i.e. investments the prices of which are based on one or more underlying assets).\n- The Fund may also engage in short-term secured lending of its investments to certain eligible third parties. This is used as a means of generating additional income and to off-set the costs of the Fund.\n- Recommendation: This Fund may not be appropriate for short-term investment.\n- Your units will be accumulating units (i.e. ",
-      "text_length": 552,
+      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n- Recommendation: This Fund may not be appropriate for short-term investment.\n- Your units will be accumulating units (i.e. dividend income will be included in their value).\n- Your units will be denominated in Sterling, the Fund's base currency.\n- You can buy and sell your units daily. The minimum initial investment for this unit class is £1,000,000.\n\nFor more information on the Fund, share/unit classes, risks and charges, please see the Fund's prospectus, available on the product pages at www.blackrock.com",
+      "text_length": 607,
       "metadata": {
         "isin": "GB00B08HD364",
         "product_name": "iShares UK Gilts All Stocks Index Fund (UK)",
@@ -40,24 +40,6 @@
         "kid_date": "2026-02-09",
         "section": "product_and_description",
         "sub_index": 1
-      },
-      "key_phrases": []
-    },
-    {
-      "id": "GB00B08HD364_product_and_description_2",
-      "section": "product_and_description",
-      "sub_index": 2,
-      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\ndividend income will be included in their value).\n- Your units will be denominated in Sterling, the Fund's base currency.\n- You can buy and sell your units daily. The minimum initial investment for this unit class is £1,000,000.\n\nFor more information on the Fund, share/unit classes, risks and charges, please see the Fund's prospectus, available on the product pages at www.blackrock.com",
-      "text_length": 483,
-      "metadata": {
-        "isin": "GB00B08HD364",
-        "product_name": "iShares UK Gilts All Stocks Index Fund (UK)",
-        "provider": "ishares",
-        "risk_level": 4,
-        "launch_year": 2005,
-        "kid_date": "2026-02-09",
-        "section": "product_and_description",
-        "sub_index": 2
       },
       "key_phrases": [
         "Charges"
@@ -129,8 +111,8 @@
       "id": "GB00B08HD364_tail_0",
       "section": "tail",
       "sub_index": 0,
-      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n## Practical Information\n\n- The trustee and depositary of the Fund is The Bank of New York Mellon (International) Limited, which also acts as custodian.\n- Further information about the Fund can be obtained from the latest annual report and half-yearly reports of the BlackRock Collective Investment Funds (BCIF). These documents are available free of charge in English. These can be found, along with other information, such as unit prices, on the BlackRock website at www.blackrock.com, on the iShares website at www.ishares.com or by calling Investor Services on 0800 44 55 22.\n- Investors should note that the tax legislation that applies to the Fund may have an impact on the personal tax position of your investment in the Fund.\n- The Fund is a sub-fund of BCIF, an umbrella structure comprising different sub-funds. This document is specific to the Fund and unit class stated at the beginning of this document. However, the prospectus, annual and half-yearly reports are prepared for the umbrella.\n- BlackRock Fund Managers Limited may be held liable solely on the basis of any statement contained in this document that is misleading, inaccurate or inconsistent with the relevant parts of the Fund's prospectus.\n- The assets of the Fund are held on trust for its unitholders under English trust law which means that its assets cannot be used to discharge the liabilities of other subfunds within BCIF. In addition, the Fund's assets are held separately from the assets of other sub-funds.\n- Investors may switch their units in the Fund for units in another sub-fund within BCIF, subject to meeting certain conditions as set out in the prospectus.\n- The Remuneration Policy of the Management Company, which describes how remuneration and benefits are determined and awarded, and the associated governance arrangements, is available at www.blackrock.com/Remunerationpolicy or on request from the registered office of the Management Company.\n\n<!-- image -->\n\n** To the extent the Fund undertakes securities lending to reduce costs, the Fund will receive 62.5% of the associated revenue generated and the remaining 37.5%   will   be   received   by   BlackRock   as   the   securities   lending   agent.   As securities lending revenue sharing does not increase the costs of running the Fund, this has been excluded from the ongoing charges.\n\n| One-off charges taken before or after you invest   | One-off charges taken before or after you invest   |\n",
-      "text_length": 2548,
+      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n## Practical Information\n\n- The trustee and depositary of the Fund is The Bank of New York Mellon (International) Limited, which also acts as custodian.\n- Further information about the Fund can be obtained from the latest annual report and half-yearly reports of the BlackRock Collective Investment Funds (BCIF). These documents are available free of charge in English. These can be found, along with other information, such as unit prices, on the BlackRock website at www.blackrock.com, on the iShares website at www.ishares.com or by calling Investor Services on 0800 44 55 22.\n- Investors should note that the tax legislation that applies to the Fund may have an impact on the personal tax position of your investment in the Fund.\n",
+      "text_length": 829,
       "metadata": {
         "isin": "GB00B08HD364",
         "product_name": "iShares UK Gilts All Stocks Index Fund (UK)",
@@ -142,7 +124,6 @@
         "sub_index": 0
       },
       "key_phrases": [
-        "Charges",
         "Practical Information"
       ]
     },
@@ -150,8 +131,8 @@
       "id": "GB00B08HD364_tail_1",
       "section": "tail",
       "sub_index": 1,
-      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n|----------------------------------------------------|----------------------------------------------------|\n| Entry Charge                                       | None                                               |\n| Exit Charge                                        | None*                                              |\n\nThis is the maximum that might be taken out of your money before it is invested or before proceeds of your investments are paid out.\n\n<!-- image -->\n\n| Charges taken from the Fund over each year           |         |\n",
-      "text_length": 637,
+      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n- The Fund is a sub-fund of BCIF, an umbrella structure comprising different sub-funds. This document is specific to the Fund and unit class stated at the beginning of this document. However, the prospectus, annual and half-yearly reports are prepared for the umbrella.\n- BlackRock Fund Managers Limited may be held liable solely on the basis of any statement contained in this document that is misleading, inaccurate or inconsistent with the relevant parts of the Fund's prospectus.\n- The assets of the Fund are held on trust for its unitholders under English trust law which means that its assets cannot be used to discharge the liabilities of other subfunds within BCIF. In addition, the Fund's assets are held separately from the assets of other sub-funds.\n- Investors may switch their units in the Fund for units in another sub-fund within BCIF, subject to meeting certain conditions as set out in the prospectus.\n",
+      "text_length": 1014,
       "metadata": {
         "isin": "GB00B08HD364",
         "product_name": "iShares UK Gilts All Stocks Index Fund (UK)",
@@ -162,16 +143,14 @@
         "section": "tail",
         "sub_index": 1
       },
-      "key_phrases": [
-        "Charges"
-      ]
+      "key_phrases": []
     },
     {
       "id": "GB00B08HD364_tail_2",
       "section": "tail",
       "sub_index": 2,
-      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n|------------------------------------------------------|---------|\n| Ongoing Charges                                      | 0.21%** |\n| Charges taken from the Fund under certain conditions |         |\n| Performance Fee                                      | None    |\n\n<!-- image -->",
-      "text_length": 378,
+      "text": "ISIN: GB00B08HD364 | Product: iShares UK Gilts All Stocks Index Fund (UK) | Provider: ishares\n\n- The Remuneration Policy of the Management Company, which describes how remuneration and benefits are determined and awarded, and the associated governance arrangements, is available at www.blackrock.com/Remunerationpolicy or on request from the registered office of the Management Company.\n\n<!-- image -->\n\n** To the extent the Fund undertakes securities lending to reduce costs, the Fund will receive 62.5% of the associated revenue generated and the remaining 37.5%   will   be   received   by   BlackRock   as   the   securities   lending   agent.   As securities lending revenue sharing does not increase the costs of running the Fund, this has been excluded from the ongoing charges.\n\n| One-off charges taken before or after you invest   | One-off charges taken before or after you invest   |\n|----------------------------------------------------|----------------------------------------------------|\n| Entry Charge                                       | None                                               |\n| Exit Charge                                        | None*                                              |\n\nThis is the maximum that might be taken out of your money before it is invested or before proceeds of your investments are paid out.\n\n<!-- image -->\n\n| Charges taken from the Fund over each year           |         |\n|------------------------------------------------------|---------|\n| Ongoing Charges                                      | 0.21%** |\n| Charges taken from the Fund under certain conditions |         |\n| Performance Fee                                      | None    |\n\n<!-- image -->",
+      "text_length": 1720,
       "metadata": {
         "isin": "GB00B08HD364",
         "product_name": "iShares UK Gilts All Stocks Index Fund (UK)",

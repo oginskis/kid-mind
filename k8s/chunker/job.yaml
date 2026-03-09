@@ -40,8 +40,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: chunker-config
-            - secretRef:
-                name: chunker-secrets
           volumeMounts:
             - name: kid-data
               mountPath: /app/data

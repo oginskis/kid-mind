@@ -52,14 +52,27 @@ _setup_telemetry()
 def _resolve_model():
     """Pick the right PydanticAI model wrapper based on env config.
 
-    GEMINI_API_KEY set → native Gemini provider.
+    VERTEX_AI=true → Vertex AI regional endpoint (ADC auth).
+    GEMINI_API_KEY set → native Gemini provider (AI Studio).
     Otherwise → OpenAI-compatible (OPENAI_API_BASE / OPENAI_API_KEY).
     """
     if not config.MODEL:
         raise RuntimeError(
-            "No inference model configured. Set MODEL + GEMINI_API_KEY, "
-            "or MODEL + OPENAI_API_BASE + OPENAI_API_KEY in .env"
+            "No inference model configured. Set MODEL + VERTEX_AI=true, "
+            "MODEL + GEMINI_API_KEY, or MODEL + OPENAI_API_BASE + OPENAI_API_KEY in .env"
         )
+
+    if config.VERTEX_AI:
+        from pydantic_ai.models.google import GoogleModel
+        from pydantic_ai.providers.google import GoogleProvider
+
+        provider = GoogleProvider(
+            vertexai=True,
+            project=config.GCP_PROJECT,
+            location=config.GCP_LOCATION,
+        )
+        log.info("Using Vertex AI: model=%s, location=%s", config.MODEL, config.GCP_LOCATION)
+        return GoogleModel(config.MODEL, provider=provider)
 
     if config.GEMINI_API_KEY:
         from pydantic_ai.models.google import GoogleModel
